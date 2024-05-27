@@ -6,3 +6,90 @@
     align-items: center;
     text-align: center;
 }
+
+#carrousel {
+    position: relative;
+    height: 200px;
+    width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+#carrousel ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    text-align: center;
+    /*color: rgb(255, 255, 255);
+    background-color: #CB4335 ;*/
+}
+
+.parametre-tps {
+    margin-top: 50px;
+    text-align: center;
+    /*background-color: #E74C3C ;
+    color : white;
+    border-color: #943126 ;*/
+    border-radius: 10px;
+    border-style: solid;
+    height: 40px;
+    width: 130px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
+    margin-top: 200px;
+    clear: both;
+}
+
+.miniature next-miniature,
+.miniature prev-miniature{
+    padding-bottom: 60%;
+}
+
+.controls button.prev,
+.controls button.next {
+    /*background-color: #E74C3C ;
+    color : white;
+    border-color: #943126 ;*/
+    border-radius: 10px;
+    border-style: solid;
+    height: 40px;
+    width: 130px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    flex: 0 0 auto;
+}
+
+.controls button.prev:hover,
+.controls button.next:hover{
+    opacity: 0.82;
+    transition: opacity 0.15s;
+}
+
+.controls button.prev:active,
+.controls button.next:active{
+    opacity: 0.4;
+}
+
+#carrousel {
+    margin-bottom: 60px;
+}
+
+.direct-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
