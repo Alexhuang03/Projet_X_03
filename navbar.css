@@ -1,15 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-}
-
 #wrapper {
     width: 100%;
+    background-color: #E5E7E9;
 }
 
 #navigation {
     display: flex;
     justify-content: space-around;
-    background-color: #333;
+    background-color: white;
     padding: 10px;
 }
 
@@ -18,8 +15,8 @@ body {
 }
 
 #navigation button {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #F4F6F6;
+    color: black;
     padding: 10px 40px;
     border: none;
     cursor: pointer;
@@ -27,7 +24,8 @@ body {
 }
 
 #navigation button:hover {
-    background-color: #45a049;
+    background-color: #F4F6F6;
+    opacity: 70%;
 }
 
 .menu {
@@ -54,7 +52,7 @@ body {
     left: 0;
     background-color: #f9f9f9;
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
     z-index: 1;
 }
 
@@ -80,7 +78,7 @@ body {
     top: 0;
     background-color: #f9f9f9;
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.15);
 }
 
 .dropdown-item:hover .sub-dropdown-content {
