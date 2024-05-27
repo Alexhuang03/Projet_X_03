@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex">
+      <change beforePath="$PROJECT_DIR$/src_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_index_section.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2h32LGL6Mpmz3iRsHbDvAaX61bY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Download/XAMPP/htdocs/Projet_X_03",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="" />
+      <created>1716808383064</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716808383064</updated>
+      <workItem from="1716808384666" duration="90000" />
+      <workItem from="1716808489393" duration="562000" />
+      <workItem from="1716809064780" duration="194000" />
+      <workItem from="1716809428503" duration="11221000" />
+    </task>
+    <task id="LOCAL-00001" summary="test IDEA">
+      <option name="closed" value="true" />
+      <created>1716808767442</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716808767442</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modif color + emplacement titre -Alex">
+      <option name="closed" value="true" />
+      <created>1716811894944</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716811894944</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modif color + emplacement titre -Alex">
+      <option name="closed" value="true" />
+      <created>1716811930329</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716811930329</updated>
+    </task>
+    <task id="LOCAL-00004" summary="centrer le header -Alex">
+      <option name="closed" value="true" />
+      <created>1716812356864</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716812356864</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css -Alex">
+      <option name="closed" value="true" />
+      <created>1716815825231</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716815825231</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css -Alex">
+      <option name="closed" value="true" />
+      <created>1716815896132</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1716815896132</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex">
+      <option name="closed" value="true" />
+      <created>1716816665599</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716816665599</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex">
+      <option name="closed" value="true" />
+      <created>1716816757683</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716816757683</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test IDEA" />
+    <MESSAGE value="modif color + emplacement titre -Alex" />
+    <MESSAGE value="centrer le header -Alex" />
+    <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css -Alex" />
+    <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
+  </component>
+</project>

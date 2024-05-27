@@ -11,6 +11,7 @@
     </div>
 
     <div id="carrousel">
+        <h3>Les évènements de la semaine </h3>
         <ul>
             <li><a href="https://www.nba.com/?lang=fr_fr"><img src="img/basket.jpg" width="700" height="400" /></a></li>
             <li><a href="https://www.eurosport.fr/football/"><img src="img/football.jpg" width="700" height="400" /></a></li>

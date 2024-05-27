@@ -1,0 +1,107 @@
+Index: accueil.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>button{\r\n    border-radius: 10px;\r\n    border-color: #154360;\r\n    background-color: #3498DB;\r\n    border-style: solid;\r\n    border-width: 2px;\r\n}\r\n\r\nbutton:hover{\r\n    opacity: 0.82;\r\n    transition: opacity 0.15s;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/accueil.css b/accueil.css
+--- a/accueil.css	(revision b7f98644dccedbb70f205a0c6276ac3424a311da)
++++ b/accueil.css	(date 1716810915948)
+@@ -1,12 +1,24 @@
+ button{
++    margin-top: 10px;
+     border-radius: 10px;
+     border-color: #154360;
+     background-color: #3498DB;
+     border-style: solid;
+     border-width: 2px;
++    margin-left: 20px;
+ }
+ 
+ button:hover{
+     opacity: 0.82;
+     transition: opacity 0.15s;
++}
++
++#header{
++    display: flex;
++    margin-left:20px;
++    background-color: red;
++    width: 600px;
++    height: 50px;
++    align-items: center;
++    justify-content: center; /* text au centre */
+ }
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<header>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>Sportify : Page d'accueil</title>\r\n    <link href=\"accueil.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n\r\n\r\n</header>\r\n<body>\r\n    <div id=\"wapper\">\r\n        <div id=\"header\">\r\n            <h1>Sportify: Consultation Sportive</h1>\r\n        </div>\r\n        <div id=\"navigation\">\r\n            <a href=\"index.html\"><button>Accueil</button></a>\r\n            <a href=\"toutparcourir/toutparcourir.html\"><button>Tout Parcourir</button></a>\r\n            <a href=\"\"><button>Recherche</button></a>\r\n            <a href=\"rdv.html\"><button>Rendez-vous</button></a>\r\n            <a href=\"compte.html\"><button>Votre compte</button></a>\r\n\r\n        </div>\r\n        <div id=\"section\">\r\n\r\n        </div>\r\n        <footer>\r\n            <small>\r\n\r\n            </small>\r\n        </footer>\r\n    </div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/index.html b/index.html
+--- a/index.html	(revision b7f98644dccedbb70f205a0c6276ac3424a311da)
++++ b/index.html	(date 1716810765096)
+@@ -1,34 +1,32 @@
+ <!DOCTYPE html>
+ <html lang="en">
+-<header>
++<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Sportify : Page d'accueil</title>
++    <title>Sportify : </title>
++    <title> Page d'accueil </title>
+     <link href="accueil.css" rel="stylesheet" type="text/css"/>
+-
+-
+-</header>
++</head>
+ <body>
+-    <div id="wapper">
+-        <div id="header">
+-            <h1>Sportify: Consultation Sportive</h1>
+-        </div>
+-        <div id="navigation">
+-            <a href="index.html"><button>Accueil</button></a>
+-            <a href="toutparcourir/toutparcourir.html"><button>Tout Parcourir</button></a>
+-            <a href=""><button>Recherche</button></a>
+-            <a href="rdv.html"><button>Rendez-vous</button></a>
+-            <a href="compte.html"><button>Votre compte</button></a>
+-
+-        </div>
+-        <div id="section">
+-
+-        </div>
+-        <footer>
+-            <small>
+-
+-            </small>
+-        </footer>
+-    </div>
++<div id="wrapper">
++    <div id="header" >
++        <h1>Sportify: Consultation Sportive</h1>
++    </div>
++
++    <div id="navigation">
++        <a href="index.html"><button>Accueil</button></a>
++        <a href="toutparcourir/toutparcourir.html"><button>Tout Parcourir</button></a>
++        <a href=""><button>Recherche</button></a>
++        <a href="rdv.html"><button>Rendez-vous</button></a>
++        <a href="compte.html"><button>Votre compte</button></a>
++    </div>
++
++    <div id="section">
++    </div>
++    <footer>
++        <small>
++        </small>
++    </footer>
++</div>
+ </body>
+-</html>
+\ No newline at end of file
++</html>
