@@ -1,9 +1,8 @@
 #header{
     display: flex;
+    justify-content: center; /* Centre horizontalement */
     margin-left:20px;
     background-color: red;
-    width: 600px;
-    height: 50px;
     align-items: center;
-    justify-content: center; /* text au centre */
+    text-align: center;
 }
