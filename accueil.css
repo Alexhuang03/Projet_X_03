@@ -15,14 +15,20 @@
     text-align: center;
 }
 
+#carrousel ul {
+    list-style-type: none; /* Enlever les points de la liste */
+    padding: 0; /* Enlever le padding */
+    margin: 0; /* Enlever le margin */
+}
+
 #carrousel ul li{
-    position: absolute;
     top: 0;
     left: 0;
+    display: inline;
 }
 
 h1 {
-    text-align: center;
+    /*text-align: center;
     /*color: rgb(255, 255, 255);
     background-color: #CB4335 ;*/
 }
