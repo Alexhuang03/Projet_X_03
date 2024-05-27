@@ -1,3 +1,5 @@
+<link href="ACCOUNT.css" rel="stylesheet" type="text/css"/>
+
 <div id="section">
     <p>espace compte coach</p>
     <?php
@@ -29,6 +31,8 @@
     echo "</tr>";
     echo "</table>";
     ?>
+    <p>Chatroom ( à faire) </p>
+
     <p>Consultation du jour ( à faire) </p>
     <table border='1'>
         <tr>
@@ -60,4 +64,5 @@
         </tr>
     </table>
 </div>
+
 

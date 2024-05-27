@@ -1,3 +1,5 @@
+<link href="ACCOUNT.css" rel="stylesheet" type="text/css"/>
+
 <div id="section">
     <p>espace compte client</p>
     <?php
@@ -67,3 +69,4 @@
     </table>
 
 </div>
+

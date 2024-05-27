@@ -1,3 +1,5 @@
+<link href="ACCOUNT.css" rel="stylesheet" type="text/css"/>
+
 <div id="section">
     <p>espace compte admin</p>
     <?php
@@ -17,27 +19,49 @@
     ?>
 
     <h3>Ajouter un Nouveau Coach (faire php + requete sql + modif)</h3>
-    <form method="post" action="ajouter_coach.php">
-        <label for="nom_coach">Nom :</label>
-        <input type="text" id="nom_coach" name="nom_coach" required><br><br>
-        <label for="prenom_coach">Prénom :</label>
-        <input type="text" id="prenom_coach" name="prenom_coach" required><br><br>
-        <label for="email_coach">Email :</label>
-        <input type="email" id="email_coach" name="email_coach" required><br><br>
-        <label for="specialite_coach">Spécialité :</label>
-        <input type="text" id="specialite_coach" name="specialite_coach" required><br><br>
-        <label for="photo_coach">Photo :</label>
-        <input type="file" id="photo_coach" name="photo_coach" accept="image/*"><br><br>
-        <label for="video_coach">Vidéo :</label>
-        <input type="file" id="video_coach" name="video_coach" accept="video/*"><br><br>
-        <label for="cv_coach">CV (XML) :</label>
-        <input type="file" id="cv_coach" name="cv_coach" accept=".xml"><br><br>
-        <label for="disponibilite_coach">Disponibilité :</label>
-        <textarea id="disponibilite_coach" name="disponibilite_coach" required></textarea><br><br>
-        <input type="submit" value="Ajouter Coach">
+    <form method="post" action="ajouter_coach.php" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label for="nom_coach">Nom :</label></td>
+                <td><input type="text" id="nom_coach" name="nom_coach" required></td>
+            </tr>
+            <tr>
+                <td><label for="prenom_coach">Prénom :</label></td>
+                <td><input type="text" id="prenom_coach" name="prenom_coach" required></td>
+            </tr>
+            <tr>
+                <td><label for="email_coach">Email :</label></td>
+                <td><input type="email" id="email_coach" name="email_coach" required></td>
+            </tr>
+            <tr>
+                <td><label for="specialite_coach">Spécialité :</label></td>
+                <td><input type="text" id="specialite_coach" name="specialite_coach" required></td>
+            </tr>
+            <tr>
+                <td><label for="photo_coach">Photo :</label></td>
+                <td><input type="file" id="photo_coach" name="photo_coach" accept="image/*"></td>
+            </tr>
+            <tr>
+                <td><label for="video_coach">Vidéo :</label></td>
+                <td><input type="file" id="video_coach" name="video_coach" accept="video/*"></td>
+            </tr>
+            <tr>
+                <td><label for="cv_coach">CV (XML) :</label></td>
+                <td><input type="file" id="cv_coach" name="cv_coach" accept=".xml"></td>
+            </tr>
+            <tr>
+                <td><label for="disponibilite_coach">Disponibilité :</label></td>
+                <td><textarea id="disponibilite_coach" name="disponibilite_coach" required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit" value="Ajouter Coach"></td>
+            </tr>
+        </table>
     </form>
 
-    <h3>Liste des Coachs (faire php + requete sql) </h3>
+    <h3>Gestion Salle ( à faire)  </h3>
+
+    <h3>Liste des Coachs (faire php + requete sql pour suppresion) </h3>
     <table border="1">
         <tr>
             <th>ID Coach</th>
