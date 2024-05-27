@@ -66,12 +66,12 @@ INSERT INTO Users (
              'coach',
              'coach@example.com',
              'coach',
-             '-',
-             '-',
-             '-',
-             '-',
-             '-',
-             '-',
+             '0667597475',
+             '1bis',
+             '3 rue de rue',
+             'Paris',
+             '75000',
+             'France',
              NULL
          );
 
@@ -96,11 +96,11 @@ INSERT INTO Users (
              'client',
              'client@example.com',
              'client',
-             '-',
-             '-',
-             '-',
-             '-',
-             '-',
-             '-',
+             '0667597475',
+             '2bis',
+             '3 rue de rue',
+             'Paris',
+             '75000',
+             'France',
              '19042004'
          );
