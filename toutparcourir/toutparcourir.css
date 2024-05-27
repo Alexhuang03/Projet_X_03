@@ -1,0 +1,28 @@
+#section {
+    padding: 20px;
+}
+
+#section h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #333;
+}
+
+#section2 {
+    margin-bottom: 20px;
+}
+
+#section2 h2 {
+    font-size: 20px;
+    color: #666;
+    padding-left: 20px;
+}
+
+#section2 p {
+    padding-left: 20px;
+    color: #555;
+}
+
+#Musculation, #Fitness, #Biking, #Cardio-Training, #Cours-Collectifs, #Basketball, #Football, #Rugby, #Tennis, #Natation, #Plongeon, #Regles, #Horaire{
+    margin-left: 5%; /* Ajustez la valeur selon vos besoins */
+}
