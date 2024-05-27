@@ -53,12 +53,61 @@
         </div>
 
         <div id="section">
+            <div class="form-container">
+                <h2>Connexion</h2>
+                <form action="sportify.php" method="POST">
+                    <div class="form-group">
+                        <label for="email_connexion">Email</label>
+                        <input type="email" id="email_connexion" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mot_de_passe_connexion">Mot de passe</label>
+                        <input type="password" id="mot_de_passe_connexion" name="mot_de_passe" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="connexion">Se connecter</button>
+                    </div>
+                </form>
+            </div>
 
+            <div class="form-container">
+                <h2>Créer un compte</h2>
+                <form action="sportify.php" method="POST">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_inscription">Email</label>
+                        <input type="email" id="email_inscription" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mot_de_passe_inscription">Mot de passe</label>
+                        <input type="password" id="mot_de_passe_inscription" name="mot_de_passe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" id="adresse" name="adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="carte_etudiant">Carte Étudiant</label>
+                        <input type="text" id="carte_etudiant" name="carte_etudiant" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="infos_paiement">Informations de Paiement</label>
+                        <textarea id="infos_paiement" name="infos_paiement" required></textarea>
+                    </div>
+                    <input type="hidden" name="type" value="client">
+                    <div class="form-group">
+                        <button type="submit" name="inscription">Créer un compte</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <footer>
-            <small>
-                bienvenue
-            </small>
         </footer>
     </div>
 </body>
