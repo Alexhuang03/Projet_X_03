@@ -26,3 +26,11 @@
 #Musculation, #Fitness, #Biking, #Cardio-Training, #Cours-Collectifs, #Basketball, #Football, #Rugby, #Tennis, #Natation, #Plongeon, #Regles, #Horaire{
     margin-left: 5%; /* Ajustez la valeur selon vos besoins */
 }
+
+.coach-btn {
+    padding: 10px 20px; /* Ajoute un padding en haut et en bas */
+    margin: 10px; /* Ajoute un espacement autour des boutons */
+    border: none; /* Supprime la bordure par défaut */
+    border-radius: 5px; /* Ajoute des coins arrondis */
+    font-size: 18px; /* Augmente la taille du texte */
+}
