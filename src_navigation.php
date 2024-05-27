@@ -1,3 +1,30 @@
+<?php
+$texteBouton = "Votre Espace";
+$lienBouton = "ACCOUNT.php";
+$afficherDeconnexion = false;
+
+if (isset($_SESSION['user_role'])) {
+    switch ($_SESSION['user_role']) {
+        case 'admin':
+            $texteBouton = "Mon Compte Administrateur";
+            $afficherDeconnexion = true;
+            break;
+        case 'coach':
+            $texteBouton = "Mon Compte Pro";
+            $afficherDeconnexion = true;
+            break;
+        case 'client':
+            $texteBouton = "Mon Compte Client";
+            $afficherDeconnexion = true;
+            break;
+        default:
+            $texteBouton = "Se Connecter";
+            $afficherDeconnexion = false;
+            break;
+    }
+}
+?>
+
 <link href="src_navigation.css" rel="stylesheet" type="text/css"/>
 
 <div id="navigation" style="border:1px solid black;">
@@ -41,5 +68,26 @@
 
     <a href="Rendez_Vous.php"><button>Rendez-vous</button></a>
 
-    <a href="ACCOUNT.php"><button>Votre compte</button></a>
+    <div class="menu">
+        <button class="menu-btn"><?php echo $texteBouton; ?></button>
+        <div class="dropdown-content">
+            <?php if (!$afficherDeconnexion): ?>
+                <div class="dropdown-item">
+                    <a href="link_login.php">Se Connecter</a>
+                </div>
+                <div class="dropdown-item">
+                    <a href="link_signin.php">Créer un Compte</a>
+                </div>
+            <?php endif; ?>
+            <?php if ($afficherDeconnexion): ?>
+                <div class="dropdown-item">
+                    <a href="ACCOUNT.php">Tableau de Bord</a>
+                </div>
+                <div class="dropdown-item">
+                    <a href="link_logout.php">Déconnexion</a>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
 </div>
