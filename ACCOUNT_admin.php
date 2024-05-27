@@ -16,7 +16,7 @@
     echo "</table>";
     ?>
 
-    <h3>Ajouter un Nouveau Coach</h3>
+    <h3>Ajouter un Nouveau Coach (faire php + requete sql + modif)</h3>
     <form method="post" action="ajouter_coach.php">
         <label for="nom_coach">Nom :</label>
         <input type="text" id="nom_coach" name="nom_coach" required><br><br>
@@ -37,7 +37,7 @@
         <input type="submit" value="Ajouter Coach">
     </form>
 
-    <h3>Liste des Coachs</h3>
+    <h3>Liste des Coachs (faire php + requete sql) </h3>
     <table border="1">
         <tr>
             <th>ID Coach</th>

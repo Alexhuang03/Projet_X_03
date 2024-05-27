@@ -44,10 +44,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Sauvegarde des informations supplémentaires dans la session
-        $_SESSION['nom'] = $nom;
-        $_SESSION['prenom'] = $prenom;
-        $_SESSION['email'] = $email;
-        $_SESSION['numero etudiant'] = $numero_etudiant;
+        $_SESSION['id_coach'] = $user['id_coach'];
+        $_SESSION['nom'] = $user['nom'];
+        $_SESSION['prenom'] = $user['prenom'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['numero_etudiant'] = $user['numero_etudiant'];
+        $_SESSION['telephone'] = $user['telephone'];
+        $_SESSION['address_ligne1'] = $user['address_ligne1'];
+        $_SESSION['address_ligne2'] = $user['address_ligne2'];
+        $_SESSION['ville'] = $user['ville'];
+        $_SESSION['code_postal'] = $user['code_postal'];
+        $_SESSION['pays'] = $user['pays'];
+
         // Ajoutez d'autres informations si nécessaire
 
         // Redirection vers la page d'accueil ou une autre page sécurisée
