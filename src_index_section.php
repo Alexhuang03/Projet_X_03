@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="src_section.js"></script>
+<script src="src_index_section.js"></script>
 
-<link href="src_section.css" rel="stylesheet" type="text/css"/>
+<link href="src_index_section.css" rel="stylesheet" type="text/css"/>
 
 <div id="section">
     <div id = "mot_accueil">

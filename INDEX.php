@@ -12,7 +12,7 @@
         <?php include 'src_header.php'; ?>
         <?php include 'src_navigation.php'; ?>
 
-        <?php include 'src_section.php'; ?>
+        <?php include 'src_index_section.php'; ?>
 
         <?php include 'src_footer.php'; ?>
 
