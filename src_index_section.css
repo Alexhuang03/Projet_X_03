@@ -16,21 +16,18 @@
     top: 0;
     left: 0;
     display: inline;
-    /**/
 }
 
 h1 {
-    /*text-align: center;
-    /*color: rgb(255, 255, 255);
-    background-color: #CB4335 ;*/
+    text-align: center;
 }
 
 .parametre-tps {
     margin-top: 50px;
     text-align: center;
-    /*background-color: #E74C3C ;
+    background-color: #E74C3C ;
     color : white;
-    border-color: #943126 ;*/
+    border-color: #943126 ;
     border-radius: 10px;
     border-style: solid;
     height: 40px;
@@ -57,9 +54,9 @@ h1 {
 
 .controls button.prev,
 .controls button.next {
-    /*background-color: #E74C3C ;
+    background-color: #E74C3C ;
     color : white;
-    border-color: #943126 ;*/
+    border-color: #943126 ;
     border-radius: 10px;
     border-style: solid;
     height: 40px;

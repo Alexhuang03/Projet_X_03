@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex">
+    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_index_section.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_index_section.css" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
       <workItem from="1716808384666" duration="90000" />
       <workItem from="1716808489393" duration="562000" />
       <workItem from="1716809064780" duration="194000" />
-      <workItem from="1716809428503" duration="11221000" />
+      <workItem from="1716809428503" duration="12668000" />
     </task>
     <task id="LOCAL-00001" summary="test IDEA">
       <option name="closed" value="true" />
@@ -124,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716816757683</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex">
+      <option name="closed" value="true" />
+      <created>1716838610879</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716838610879</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +156,7 @@
     <MESSAGE value="centrer le header -Alex" />
     <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css -Alex" />
     <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
+    <MESSAGE value="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex" />
   </component>
 </project>
