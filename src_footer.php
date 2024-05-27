@@ -6,7 +6,7 @@
 <body>
     <footer>
         <p>
-            Reste en contact :
+            Restez en contact :
             <ul>
                 <li>Mail: <a href="mailto:omnes.sportify@edu.ece.fr">omnes.sportify@edu.ece.fr</a></li>
                 <li>Tél: <a href="tel:+33123456789">01 23 45 67 89</a></li>
