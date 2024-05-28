@@ -38,20 +38,19 @@
                 <td><input type="text" id="specialite_coach" name="specialite_coach" required></td>
             </tr>
             <tr>
-                <td><label for="photo_coach">Photo :</label></td>
-                <td><input type="file" id="photo_coach" name="photo_coach" accept="image/*"></td>
+                <td><label for="photo_coach">Photo :(nom_fichier)</label></td>
+                <td><input type="text" id="photo_coach" name="photo_coach" </td>
             </tr>
             <tr>
-                <td><label for="video_coach">Vidéo :</label></td>
-                <td><input type="file" id="video_coach" name="video_coach" accept="video/*"></td>
+                <td><label for="video_coach">Vidéo :(nom_fichier)</label></td>
+                <td><input type="text" id="video_coach" name="video_coach" </td>
             </tr>
             <tr>
-                <td><label for="cv_coach">CV (XML) :</label></td>
-                <td><input type="file" id="cv_coach" name="cv_coach" accept=".xml"></td>
+                <td><label for="cv_coach">CV (XML) :(nom_fichier)</label></td>
+                <td><input type="text" id="cv_coach" name="cv_coach"</td>
             </tr>
             <tr>
-                <td><label for="disponibilite_coach">Disponibilité :</label></td>
-                <td><textarea id="disponibilite_coach" name="disponibilite_coach" required></textarea></td>
+                <td><label for="disponibilite_coach">Disponibilité :(faire tableau de selection et ajouter dans la table)</label></td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center;"><input type="submit" value="Ajouter Coach"></td>
@@ -76,7 +75,7 @@
         $db_found = mysqli_select_db($db_handle, $database);
 
         if ($db_found) {
-            $query = "SELECT * FROM Users WHERE role = 'coach'";
+            $query = "SELECT * FROM coach";
             $result = mysqli_query($db_handle, $query);
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -85,7 +84,6 @@
                 echo "<td>" . $row['nom'] . "</td>";
                 echo "<td>" . $row['prenom'] . "</td>";
                 echo "<td>" . $row['email'] . "</td>";
-                echo "<td><form method='post' action='supprimer_coach.php'><input type='hidden' name='id' value='" . $row['id'] . "'><input type='submit' value='Supprimer'></form></td>";
                 echo "</tr>";
             }
         }

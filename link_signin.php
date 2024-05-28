@@ -22,7 +22,7 @@
             die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
         }
 
-        $query = "INSERT INTO Users (prenom, nom, email, password, telephone, address_ligne1, address_ligne2, ville, code_postal, pays, numero_etudiant, role)
+        $query = "INSERT INTO users (prenom, nom, email, password, telephone, address_ligne1, address_ligne2, ville, code_postal, pays, numero_etudiant, role)
                   VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$address_ligne1', '$address_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
 
         $result = mysqli_query($db_handle, $query);

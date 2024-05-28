@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Requête SQL pour vérifier la correspondance avec plusieurs champs en fonction du rôle de l'utilisateur
     if ($numero_etudiant != '') {
         // Vérification pour un client
-        $query = "SELECT * FROM Users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND numero_etudiant = '$numero_etudiant' AND password = '$password' AND role = 'client'";
+        $query = "SELECT * FROM users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND numero_etudiant = '$numero_etudiant' AND password = '$password' AND role = 'client'";
     } else {
         // Vérification pour un admin ou un coach
-        $query = "SELECT * FROM Users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND password = '$password' AND (role = 'admin' OR role = 'coach')";
+        $query = "SELECT * FROM users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND password = '$password' AND (role = 'admin' OR role = 'coach')";
     }
     $result = mysqli_query($db_handle, $query);
 
@@ -48,8 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['email'] = $user['email'];
         $_SESSION['numero_etudiant'] = $user['numero_etudiant'];
         $_SESSION['telephone'] = $user['telephone'];
-        $_SESSION['address_ligne1'] = $user['address_ligne1'];
-        $_SESSION['address_ligne2'] = $user['address_ligne2'];
+        $_SESSION['adresse_ligne1'] = $user['adresse_ligne1'];
+        $_SESSION['adresse_ligne2'] = $user['adresse_ligne2'];
         $_SESSION['ville'] = $user['ville'];
         $_SESSION['code_postal'] = $user['code_postal'];
         $_SESSION['pays'] = $user['pays'];
