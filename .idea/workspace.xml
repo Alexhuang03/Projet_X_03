@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="modification couleur bouton &amp; footer  -Alex">
+    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="Modification carrousel  -Alex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/basket.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/basket.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/plongeon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/plongeon.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src_index_section.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,20 +25,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Download/XAMPP/htdocs/Projet_X_03",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Download/XAMPP/htdocs/Projet_X_03&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -60,7 +58,8 @@
       <workItem from="1716808384666" duration="90000" />
       <workItem from="1716808489393" duration="562000" />
       <workItem from="1716809064780" duration="194000" />
-      <workItem from="1716809428503" duration="15939000" />
+      <workItem from="1716809428503" duration="16904000" />
+      <workItem from="1716892307578" duration="312000" />
     </task>
     <task id="LOCAL-00001" summary="test IDEA">
       <option name="closed" value="true" />
@@ -142,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716842242622</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Modification carrousel  -Alex">
+      <option name="closed" value="true" />
+      <created>1716891121526</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716891121526</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +174,7 @@
     <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
     <MESSAGE value="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex" />
     <MESSAGE value="modification couleur bouton &amp; footer  -Alex" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification couleur bouton &amp; footer  -Alex" />
+    <MESSAGE value="Modification carrousel  -Alex" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification carrousel  -Alex" />
   </component>
 </project>

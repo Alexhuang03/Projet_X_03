@@ -53,7 +53,7 @@
             <!-- Wrapper pour les images -->
             <div class="carousel-inner">
             <div class="item active">
-                <a href="https://www.nba.com/?lang=fr_fr"><img src="img/basket.jpg" width=100% height=80%/></a>
+                <a href="https://www.nba.com/?lang=fr_fr"><img src="img/basket1.jpg" width=100% height=80%/></a>
                 <div class="carousel-caption">
                     <h3>Basket</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -93,7 +93,7 @@
             </div>
 
             <div class="item">
-                <a href="https://olympics.com/fr/paris-2024/sports/plongeon"><img src="img/plongeon.jpg" width=100% height=80% /></a>
+                <a href="https://olympics.com/fr/paris-2024/sports/plongeon"><img src="plongeon1.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Plongeon</h3>
                     <p>Les meilleurs moments de l'année</p>
