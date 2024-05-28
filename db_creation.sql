@@ -53,7 +53,7 @@ VALUES ('coach', 'coach', 'coach', 'coach@exemple.com', 'coach', '987654321', '2
 
 SET @coach_id = LAST_INSERT_ID();
 INSERT INTO coach (id_coach, nom, prenom, email, specialite, photo, video, cv)
-VALUES (@coach_id, 'client', 'client', 'coach@exemple.com', 'Fitness', NULL, NULL, NULL);
+VALUES (@coach_id, 'coach', 'coach', 'coach@exemple.com', 'Fitness', NULL, NULL, NULL);
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays,numero_etudiant)
 VALUES ('client', 'client', 'client', 'client@exemple.com', 'client', '123123123', '3 Client Ave', 'Client City', '22222', 'Clientland','19042004');
