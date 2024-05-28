@@ -45,6 +45,17 @@ CREATE TABLE reservation (
                              FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
+CREATE TABLE chatroom (
+                             id_msg INT PRIMARY KEY AUTO_INCREMENT,
+                             id_coach INT,
+                             id_user INT,
+                             date DATE NOT NULL,
+                             heure TIME NOT NULL,
+                             message VARCHAR(255),
+                             FOREIGN KEY (id_coach) REFERENCES coach(id_coach),
+                             FOREIGN KEY (id_user) REFERENCES users(id)
+);
+
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
 VALUES ('admin', 'admin', 'admin', 'admin@exemple.com', 'admin', '123456789', '1 Admin St', 'Admin City', '00000', 'Adminland');
 
