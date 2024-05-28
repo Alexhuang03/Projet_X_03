@@ -68,7 +68,7 @@ if (isset($_GET['query'])) {
             margin-bottom: 10px;
         }
         .error {
-            color: red;
+            color: darkred;
         }
     </style>
 </head>
