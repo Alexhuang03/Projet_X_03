@@ -26,13 +26,14 @@ CREATE TABLE coach (
 );
 
 CREATE TABLE creneaux (
-                          id_creneau INT PRIMARY KEY AUTO_INCREMENT,
+                          id INT AUTO_INCREMENT PRIMARY KEY,
                           id_coach INT,
-                          date DATE NOT NULL,
-                          heure_debut TIME NOT NULL,
-                          heure_fin TIME NOT NULL,
+                          jour ENUM('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'),
+                          heure_debut TIME,
+                          heure_fin TIME,
                           FOREIGN KEY (id_coach) REFERENCES coach(id_coach)
 );
+
 
 CREATE TABLE reservation (
                              id_reservation INT PRIMARY KEY AUTO_INCREMENT,
