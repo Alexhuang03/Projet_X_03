@@ -67,6 +67,5 @@
             <td>Coach Carter</td>
         </tr>
     </table>
-
 </div>
 
