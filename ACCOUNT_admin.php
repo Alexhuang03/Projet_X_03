@@ -19,7 +19,7 @@
     ?>
 
     <h3>Ajouter un Nouveau Coach (faire php + requete sql + modif)</h3>
-    <form method="post" action="ajouter_coach.php" enctype="multipart/form-data">
+    <form method="post" action="src_ajout_coach.php" enctype="multipart/form-data">
         <table>
             <tr>
                 <td><label for="nom_coach">Nom :</label></td>
@@ -62,13 +62,6 @@
 
     <h3>Liste des Coachs (faire php + requete sql pour suppresion) </h3>
     <table border="1">
-        <tr>
-            <th>ID Coach</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Action</th>
-        </tr>
         <?php
         $database = "Sportify";
         $db_handle = mysqli_connect('localhost', 'root', '');
@@ -78,13 +71,28 @@
             $query = "SELECT * FROM coach";
             $result = mysqli_query($db_handle, $query);
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row['id_coach'] . "</td>";
-                echo "<td>" . $row['nom'] . "</td>";
-                echo "<td>" . $row['prenom'] . "</td>";
-                echo "<td>" . $row['email'] . "</td>";
-                echo "</tr>";
+            if (mysqli_num_rows($result) > 0) {
+                echo "<table border='1'>";
+                echo "<tr><th>ID Coach</th><th>Nom</th><th>Prénom</th><th>Email</th><th>Spécialité</th><th>Action</th></tr>";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['id_coach'] . "</td>";
+                    echo "<td>" . $row['nom'] . "</td>";
+                    echo "<td>" . $row['prenom'] . "</td>";
+                    echo "<td>" . $row['email'] . "</td>";
+                    echo "<td>" . $row['specialite'] . "</td>";
+                    echo "<td>";
+                    echo "<form method='post' action='src_suppresion_coach.php'>";
+                    echo "<input type='hidden' name='id_coach' value='" . $row['id_coach'] . "'>";
+                    echo "<input type='submit' value='Supprimer'>";
+                    echo "</form>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+            }
+            else {
+                echo "Aucun coach trouvé.";
             }
         }
         ?>
