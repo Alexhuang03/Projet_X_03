@@ -7,8 +7,8 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $telephone = $_POST['telephone'];
-        $address_ligne1 = $_POST['address_ligne1'];
-        $address_ligne2 = $_POST['address_ligne2'];
+        $adresse_ligne1 = $_POST['adresse_ligne1'];
+        $adresse_ligne2 = $_POST['adresse_ligne2'];
         $ville = $_POST['ville'];
         $code_postal = $_POST['code_postal'];
         $pays = $_POST['pays'];
@@ -22,8 +22,8 @@
             die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
         }
 
-        $query = "INSERT INTO users (prenom, nom, email, password, telephone, address_ligne1, address_ligne2, ville, code_postal, pays, numero_etudiant, role)
-                  VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$address_ligne1', '$address_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
+        $query = "INSERT INTO users (prenom, nom, email, password, telephone, adresse_ligne1, adresse_ligne2, ville, code_postal, pays, numero_etudiant, role)
+                  VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$adresse_ligne1', '$adresse_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
 
         $result = mysqli_query($db_handle, $query);
 
@@ -55,10 +55,10 @@
             <input type="password" id="password" name="password" required><br><br>
             <label for="telephone">Téléphone :</label>
             <input type="text" id="telephone" name="telephone" required><br><br>
-            <label for="address_ligne1">Adresse ligne 1 :</label>
-            <input type="text" id="address_ligne1" name="address_ligne1" required><br><br>
-            <label for="address_ligne2">Adresse ligne 2 :</label>
-            <input type="text" id="address_ligne2" name="address_ligne2"><br><br>
+            <label for="adresse_ligne1">Adresse ligne 1 :</label>
+            <input type="text" id="adresse_ligne1" name="adresse_ligne1" required><br><br>
+            <label for="adresse_ligne2">Adresse ligne 2 :</label>
+            <input type="text" id="adresse_ligne2" name="adresse_ligne2"><br><br>
             <label for="ville">Ville :</label>
             <input type="text" id="ville" name="ville" required><br><br>
             <label for="code_postal">Code postal :</label>
