@@ -46,7 +46,7 @@ CREATE TABLE reservation (
 );
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
-VALUES ('administrateur', 'admin', 'admin', 'admin@example.com', 'admin', '123456789', '1 Admin St', 'Admin City', '00000', 'Adminland');
+VALUES ('admin', 'admin', 'admin', 'admin@example.com', 'admin', '123456789', '1 Admin St', 'Admin City', '00000', 'Adminland');
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
 VALUES ('coach', 'coach', 'coach', 'coach@example.com', 'coach', '987654321', '2 Coach Rd', 'Coach City', '11111', 'Coachland');
