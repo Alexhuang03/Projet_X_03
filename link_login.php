@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_role'] = 'default';
         }
 
-        $_SESSION['id_coach'] = $user['id_coach'];
+        $_SESSION['id'] = $user['id'];
         $_SESSION['nom'] = $user['nom'];
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['email'] = $user['email'];
