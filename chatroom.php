@@ -26,7 +26,7 @@
             position: fixed;
             bottom: 80px;
             right: 20px;
-            width: 380px;
+            width: 410px;
             height: 400px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -58,7 +58,6 @@
             flex: 1;
         }
         #messageForm input {
-            weight : 10px;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -79,8 +78,8 @@
 <div id="chat-window">
     <ul id="messages"></ul>
     <form id="messageForm">
-        <select id="coachSelect">
-            <option value="">Coach</option>
+        <select id="userSelect">
+            <option value="">Utilisateur</option>
             <!-- Options will be dynamically populated -->
         </select>
         <input id="messageInput" autocomplete="off" placeholder="Type a message..." />
@@ -96,7 +95,7 @@
     const form = document.getElementById('messageForm');
     const input = document.getElementById('messageInput');
     const messages = document.getElementById('messages');
-    const coachSelect = document.getElementById('coachSelect');
+    const userSelect = document.getElementById('userSelect');
 
     chatIcon.addEventListener('click', () => {
         chatWindow.style.display = chatWindow.style.display === 'none' ? 'block' : 'none';
@@ -104,15 +103,15 @@
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (input.value && coachSelect.value) {
+        if (input.value && userSelect.value) {
             const message = {
                 text: input.value,
-                coachId: coachSelect.value
+                coachId: userSelect.value // Assuming coachId is used to select users
             };
             socket.emit('message', message);
             input.value = '';
         } else {
-            alert('Please select a coach and enter a message.');
+            alert('Please select a user and enter a message.');
         }
     });
 
@@ -123,17 +122,38 @@
         messages.scrollTop = messages.scrollHeight;
     });
 
-    // Fetch coaches from the server
-    fetch('get_coaches.php')
+    socket.on('loadMessages', function(messagesData) {
+        messages.innerHTML = ''; // Clear existing messages
+        messagesData.forEach(message => {
+            const item = document.createElement('li');
+            item.textContent = message.message;
+            messages.appendChild(item);
+        });
+        messages.scrollTop = messages.scrollHeight;
+    });
+
+    // Fetch users from the server
+    fetch('recherche_utilisateurs.php')
         .then(response => response.json())
         .then(data => {
-            data.forEach(coach => {
+            if (data.error) {
+                console.error('Error fetching users:', data.error);
+                return;
+            }
+            data.forEach(user => {
                 const option = document.createElement('option');
-                option.value = coach.id;
-                option.textContent = coach.name;
-                coachSelect.appendChild(option);
+                option.value = user.id;
+                option.textContent = user.name;
+                userSelect.appendChild(option);
             });
         });
+
+    userSelect.addEventListener('change', function() {
+        const userId = userSelect.value;
+        if (userId) {
+            socket.emit('selectCoach', userId); // Assuming selectCoach event is used to select users
+        }
+    });
 </script>
 </body>
 </html>

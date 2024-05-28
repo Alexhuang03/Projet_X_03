@@ -23,6 +23,19 @@ db.connect((err) => {
 io.on('connection', (socket) => {
     console.log('New client connected');
 
+    // Écouter l'événement de sélection de coach
+    socket.on('selectCoach', (coachId) => {
+        // Rejoindre une salle spécifique pour le coach sélectionné
+        socket.join(`coach_${coachId}`);
+
+        // Charger les messages historiques pour ce coach
+        const query = 'SELECT * FROM chatroom WHERE id_coach = ? ORDER BY date, heure';
+        db.query(query, [coachId], (err, results) => {
+            if (err) throw err;
+            socket.emit('loadMessages', results);
+        });
+    });
+
     socket.on('message', (message) => {
         const { text, coachId } = message;
         const userId = socket.id;  // Assurez-vous d'avoir un moyen d'identifier l'utilisateur
@@ -34,7 +47,8 @@ io.on('connection', (socket) => {
             console.log('Message saved to database');
         });
 
-        io.emit('message', message);
+        // Émettre le message uniquement aux clients de la salle spécifique
+        io.to(`coach_${coachId}`).emit('message', message);
     });
 
     socket.on('disconnect', () => {
