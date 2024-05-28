@@ -39,11 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } elseif ($user['role'] == 'client') {
             $_SESSION['user_role'] = 'client';
         } else {
-            // Cas par défaut si aucune correspondance de rôle n'est trouvée
             $_SESSION['user_role'] = 'default';
         }
 
-        // Sauvegarde des informations supplémentaires dans la session
         $_SESSION['id_coach'] = $user['id_coach'];
         $_SESSION['nom'] = $user['nom'];
         $_SESSION['prenom'] = $user['prenom'];
@@ -56,9 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['code_postal'] = $user['code_postal'];
         $_SESSION['pays'] = $user['pays'];
 
-        // Ajoutez d'autres informations si nécessaire
 
-        // Redirection vers la page d'accueil ou une autre page sécurisée
         header("Location: ACCOUNT.php");
         exit();
     } else {
