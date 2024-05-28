@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex">
+    <list default="true" id="fff5ad5c-a44d-4ae0-ba89-7973dee0c244" name="Changes" comment="modification couleur bouton &amp; footer  -Alex">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src_index_section.css" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/basket.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/basket.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/plongeon.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/plongeon.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src_index_section.php" beforeDir="false" afterPath="$PROJECT_DIR$/src_index_section.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <workItem from="1716808384666" duration="90000" />
       <workItem from="1716808489393" duration="562000" />
       <workItem from="1716809064780" duration="194000" />
-      <workItem from="1716809428503" duration="12668000" />
+      <workItem from="1716809428503" duration="15939000" />
     </task>
     <task id="LOCAL-00001" summary="test IDEA">
       <option name="closed" value="true" />
@@ -133,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716838610879</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="modification couleur bouton &amp; footer  -Alex">
+      <option name="closed" value="true" />
+      <created>1716842242622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716842242622</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +166,7 @@
     <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css -Alex" />
     <MESSAGE value="Ajout du carrousel sur la page d'accueil + fonctions en plus sur accueil.css + enlever les points du carrousel-Alex" />
     <MESSAGE value="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout 'head, 'style' &amp; 'script' dans le fichier 'src_footer.php', ajout de l'adresse -Alex" />
+    <MESSAGE value="modification couleur bouton &amp; footer  -Alex" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification couleur bouton &amp; footer  -Alex" />
   </component>
 </project>
