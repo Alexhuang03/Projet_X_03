@@ -1,6 +1,6 @@
 CREATE TABLE users (
                        id INT PRIMARY KEY AUTO_INCREMENT,
-                       role ENUM('administrateur', 'coach', 'client') NOT NULL,
+                       role ENUM('admin', 'coach', 'client') NOT NULL,
                        prenom VARCHAR(50) NOT NULL,
                        nom VARCHAR(50) NOT NULL,
                        email VARCHAR(100) UNIQUE NOT NULL,
