@@ -1,5 +1,5 @@
 <?php
-    session_start()
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,27 +9,25 @@
         <title>Sportify</title>
     </head>
     <body>
-        <div id="wapper">
+    <div id="wapper">
+        <?php include 'src_header.php'; ?>
+        <?php include 'src_navigation.php'; ?>
 
-            <?php include 'src_header.php'; ?>
-            <?php include 'src_navigation.php'; ?>
-
-            <?php
-            if (isset($_SESSION['user_role'])) {
-                if ($_SESSION['user_role'] == 'admin') {
-                    include 'ACCOUNT_admin.php';
-                }
-                elseif ($_SESSION['user_role'] == 'coach') {
-                    include 'ACCOUNT_coach.php';
-                }
-                elseif ($_SESSION['user_role'] == 'client') {
-                    include 'ACCOUNT_client.php';
-                }
+        <?php
+        if (isset($_SESSION['user_role'])) {
+            if ($_SESSION['user_role'] == 'admin') {
+                include 'ACCOUNT_admin.php';
+            } elseif ($_SESSION['user_role'] == 'coach') {
+                include 'ACCOUNT_coach.php';
+                include 'chatroom.php';
+            } elseif ($_SESSION['user_role'] == 'client') {
+                include 'ACCOUNT_client.php';
+                include 'chatroom.php';
             }
-            ?>
+        }
+        ?>
 
-            <?php include 'src_footer.php'; ?>
-        </div>
+        <?php include 'src_footer.php'; ?>
+    </div>
     </body>
 </html>
-

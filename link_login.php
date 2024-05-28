@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['ville'] = $user['ville'];
         $_SESSION['code_postal'] = $user['code_postal'];
         $_SESSION['pays'] = $user['pays'];
+        $_SESSION['payement'] = $user['payement'];
 
 
         header("Location: ACCOUNT.php");
