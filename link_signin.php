@@ -1,37 +1,58 @@
 <?php
-session_start();
+    session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $prenom = $_POST['prenom'];
-    $nom = $_POST['nom'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $telephone = $_POST['telephone'];
-    $address_ligne1 = $_POST['address_ligne1'];
-    $address_ligne2 = $_POST['address_ligne2'];
-    $ville = $_POST['ville'];
-    $code_postal = $_POST['code_postal'];
-    $pays = $_POST['pays'];
-    $numero_etudiant = $_POST['numero_etudiant'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $telephone = $_POST['telephone'];
+        $adresse_ligne1 = $_POST['adresse_ligne1'];
+        $adresse_ligne2 = $_POST['adresse_ligne2'];
+        $ville = $_POST['ville'];
+        $code_postal = $_POST['code_postal'];
+        $pays = $_POST['pays'];
+        $numero_etudiant = $_POST['numero_etudiant'];
 
-    $database = "Sportify";
-    $db_handle = mysqli_connect('localhost', 'root', '');
-    $db_found = mysqli_select_db($db_handle, $database);
+        $database = "Sportify";
+        $db_handle = mysqli_connect('localhost', 'root', '');
+        $db_found = mysqli_select_db($db_handle, $database);
 
-    if (!$db_found) {
-        die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
-    }
+        if (!$db_found) {
+            die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
+        }
 
-    $query = "INSERT INTO users (prenom, nom, email, password, telephone, address_ligne1, address_ligne2, ville, code_postal, pays, numero_etudiant, role)
-                  VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$address_ligne1', '$address_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
+    // vérif si l'utilisateur existe déjà
+    $check_query = "SELECT email, telephone, numero_etudiant FROM users WHERE email = '$email' OR telephone = '$telephone' OR numero_etudiant = '$numero_etudiant'";
+    $check_result = mysqli_query($db_handle, $check_query);
 
-    $result = mysqli_query($db_handle, $query);
-
-    if ($result) {
-        header("Location: index.php");
-        exit();
+    if (mysqli_num_rows($check_result) > 0) {
+        $existing_user = mysqli_fetch_assoc($check_result);
+        $error_message = "Un utilisateur avec le même ";
+        $errors = [];
+        if ($existing_user['email'] === $email) {
+            $errors[] = "email";
+        }
+        if ($existing_user['telephone'] === $telephone) {
+            $errors[] = "numéro de téléphone";
+        }
+        if ($existing_user['numero_etudiant'] === $numero_etudiant) {
+            $errors[] = "numéro d'étudiant";
+        }
+        $error_message .= implode(", ", $errors) . " existe déjà. Veuillez utiliser des informations différentes.";
+        echo $error_message;
     } else {
-        $error = "Une erreur s'est produite lors de l'inscription. Veuillez réessayer.";
+        $query = "INSERT INTO users (prenom, nom, email, password, telephone, adresse_ligne1, adresse_ligne2, ville, code_postal, pays, numero_etudiant, role)
+                      VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$adresse_ligne1', '$adresse_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
+        $result = mysqli_query($db_handle, $query);
+
+        if ($result) {
+            header("Location: index.php");
+            exit();
+        } else {
+            $error = "Une erreur s'est produite lors de l'inscription. Veuillez réessayer.";
+            echo $error;
+        }
     }
 }
 ?>
