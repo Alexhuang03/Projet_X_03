@@ -46,17 +46,17 @@ CREATE TABLE reservation (
 );
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
-VALUES ('administrateur', 'admin', 'User', 'admin@example.com', 'admin', '123456789', '1 Admin St', 'Admin City', '00000', 'Adminland');
+VALUES ('administrateur', 'admin', 'admin', 'admin@example.com', 'admin', '123456789', '1 Admin St', 'Admin City', '00000', 'Adminland');
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
-VALUES ('coach', 'coach', 'User', 'coach@example.com', 'coach', '987654321', '2 Coach Rd', 'Coach City', '11111', 'Coachland');
+VALUES ('coach', 'coach', 'coach', 'coach@example.com', 'coach', '987654321', '2 Coach Rd', 'Coach City', '11111', 'Coachland');
+
 SET @coach_id = LAST_INSERT_ID();
 INSERT INTO coach (id_coach, nom, prenom, email, specialite, photo, video, cv)
-VALUES (@coach_id, 'User', 'coach', 'coach@example.com', 'Fitness', NULL, NULL, NULL);
-
+VALUES (@coach_id, 'client', 'client', 'coach@example.com', 'Fitness', NULL, NULL, NULL);
 
 INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, ville, code_postal, pays)
-VALUES ('client', 'client', 'User', 'client@example.com', 'client', '123123123', '3 Client Ave', 'Client City', '22222', 'Clientland');
+VALUES ('client', 'client', 'client', 'client@example.com', 'client', '123123123', '3 Client Ave', 'Client City', '22222', 'Clientland');
 
 SET @client_id = LAST_INSERT_ID();
 
