@@ -1,0 +1,28 @@
+
+.affiche-coach {
+    border: 2px solid black;
+    margin: 0 auto;
+    width: fit-content;
+}
+.pres-coach, .coach-photo, .texte-coach {
+    border: 2px solid black;
+    margin: 0 auto;
+    width: fit-content;
+}
+table {
+    border: 2px solid black;
+    margin: 0 auto;
+    width: fit-content;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+.unavailable {
+    background-color: black;
+}
+.available {
+    background-color: white;
+}
