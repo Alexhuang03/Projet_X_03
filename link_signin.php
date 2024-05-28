@@ -1,40 +1,41 @@
 <?php
-    session_start();
+session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $prenom = $_POST['prenom'];
-        $nom = $_POST['nom'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $telephone = $_POST['telephone'];
-        $adresse_ligne1 = $_POST['adresse_ligne1'];
-        $adresse_ligne2 = $_POST['adresse_ligne2'];
-        $ville = $_POST['ville'];
-        $code_postal = $_POST['code_postal'];
-        $pays = $_POST['pays'];
-        $numero_etudiant = $_POST['numero_etudiant'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $prenom = $_POST['prenom'];
+    $nom = $_POST['nom'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $telephone = $_POST['telephone'];
+    $address_ligne1 = $_POST['address_ligne1'];
+    $address_ligne2 = $_POST['address_ligne2'];
+    $ville = $_POST['ville'];
+    $code_postal = $_POST['code_postal'];
+    $pays = $_POST['pays'];
+    $numero_etudiant = $_POST['numero_etudiant'];
 
-        $database = "Sportify";
-        $db_handle = mysqli_connect('localhost', 'root', '');
-        $db_found = mysqli_select_db($db_handle, $database);
+    $database = "Sportify";
+    $db_handle = mysqli_connect('localhost', 'root', '');
+    $db_found = mysqli_select_db($db_handle, $database);
 
-        if (!$db_found) {
-            die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
-        }
-
-        $query = "INSERT INTO users (prenom, nom, email, password, telephone, adresse_ligne1, adresse_ligne2, ville, code_postal, pays, numero_etudiant, role)
-                  VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$adresse_ligne1', '$adresse_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
-
-        $result = mysqli_query($db_handle, $query);
-
-        if ($result) {
-            header("Location: index.php");
-            exit();
-        } else {
-            $error = "Une erreur s'est produite lors de l'inscription. Veuillez réessayer.";
-        }
+    if (!$db_found) {
+        die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
     }
+
+    $query = "INSERT INTO users (prenom, nom, email, password, telephone, address_ligne1, address_ligne2, ville, code_postal, pays, numero_etudiant, role)
+                  VALUES ('$prenom', '$nom', '$email', '$password', '$telephone', '$address_ligne1', '$address_ligne2', '$ville', '$code_postal', '$pays', '$numero_etudiant', 'client')";
+
+    $result = mysqli_query($db_handle, $query);
+
+    if ($result) {
+        header("Location: index.php");
+        exit();
+    } else {
+        $error = "Une erreur s'est produite lors de l'inscription. Veuillez réessayer.";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>

@@ -67,26 +67,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Connexion - Sportify</title>
-    </head>
-        <body>
-        <h2>Connexion</h2>
-        <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <label for="email">Email :</label>
-            <input type="text" id="email" name="email" required><br><br>
-            <label for="numero_etudiant">Numéro étudiant :</label>
-            <input type="text" id="numero_etudiant" name="numero_etudiant"><br><br>
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required><br><br>
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required><br><br>
-            <input type="submit" value="Se connecter">
-        </form>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Sportify</title>
+</head>
+<body>
+<h2>Connexion</h2>
+<?php if (isset($error)) { echo "<p>$error</p>"; } ?>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <label for="email">Email :</label>
+    <input type="text" id="email" name="email" required><br><br>
+    <label for="numero_etudiant">Numéro étudiant :</label>
+    <input type="text" id="numero_etudiant" name="numero_etudiant"><br><br>
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required><br><br>
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" required><br><br>
+    <input type="submit" value="Se connecter">
+</form>
+</body>
 </html>
