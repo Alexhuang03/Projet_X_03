@@ -164,6 +164,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <input type="submit" value="Se connecter">
         </form>
+        <p>Pas de Compte ?</p>
+        <?php
+        echo "<button onclick=\"location.href='link_signin.php'\">Créer ton compte</button>";
+        ?>
     </div>
 
     <?php include 'src_footer.php'; ?>
