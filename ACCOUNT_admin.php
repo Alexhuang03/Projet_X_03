@@ -189,6 +189,53 @@
 
     <h3>Gestion Salle (à faire)</h3>
 
+    <h3>Liste des Créneaux par Coach</h3>
+    <table border="1">
+        <?php
+        // Vérifier si la connexion à la base de données est établie
+        if ($db_found) {
+            // Requête pour récupérer tous les coachs
+            $query_coachs = "SELECT * FROM coach";
+            $result_coachs = mysqli_query($db_handle, $query_coachs);
+
+            // Boucler à travers chaque coach
+            while ($row_coach = mysqli_fetch_assoc($result_coachs)) {
+                $id_coach = $row_coach['id_coach'];
+                echo "<tr><td colspan='5'><strong>Coach: {$row_coach['nom']} {$row_coach['prenom']}</strong></td></tr>";
+                echo "<tr><th>ID Créneau</th><th>Date</th><th>Heure de début</th><th>Heure de fin</th><th>Action</th></tr>";
+
+                // Requête pour récupérer les créneaux pour ce coach spécifique
+                $query_creneaux = "SELECT * FROM creneaux WHERE id_coach = $id_coach";
+                $result_creneaux = mysqli_query($db_handle, $query_creneaux);
+
+                // Vérifier s'il y a des créneaux pour ce coach
+                if (mysqli_num_rows($result_creneaux) > 0) {
+                    // Afficher chaque créneau
+                    while ($row_creneau = mysqli_fetch_assoc($result_creneaux)) {
+                        echo "<tr>";
+                        echo "<td>" . $row_creneau['id_creneau'] . "</td>";
+                        echo "<td>" . $row_creneau['date_creneau'] . "</td>";
+                        echo "<td>" . $row_creneau['heure_debut'] . "</td>";
+                        echo "<td>" . $row_creneau['heure_fin'] . "</td>";
+                        echo "<td>";
+                        echo "<form method='post' action='src_suppresion_creneau.php'>";
+                        echo "<input type='hidden' name='id_creneau' value='" . $row_creneau['id_creneau'] . "'>";
+                        echo "<input type='submit' value='Supprimer'>";
+                        echo "</form>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    // Aucun créneau trouvé pour ce coach
+                    echo "<tr><td colspan='5'>Aucun créneau trouvé pour ce coach.</td></tr>";
+                }
+            }
+        }
+        ?>
+    </table>
+
+
+
     <h3>Liste des Coachs</h3>
     <table border="1">
         <?php
