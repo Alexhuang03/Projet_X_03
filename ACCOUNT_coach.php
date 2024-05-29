@@ -18,13 +18,13 @@
     echo "<th>pays</th>";
     echo "</tr>";
     echo "<tr>";
-    echo "<td>" . (isset($_SESSION['id_coach']) ? $_SESSION['id_coach'] : '') . "</td>";
+    echo "<td>" . (isset($_SESSION['id']) ? $_SESSION['id'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['nom']) ? $_SESSION['nom'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['prenom']) ? $_SESSION['prenom'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['email']) ? $_SESSION['email'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['telephone']) ? $_SESSION['telephone'] : '') . "</td>";
-    echo "<td>" . (isset($_SESSION['address_ligne1']) ? $_SESSION['address_ligne1'] : '') . "</td>";
-    echo "<td>" . (isset($_SESSION['address_ligne1']) ? $_SESSION['address_ligne1'] : '') . "</td>";
+    echo "<td>" . (isset($_SESSION['adresse_ligne1']) ? $_SESSION['adresse_ligne1'] : '') . "</td>";
+    echo "<td>" . (isset($_SESSION['adresse_ligne2']) ? $_SESSION['adresse_ligne2'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['ville']) ? $_SESSION['ville'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['code_postal']) ? $_SESSION['code_postal'] : '') . "</td>";
     echo "<td>" . (isset($_SESSION['pays']) ? $_SESSION['pays'] : '') . "</td>";
