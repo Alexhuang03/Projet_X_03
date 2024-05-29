@@ -106,6 +106,17 @@
                 </td>
             </tr>
             <tr>
+                <td><label for="duree_semaine">Nombre de Semaine:</label></td>
+                <td>
+                    <select id="duree_semaine" name="duree_semaine">
+                        <option value="1">1 semaine</option>
+                        <option value="2">2 semaines</option>
+                        <option value="3">3 semaines</option>
+                        <!-- Ajoute d'autres options selon tes besoins -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" style="text-align: center;">
                     <input type="submit" value="Ajouter Coach">
                 </td>
@@ -113,15 +124,74 @@
         </table>
     </form>
 
-    <h3>Gestion Salle ( à faire)  </h3>
+    <h3>Ajouter des Créneaux à un Coach Existant</h3>
+    <form method="post" action="src_ajout_creneaux_coach.php" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <td><label for="coach_select">Sélectionner un Coach :</label></td>
+                <td>
+                    <select id="coach_select" name="id_coach" required>
+                        <?php
+                        $database = "Sportify";
+                        $db_handle = mysqli_connect('localhost', 'root', '');
+                        $db_found = mysqli_select_db($db_handle, $database);
+
+                        if ($db_found) {
+                            $query = "SELECT id_coach, nom, prenom FROM coach";
+                            $result = mysqli_query($db_handle, $query);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='" . $row['id_coach'] . "'>" . $row['nom'] . " " . $row['prenom'] . "</option>";
+                                }
+                            } else {
+                                echo "<option value=''>Aucun coach trouvé</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="disponibilite_coach">Disponibilité :</label></td>
+                <td>
+                    <table>
+                        <?php
+                        foreach ($jours as $jour) {
+                            echo "<tr><td>$jour</td><td>";
+                            foreach ($creneaux as $label => $times) {
+                                echo "<input type='checkbox' name='creneaux[$jour][]' value='" . implode(',', $times) . "'> $label<br>";
+                            }
+                            echo "</td></tr>";
+                        }
+                        ?>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="duree_semaine">Nombre de Semaine:</label></td>
+                <td>
+                    <select id="duree_semaine" name="duree_semaine">
+                        <option value="1">1 semaine</option>
+                        <option value="2">2 semaines</option>
+                        <option value="3">3 semaines</option>
+                        <!-- Ajoute d'autres options selon tes besoins -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Ajouter Créneaux">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h3>Gestion Salle (à faire)</h3>
 
     <h3>Liste des Coachs</h3>
     <table border="1">
         <?php
-        $database = "Sportify";
-        $db_handle = mysqli_connect('localhost', 'root', '');
-        $db_found = mysqli_select_db($db_handle, $database);
-
         if ($db_found) {
             $query = "SELECT * FROM coach";
             $result = mysqli_query($db_handle, $query);

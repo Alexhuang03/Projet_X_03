@@ -1,12 +1,10 @@
 <?php
-// src_ajout_coach.php
 
 $database = "Sportify";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
 
 if ($db_found) {
-    // Récupération des données du formulaire
     $nom = $_POST['nom_coach'];
     $prenom = $_POST['prenom_coach'];
     $email = $_POST['email_coach'];
@@ -18,23 +16,19 @@ if ($db_found) {
     $code_postal = $_POST['code_postal'];
     $pays = $_POST['pays'];
 
-    // Vérification de l'unicité de l'email, du mot de passe et du numéro de téléphone
     $query_check = "SELECT * FROM users WHERE email = '$email' OR telephone = '$telephone'";
     $result_check = mysqli_query($db_handle, $query_check);
 
     if (mysqli_num_rows($result_check) > 0) {
         echo "Un utilisateur avec cet email ou numéro de téléphone existe déjà.";
     } else {
-        // Insertion des détails du coach dans la table users
         $query_users = "INSERT INTO users (role, prenom, nom, email, password, telephone, adresse_ligne1, adresse_ligne2, ville, code_postal, pays)
                         VALUES ('coach', '$prenom', '$nom', '$email', '$password', '$telephone', '$adresse_ligne1', '$adresse_ligne2', '$ville', '$code_postal', '$pays')";
         $result_users = mysqli_query($db_handle, $query_users);
 
         if ($result_users) {
-            // Récupération de l'ID unique du coach inséré dans la table users
             $id_coach = mysqli_insert_id($db_handle);
 
-            // Insertion des détails du coach dans la table coach
             $specialite = $_POST['specialite_coach'];
             $photo = $_POST['photo_coach'];
             $video = $_POST['video_coach'];
@@ -44,14 +38,23 @@ if ($db_found) {
                             VALUES ('$id_coach', '$nom', '$prenom', '$email', '$specialite', '$photo', '$video', '$cv')";
             $result_coach = mysqli_query($db_handle, $query_coach);
 
-            // Insertion des créneaux du coach dans la table creneaux
+
             if (isset($_POST['creneaux'])) {
-                foreach ($_POST['creneaux'] as $jour => $slots) {
-                    foreach ($slots as $slot) {
-                        list($heure_debut, $heure_fin) = explode(',', $slot);
-                        $query_creneaux = "INSERT INTO creneaux (id_coach, jour, heure_debut, heure_fin) 
-                                           VALUES ('$id_coach', '$jour', '$heure_debut', '$heure_fin')";
-                        mysqli_query($db_handle, $query_creneaux);
+                $duree_semaine = isset($_POST['duree_semaine']) ? intval($_POST['duree_semaine']) : 1;
+                $date_debut = strtotime('next monday');
+
+                for ($week = 0; $week < $duree_semaine/7; $week++) {
+                    foreach ($_POST['creneaux'] as $jour => $slots) {
+                        $days_to_add = array_search($jour, ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']);
+                        $date_creneau = date('Y-m-d', strtotime("+$days_to_add days", strtotime("+$week week", $date_debut)));
+
+                        foreach ($slots as $slot) {
+                            list($heure_debut, $heure_fin) = explode(',', $slot);
+
+                            $query_creneaux = "INSERT INTO creneaux (id_coach, date_creneau, heure_debut, heure_fin) 
+                                   VALUES ('$id_coach', '$date_creneau', '$heure_debut', '$heure_fin')";
+                            mysqli_query($db_handle, $query_creneaux);
+                        }
                     }
                 }
             }
