@@ -6,12 +6,22 @@ $results = [];
 
 $pageAliases = [
     'index.php' => 'Page d\'accueil',
-
     'Rendez_Vous.php' => 'Rendez-vous',
     'ACCOUNT.php' => 'Compte',
     'link_login.php' => 'Connexion',
     'link_signin.php' => 'Inscription',
-    'link_logout.php' => 'Déconnexion'
+    'link_logout.php' => 'Déconnexion',
+    'prc_basketball.php' => 'Page sur le basketball',
+    'prc_biking.php' => 'Page sur le biking',
+    'prc_cardio.php' => 'Page sur le cardio',
+    'prc_collectifs.php' => 'Page sur les cours collectifs',
+    'prc_fitness.php' => 'Page sur le fitness',
+    'prc_football.php' => 'Page sur le football',
+    'prc_musculation.php' => 'Page sur la musculation',
+    'prc_natation.php' => 'Page sur la natation',
+    'prc_plongeon.php' => 'Page sur le plongeon',
+    'prc_rugby.php' => 'Page sur le rugby',
+    'prc_salle.php' => 'Page sur la salle',
 ];
 
 if (isset($_GET['query'])) {
