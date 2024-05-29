@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cv>
+    <informations_personnelles>
+        <nom>Nom du candidat</nom>
+        <prenom>Prénom du candidat</prenom>
+        <adresse>Adresse du candidat</adresse>
+        <telephone>Téléphone du candidat</telephone>
+        <email>Email du candidat</email>
+    </informations_personnelles>
+    <formation>
+        <diplome>Diplôme obtenu</diplome>
+        <etablissement>Établissement</etablissement>
+        <annee>Année d'obtention</annee>
+    </formation>
+    <experience_professionnelle>
+        <poste>Poste occupé</poste>
+        <entreprise>Nom de l'entreprise</entreprise>
+        <annees>Années d'expérience</annees>
+    </experience_professionnelle>
+    <competences>
+        <langues>Langues maîtrisées</langues>
+        <informatique>Compétences informatiques</informatique>
+        <autres>Autres compétences</autres>
+    </competences>
+</cv>
