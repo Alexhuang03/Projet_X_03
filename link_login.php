@@ -55,7 +55,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['pays'] = $user['pays'];
         $_SESSION['payement'] = $user['payement'];
 
-
         header("Location: ACCOUNT.php");
         exit();
     } else {
@@ -71,22 +70,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - Sportify</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(248, 248, 248);
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: rgb(51, 51, 51);
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 5px;
+            color: rgb(85, 85, 85);
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-container input[type="submit"] {
+            padding: 10px;
+            background-color: rgb(0, 123, 204);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: rgb(0, 86, 179);
+        }
+
+        .form-container .error-message {
+            color: red;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-container .success-message {
+            color: green;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h2>Connexion</h2>
-<?php if (isset($error)) { echo "<p>$error</p>"; } ?>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="email">Email :</label>
-    <input type="text" id="email" name="email" required><br><br>
-    <label for="numero_etudiant">Numéro étudiant :</label>
-    <input type="text" id="numero_etudiant" name="numero_etudiant"><br><br>
-    <label for="password">Mot de passe :</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required><br><br>
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" name="prenom" required><br><br>
-    <input type="submit" value="Se connecter">
-</form>
+<div id="wapper">
+    <?php include 'src_header.php'; ?>
+    <?php include 'src_navigation.php'; ?>
+
+    <div class="form-container">
+        <h2>Connexion</h2>
+        <?php if (isset($error)) { echo "<p class='error-message'>$error</p>"; } ?>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="numero_etudiant">Numéro étudiant :</label>
+            <input type="text" id="numero_etudiant" name="numero_etudiant">
+
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <input type="submit" value="Se connecter">
+        </form>
+    </div>
+
+    <?php include 'src_footer.php'; ?>
+</div>
 </body>
 </html>
