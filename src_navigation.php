@@ -69,31 +69,31 @@ if (isset($_SESSION['user_role'])) {
         <button class="menu-btn">Tout Parcourir</button>
         <div class="dropdown-content">
             <div class="dropdown-item">
-                <a href="PARCOURIR.php#activites-sportives">Activités sportives</a>
-                <div class="sub-dropdown-content">
-                    <a href="PARCOURIR.php#Musculation">Musculation</a>
-                    <a href="PARCOURIR.php#Fitness">Fitness</a>
-                    <a href="PARCOURIR.php#Biking">Biking</a>
-                    <a href="PARCOURIR.php#Cardio-Training">Cardio Training</a>
-                    <a href="PARCOURIR.php#Cours-Collectifs">Cours Collectifs</a>
+                <a href="">Activités sportives</a>
+                  <div class="sub-dropdown-content">
+                    <a href="prc_musculation.php">Musculation</a>
+                    <a href="prc_fitness.php">Fitness</a>
+                    <a href="prc_biking.php">Biking</a>
+                    <a href="prc_cardio.php">Cardio Training</a>
+                    <a href="prc_collectifs.php">Cours Collectifs</a>
                 </div>
             </div>
             <div class="dropdown-item">
-                <a href="PARCOURIR.php#competition">Les Sports de compétition</a>
+                <a href="">Les Sports de compétition</a>
                 <div class="sub-dropdown-content">
-                    <a href="PARCOURIR.php#Basketball">Basketball</a>
-                    <a href="PARCOURIR.php#Football">Football</a>
-                    <a href="PARCOURIR.php#Rugby">Rugby</a>
-                    <a href="PARCOURIR.php#Tennis">Tennis</a>
-                    <a href="PARCOURIR.php#Natation">Natation</a>
-                    <a href="PARCOURIR.php#Plongeon">Plongeon</a>
+                    <a href="prc_basketball.php">Basketball</a>
+                    <a href="prc_football.php">Football</a>
+                    <a href="prc_rugby.php">Rugby</a>
+                    <a href="prc_tennis.php">Tennis</a>
+                    <a href="prc_natation.php">Natation</a>
+                    <a href="prc_plongeon.php">Plongeon</a>
                 </div>
             </div>
             <div class="dropdown-item">
-                <a href="PARCOURIR.php#salle-de-sport">Salle de sport Omnes</a>
+                <a href="prc_salle.php#Salle">Salle de sport Omnes</a>
                 <div class="sub-dropdown-content">
-                    <a href="PARCOURIR.php#Regles">Regles</a>
-                    <a href="PARCOURIR.php#Horaire">Horaire</a>
+                    <a href="prc_salle.php##Regles">Regles</a>
+                    <a href="prc_salle.php##Horaire">Horaire</a>
                 </div>
             </div>
         </div>

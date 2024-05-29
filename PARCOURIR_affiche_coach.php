@@ -7,7 +7,7 @@ if (isset($_SESSION['sport'])) {
             printf("Traitement spécifique pour la musculation");
             break;
         case "Fitness":
-            printf("Traitement spécifique pour le Fitness");
+        printf("Traitement spécifique pour le Fitness");
             break;
         case "Biking":
             printf("Traitement spécifique pour le Biking");

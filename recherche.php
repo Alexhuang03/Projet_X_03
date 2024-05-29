@@ -6,7 +6,7 @@ $results = [];
 
 $pageAliases = [
     'index.php' => 'Page d\'accueil',
-    'PARCOURIR.php' => 'Parcourir',
+
     'Rendez_Vous.php' => 'Rendez-vous',
     'ACCOUNT.php' => 'Compte',
     'link_login.php' => 'Connexion',

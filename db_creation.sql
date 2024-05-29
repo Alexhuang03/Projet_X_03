@@ -1,5 +1,3 @@
-# noinspection SqlNoDataSourceInspectionForFile
-
 CREATE TABLE users (
                        id INT PRIMARY KEY AUTO_INCREMENT,
                        role ENUM('admin', 'coach', 'client') NOT NULL,
