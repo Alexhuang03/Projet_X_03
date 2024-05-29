@@ -1,3 +1,9 @@
+<?php
+session_start();
+$database = "Sportify";
+$db_handle = mysqli_connect('localhost', 'root', '');
+$db_found = mysqli_select_db($db_handle, $database);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +32,7 @@
             position: fixed;
             bottom: 80px;
             right: 20px;
-            width: 410px;
+            width: auto; /*430px*/
             height: 400px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -61,7 +67,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            flex: 2; /* Ajustez cette valeur pour définir la largeur de l'input */
+            flex: 2;
         }
         #messageForm button {
             padding: 10px;
@@ -80,10 +86,9 @@
     <form id="messageForm">
         <select id="userSelect">
             <option value="">Utilisateur</option>
-            <!-- Options will be dynamically populated -->
         </select>
-        <input id="messageInput" autocomplete="off" placeholder="Type a message..." />
-        <button>Send</button>
+        <input id="messageInput" autocomplete="off" placeholder="Tapez un message..." />
+        <button>Envoyer</button>
     </form>
 </div>
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
@@ -106,12 +111,12 @@
         if (input.value && userSelect.value) {
             const message = {
                 text: input.value,
-                coachId: userSelect.value // Assuming coachId is used to select users
+                userId: userSelect.value
             };
             socket.emit('message', message);
             input.value = '';
         } else {
-            alert('Please select a user and enter a message.');
+            alert('Veuillez sélectionner un utilisateur et saisir un message.');
         }
     });
 
@@ -122,8 +127,8 @@
         messages.scrollTop = messages.scrollHeight;
     });
 
-    socket.on('loadMessages', function(messagesData) {
-        messages.innerHTML = ''; // Clear existing messages
+    socket.on('affiche_messages', function(messagesData) {
+        messages.innerHTML = '';
         messagesData.forEach(message => {
             const item = document.createElement('li');
             item.textContent = message.message;
@@ -132,12 +137,11 @@
         messages.scrollTop = messages.scrollHeight;
     });
 
-    // Fetch users from the server
     fetch('recherche_utilisateurs.php')
         .then(response => response.json())
         .then(data => {
             if (data.error) {
-                console.error('Error fetching users:', data.error);
+                console.error('Erreur lors de la récupération des utilisateurs:', data.error);
                 return;
             }
             data.forEach(user => {
@@ -151,7 +155,11 @@
     userSelect.addEventListener('change', function() {
         const userId = userSelect.value;
         if (userId) {
-            socket.emit('selectCoach', userId); // Assuming selectCoach event is used to select users
+            fetch(`affiche_messages.php?user_id=${userId}&coach_id=<?php echo $_SESSION['id']; ?>`)
+                .then(response => response.json())
+                .then(data => {
+                    socket.emit('affiche_messages', data);
+                });
         }
     });
 </script>
