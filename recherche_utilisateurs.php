@@ -2,7 +2,6 @@
 session_start();
 header('Content-Type: application/json');
 
-// Connexion à la base de données
 $dsn = 'mysql:host=localhost;dbname=sportify;charset=utf8';
 $username = 'root';
 $password = '';
@@ -18,7 +17,6 @@ try {
     exit;
 }
 
-// Vérification du rôle de l'utilisateur connecté
 if (!isset($_SESSION['user_role'])) {
     echo json_encode(['error' => 'Utilisateur non connecté']);
     exit;
@@ -28,11 +26,9 @@ $role = $_SESSION['user_role'];
 
 try {
     if ($role == 'client') {
-        // Si l'utilisateur est un client, récupérer la liste des coachs
         $stmt = $pdo->query('SELECT id_coach AS id, nom AS name FROM coach');
     } elseif ($role == 'coach') {
-        // Si l'utilisateur est un coach, récupérer la liste des clients
-        $stmt = $pdo->query('SELECT id_user AS id, nom AS name FROM users WHERE role = "client"');
+        $stmt = $pdo->query('SELECT id AS id, nom AS name FROM users WHERE role = "client"');
     } else {
         echo json_encode(['error' => 'Rôle utilisateur non supporté']);
         exit;
