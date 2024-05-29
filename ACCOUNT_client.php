@@ -82,11 +82,15 @@
                 echo "<td>";
                 echo "<form method='post' action='src_suppresion_reservation.php'>";
                 echo "<input type='hidden' name='id_coach' value='" . $row['id_coach'] . "'>";
+                echo "<input type='hidden' name='date_reservation' value='" . $row['date'] . "'>";
+                echo "<input type='hidden' name='heure_debut' value='" . $row['heure_debut'] . "'>";
+                echo "<input type='hidden' name='heure_fin' value='" . $row['heure_fin'] . "'>";
                 echo "<input type='submit' value='Supprimer'>";
                 echo "</form>";
                 echo "</td>";
                 echo "</tr>";
             }
+
             echo "</table>";
         } else {
             echo "<p>Aucune réservation à venir pour cet utilisateur.</p>";

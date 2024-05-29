@@ -68,6 +68,54 @@ if (isset($_SESSION['sport'])) {
                     <p><strong>Prénom:</strong> <?php echo $row_coach['prenom']; ?></p>
                     <p><strong>Email:</strong> <?php echo $row_coach['email']; ?></p>
                 </div>
+                <div>
+                    <h3>Créneaux du Coach</h3>
+                    <table border="1">
+                        <tr>
+                            <th>Date</th>
+                            <th>Heure de début</th>
+                            <th>Heure de fin</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        <?php
+                        // Requête pour récupérer les créneaux du coach
+                        $query_creneaux = "SELECT * FROM creneaux WHERE id_coach = '{$row_coach['id']}'";
+                        $result_creneaux = mysqli_query($db_handle, $query_creneaux);
+
+                        // Vérifier s'il y a des créneaux pour ce coach
+                        if (mysqli_num_rows($result_creneaux) > 0) {
+                            while ($row_creneau = mysqli_fetch_assoc($result_creneaux)) {
+                                // Vérifier si ce créneau est réservé
+                                $query_reservation = "SELECT * FROM reservation WHERE id_coach = '{$row_coach['id']}' AND date = '{$row_creneau['date_creneau']}' AND heure_debut = '{$row_creneau['heure_debut']}' AND heure_fin = '{$row_creneau['heure_fin']}'";
+                                $result_reservation = mysqli_query($db_handle, $query_reservation);
+                                $status = mysqli_num_rows($result_reservation) > 0 ? 'Réservé' : 'Libre';
+
+                                echo "<tr>";
+                                echo "<td>" . $row_creneau['date_creneau'] . "</td>";
+                                echo "<td>" . $row_creneau['heure_debut'] . "</td>";
+                                echo "<td>" . $row_creneau['heure_fin'] . "</td>";
+                                echo "<td>" . $status . "</td>";
+                                echo "<td>";
+                                // Vérifier si le créneau est libre pour afficher le bouton "Réserver"
+                                if ($status == 'Libre') {
+                                    echo "<form method='post' action='src_prendre_rdv.php'>";
+                                    echo "<input type='hidden' name='id_creneau' value='" . $row_creneau['id_creneau'] . "'>";
+                                    echo "<input type='submit' value='Réserver'>";
+                                    echo "</form>";
+                                } else {
+                                    echo "Créneau réservé";
+                                }
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='5'>Aucun créneau trouvé pour ce coach.</td></tr>";
+                        }
+                        ?>
+                    </table>
+                </div>
+
                 <div class="coach-actions">
                     <button onclick="showCV('<?php echo $row_coach['cv']; ?>')">Voir CV</button>
                     <button onclick="openEmailInterface('<?php echo $row_coach['email']; ?>')">Communiquer avec le coach</button>
