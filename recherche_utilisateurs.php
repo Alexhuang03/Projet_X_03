@@ -26,9 +26,9 @@ $role = $_SESSION['user_role'];
 
 try {
     if ($role == 'client') {
-        $stmt = $pdo->query('SELECT id_coach AS id, nom AS name FROM coach');
+        $stmt = $pdo->query('SELECT id_coach AS id, CONCAT(prenom, " ", nom) AS name FROM coach');
     } elseif ($role == 'coach') {
-        $stmt = $pdo->query('SELECT id AS id, nom AS name FROM users WHERE role = "client"');
+        $stmt = $pdo->query('SELECT id AS id, CONCAT(prenom, " ", nom) AS name FROM users WHERE role = "client"');
     } else {
         echo json_encode(['error' => 'Rôle utilisateur non supporté']);
         exit;

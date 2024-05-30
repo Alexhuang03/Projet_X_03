@@ -2,9 +2,35 @@
 $database = "Sportify";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_msg = $_POST['id_msg'];
+    $id_user = $_POST['id_user'];
+    $id_coach = $_POST['id_coach'];
+    $message = $_POST['message'];
+    $date = date('Y-m-d');
+    $heure = date('H:i:s');
+
+    if ($db_found) {
+        $query = "INSERT INTO chatroom (id_msg, id_coach, id_user, date, heure, message) VALUES ('$id_msg','$id_coach', '$id_user', '$date', '$heure', '$message')";
+        $result = mysqli_query($db_handle, $query);
+        if (!$result) {
+            echo "Erreur: " . mysqli_error($db_handle);
+        }
+    }
+}
+
+// Récupération des messages depuis la base de données
+$query_messages = "SELECT c.nom AS coach_nom, c.prenom AS coach_prenom, u.prenom AS user_prenom, u.nom AS user_nom, cr.date AS date, cr.heure AS heure, cr.message AS message 
+                   FROM chatroom cr
+                   INNER JOIN coach c ON cr.id_coach = c.id_coach
+                   INNER JOIN users u ON cr.id_user = u.id
+                   ORDER BY cr.date, cr.heure DESC";
+$result_messages = mysqli_query($db_handle, $query_messages);
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +57,7 @@ $db_found = mysqli_select_db($db_handle, $database);
             position: fixed;
             bottom: 80px;
             right: 20px;
-            width: auto; /*430px*/
+            width: auto;
             height: 400px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -55,18 +81,12 @@ $db_found = mysqli_select_db($db_handle, $database);
             display: flex;
             padding: 10px;
         }
-        #messageForm select {
+        #messageForm select, #messageForm input {
             padding: 10px;
             margin-right: 5px;
             border: 1px solid #ccc;
             border-radius: 5px;
             flex: 1;
-        }
-        #messageForm input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            flex: 2;
         }
         #messageForm button {
             padding: 10px;
@@ -81,85 +101,57 @@ $db_found = mysqli_select_db($db_handle, $database);
 <body>
 <div id="chat-icon">&#9993;</div>
 <div id="chat-window">
-    <ul id="messages"></ul>
-    <form id="messageForm">
-        <select id="userSelect">
+    <ul id="messages">
+        <?php
+        // Affichage des messages
+        while ($row = mysqli_fetch_assoc($result_messages)) {
+            echo "<li><strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> à <strong>{$row['user_nom']} {$row['user_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
+        }
+        ?>
+    </ul>
+    <form method="POST" action="" id="messageForm">
+        <select id="userSelect" name="id_user">
             <option value="">Utilisateur</option>
         </select>
-        <input id="messageInput" autocomplete="off" placeholder="Tapez un message..." />
-        <button>Envoyer</button>
+        <input type="hidden" name="id_coach" value="1"> <!-- Modifier cette valeur selon le coach -->
+        <input id="messageInput" name="message" autocomplete="off" placeholder="Tapez un message..." />
+        <button type="submit">Envoyer</button>
     </form>
 </div>
-<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    const socket = io('http://localhost:3000');
+    $(document).ready(function() {
+        const chatIcon = $('#chat-icon');
+        const chatWindow = $('#chat-window');
+        const userSelect = $('#userSelect');
 
-    const chatIcon = document.getElementById('chat-icon');
-    const chatWindow = document.getElementById('chat-window');
-    const form = document.getElementById('messageForm');
-    const input = document.getElementById('messageInput');
-    const messages = document.getElementById('messages');
-    const userSelect = document.getElementById('userSelect');
-
-    chatIcon.addEventListener('click', () => {
-        chatWindow.style.display = chatWindow.style.display === 'none' ? 'block' : 'none';
-    });
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (input.value && userSelect.value) {
-            const message = {
-                text: input.value,
-                userId: userSelect.value
-            };
-            socket.emit('message', message);
-            input.value = '';
-        } else {
-            alert('Veuillez sélectionner un utilisateur et saisir un message.');
-        }
-    });
-
-    socket.on('message', function(message) {
-        const item = document.createElement('li');
-        item.textContent = message.text;
-        messages.appendChild(item);
-        messages.scrollTop = messages.scrollHeight;
-    });
-
-    socket.on('affiche_messages', function(messagesData) {
-        messages.innerHTML = '';
-        messagesData.forEach(message => {
-            const item = document.createElement('li');
-            item.textContent = message.message;
-            messages.appendChild(item);
-        });
-        messages.scrollTop = messages.scrollHeight;
-    });
-
-    fetch('recherche_utilisateurs.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error('Erreur lors de la récupération des utilisateurs:', data.error);
-                return;
-            }
-            data.forEach(user => {
-                const option = document.createElement('option');
-                option.value = user.id;
-                option.textContent = user.name;
-                userSelect.appendChild(option);
-            });
+        chatIcon.click(function() {
+            chatWindow.toggle();
         });
 
-    userSelect.addEventListener('change', function() {
-        const userId = userSelect.value;
-        if (userId) {
-            fetch(`affiche_messages.php?user_id=${userId}&coach_id=<?php echo $_SESSION['id']; ?>`)
-                .then(response => response.json())
-                .then(data => {
-                    socket.emit('affiche_messages', data);
+        function loadUsers() {
+            $.get('recherche_utilisateurs.php', function(data) {
+                if (data.error) {
+                    console.error('Erreur lors de la récupération des utilisateurs:', data.error);
+                    return;
+                }
+                userSelect.empty().append('<option value="">Utilisateur</option>');
+                data.forEach(user => {
+                    const option = $('<option></option>').val(user.id).text(user.name);
+                    userSelect.append(option);
                 });
+            }, 'json');
         }
+
+        loadUsers();
+
+        // Rafraîchissement automatique des messages
+        function loadMessages() {
+            $('#messages').load(location.href + ' #messages');
+        }
+
+        setInterval(loadMessages, 3000); // Rafraîchir toutes les 3 secondes
     });
 </script>
 </body>
