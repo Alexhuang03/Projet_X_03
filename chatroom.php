@@ -1,22 +1,45 @@
 <?php
+
 $database = "Sportify";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
+if (!$db_found) {
+    die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
+}
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_msg = $_POST['id_msg'];
-    $id_user = $_POST['id_user'];
-    $id_coach = $_POST['id_coach'];
-    $message = $_POST['message'];
+function saveMessage($id_coach, $id_user, $message, $db_handle) {
+    // Récupération de la date et de l'heure actuelles
     $date = date('Y-m-d');
     $heure = date('H:i:s');
 
+    // Insertion du message dans la base de données
+    $sql= "INSERT INTO chatroom (id_coach, id_user, date, heure, message) VALUES ('$id_coach', '$id_user', '$date', '$heure', '$message')";
+    $result = mysqli_query($db_handle, $sql);
+
+    // Vérification de l'insertion
+    if (!$result) {
+        echo "Erreur: " . mysqli_error($db_handle);
+        return false;
+    }
+
+    return true;
+}
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $id_user = $_POST['id_user'];
+    $id_coach = $_POST['id_coach'];
+    $message = $_POST['message'];
+    echo "ID Utilisateur: " . $id_user . ", ID Coach: " . $id_coach; // Débogage des IDs
+
     if ($db_found) {
-        $query = "INSERT INTO chatroom (id_msg, id_coach, id_user, date, heure, message) VALUES ('$id_msg','$id_coach', '$id_user', '$date', '$heure', '$message')";
-        $result = mysqli_query($db_handle, $query);
-        if (!$result) {
-            echo "Erreur: " . mysqli_error($db_handle);
+        if (saveMessage($id_coach, $id_user, $message, $db_handle)) {
+            echo "Message enregistré avec succès.";
+        } else {
+            echo "Une erreur s'est produite lors de l'enregistrement du message.";
         }
+    } else {
+        echo "Base de données non trouvée.";
     }
 }
 
@@ -25,8 +48,13 @@ $query_messages = "SELECT c.nom AS coach_nom, c.prenom AS coach_prenom, u.prenom
                    FROM chatroom cr
                    INNER JOIN coach c ON cr.id_coach = c.id_coach
                    INNER JOIN users u ON cr.id_user = u.id
-                   ORDER BY cr.date, cr.heure DESC";
+                   ORDER BY cr.date DESC, cr.heure DESC"; // Modification de l'ordre pour trier par date puis par heure
 $result_messages = mysqli_query($db_handle, $query_messages);
+
+// Vérifiez si la requête a renvoyé des résultats
+if (!$result_messages) {
+    die("Erreur dans la requête : " . mysqli_error($db_handle));
+}
 ?>
 
 <!DOCTYPE html>
@@ -112,9 +140,17 @@ $result_messages = mysqli_query($db_handle, $query_messages);
     <form method="POST" action="" id="messageForm">
         <select id="userSelect" name="id_user">
             <option value="">Utilisateur</option>
+            <?php
+            // Remplir le select avec les utilisateurs existants
+            $query_users = "SELECT id, prenom, nom FROM users";
+            $result_users = mysqli_query($db_handle, $query_users);
+            while ($user = mysqli_fetch_assoc($result_users)) {
+                echo "<option value='{$user['id']}'>{$user['prenom']} {$user['nom']}</option>";
+            }
+            ?>
         </select>
-        <input type="hidden" name="id_coach" value="1"> <!-- Modifier cette valeur selon le coach -->
-        <input id="messageInput" name="message" autocomplete="off" placeholder="Tapez un message..." />
+        <input type="hidden" name="id_coach" value="2"> <!-- Modifier cette valeur selon le coach -->
+        <input id="message" name="message" autocomplete="off" placeholder="Tapez un message..." />
         <button type="submit">Envoyer</button>
     </form>
 </div>
