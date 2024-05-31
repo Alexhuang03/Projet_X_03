@@ -30,7 +30,8 @@
             <li><strong>R&eacute;duction du Stress :</strong> L'activit&eacute; physique, y compris la musculation, lib&egrave;re des endorphines, qui sont des hormones du bien-&ecirc;tre, aidant &agrave; r&eacute;duire le stress et &agrave; am&eacute;liorer votre humeur.</li>
             <li><strong>Gestion du Poids :</strong> La musculation augmente votre m&eacute;tabolisme basal, vous aidant ainsi &agrave; br&ucirc;ler plus de calories m&ecirc;me au repos.</li>
         </ul>
-
+        <h3>Découvrez notre coach spécialisé en Musculation: </h3>
+        <br>
         <?php $_SESSION['sport'] = "Musculation";
         include 'PARCOURIR_affiche_coach.php';
         ?>
