@@ -45,6 +45,12 @@ CREATE TABLE reservation (
                              FOREIGN KEY (id_user) REFERENCES users(id)
 );
 
+CREATE TABLE salle(
+    info VARCHAR(255),
+    regle VARCHAR(255),
+    horaire VARCHAR(255)
+);
+
 CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
                           id_coach INT,

@@ -50,7 +50,7 @@
         if (mysqli_num_rows($result_reservations_passées) > 0) {
             echo "<p>Réservations passées</p>";
             echo "<table border='1'>";
-            echo "<tr><th>ID Coach</th><th>ID Utilisateur</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
+            echo "<tr><th>ID Coach</th><th> ID Client</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
             while ($row = mysqli_fetch_assoc($result_reservations_passées)) {
                 echo "<tr>";
                 echo "<td>{$row['id_coach']}</td>";
@@ -71,7 +71,7 @@
         if (mysqli_num_rows($result_reservations_à_venir) > 0) {
             echo "<p>Réservations à venir</p>";
             echo "<table border='1'>";
-            echo "<tr><th>ID Coach</th><th>ID Utilisateur</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
+            echo "<tr><th>ID_Coach</th><th>ID_Client</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
             while ($row = mysqli_fetch_assoc($result_reservations_à_venir)) {
                 echo "<tr>";
                 echo "<td>{$row['id_coach']}</td>";
