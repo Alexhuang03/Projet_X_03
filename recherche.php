@@ -22,11 +22,14 @@ $pageAliases = [
     'prc_plongeon.php' => 'Page sur le plongeon',
     'prc_rugby.php' => 'Page sur le rugby',
     'prc_salle.php' => 'Page sur la salle',
+    'PARCOURIR_affiche_coach.php' => 'Trouver un coach',
+    'src_afficher_photo.php'=> 'Trouver un coach',
 ];
 
 if (isset($_GET['query'])) {
     $searchQuery = $_GET['query'];
 
+    // cherche dans les pages HTML
     $pages = array_keys($pageAliases);
 
     foreach ($pages as $page) {
@@ -54,8 +57,134 @@ if (isset($_GET['query'])) {
             }
         }
     }
+
+    // cherche dans la bdd pour trouver les noms / prénoms des coachs
+    $database = "sportify";
+    $db_handle = mysqli_connect('localhost', 'root', '', $database);
+
+    if ($db_handle) {
+        $query_coach = "SELECT u.id, c.nom, c.prenom, c.specialite 
+                        FROM users AS u 
+                        INNER JOIN coach AS c ON u.id = c.id_coach 
+                        WHERE c.nom LIKE '%$searchQuery%' OR c.prenom LIKE '%$searchQuery%'";
+
+        $result_coach = mysqli_query($db_handle, $query_coach);
+
+        if ($result_coach && mysqli_num_rows($result_coach) > 0) {
+            while ($row_coach = mysqli_fetch_assoc($result_coach)) {
+                // trouve la page de sport associée à la spécialité du coach
+                $specialite = $row_coach['specialite'];
+                $page = '';
+                switch ($specialite) {
+                    case 'Basketball':
+                        $page = 'prc_basketball.php';
+                        break;
+                    case 'Biking':
+                        $page = 'prc_biking.php';
+                        break;
+                    case 'Cardio-Training':
+                        $page = 'prc_cardio.php';
+                        break;
+                    case 'Cours Collectifs':
+                        $page = 'prc_collectifs.php';
+                        break;
+                    case 'Fitness':
+                        $page = 'prc_fitness.php';
+                        break;
+                    case 'Football':
+                        $page = 'prc_football.php';
+                        break;
+                    case 'Musculation':
+                        $page = 'prc_musculation.php';
+                        break;
+                    case 'Natation':
+                        $page = 'prc_natation.php';
+                        break;
+                    case 'Plongeon':
+                        $page = 'prc_plongeon.php';
+                        break;
+                    case 'Rugby':
+                        $page = 'prc_rugby.php';
+                        break;
+                    case 'Salle de Sport Omnes':
+                        $page = 'prc_salle.php';
+                        break;
+                    default:
+                        $page = 'index.php';
+                        break;
+                }
+                $results[] = [
+                    'page' => $page,
+                    'alias' => 'Profil du coach ' . $row_coach['nom'] . ' ' . $row_coach['prenom'],
+                    'id' => '',
+                    'text' => $row_coach['nom'] . ' ' . $row_coach['prenom']
+                ];
+            }
+        }
+
+        mysqli_close($db_handle);
+    }
+
     header('Content-Type: application/json');
     echo json_encode($results);
     exit;
 }
 ?>
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche</title>
+</head>
+<body>
+<!--la barre de recherche apparaisse et disparaisse lorsque l'on clique sur le boutton Rechercher-->
+<div class="search-container">
+    <button onclick="toggleSearch()">Rechercher</button>
+    <div id="searchForm" style="display: none;">
+        <input type="text" id="searchInput" name="query" placeholder="Rechercher...">
+        <div id="searchResults" class="search-results"></div>
+    </div>
+</div>
+
+<script>
+    //fonction qui va servir pour que la barre de recherche apparaisse et disparaisse lorsque l'on clique sur le boutton Rechercher
+    function toggleSearch() {
+        var searchForm = document.getElementById("searchForm");
+        if (searchForm.style.display === "none" || searchForm.style.display === "") {
+            searchForm.style.display = "block";
+        } else {
+            searchForm.style.display = "none";
+        }
+    }
+
+    function performSearch(query) {
+        if (query.length > 0) {
+            fetch(`recherche.php?query=${query}`)
+                .then(response => response.json())
+                .then(results => {
+                    let resultsContainer = document.getElementById("searchResults");
+                    resultsContainer.innerHTML = "";
+                    if (results.length === 0) {
+                        resultsContainer.innerHTML = "<p>Aucun résultat trouvé.</p>";
+                    } else {
+                        results.forEach(result => {
+                            let resultItem = document.createElement("div");
+                            resultItem.classList.add("search-result-item");
+                            resultItem.innerHTML = `<a href="${result.page}${result.id ? '#' + result.id : ''}">${result.alias} - ${result.text}</a>`;
+                            resultsContainer.appendChild(resultItem);
+                        });
+                    }
+                });
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        let searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", function() {
+            performSearch(this.value);
+        });
+    });
+</script>
+</body>
+</html>
