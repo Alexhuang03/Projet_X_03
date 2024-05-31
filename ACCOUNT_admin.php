@@ -270,6 +270,43 @@
         ?>
     </table>
 
+    <h3>Modification des CV des Coachs</h3>
+    <div class="container">
+        <div class="selection">
+            <table>
+                <tr>
+                    <td><label for="coach_select">Sélectionner un Coach :</label></td>
+                    <td>
+                        <select id="coach_select" name="id_coach" required>
+                            <?php
+                            $database = "Sportify";
+                            $db_handle = mysqli_connect('localhost', 'root', '');
+                            $db_found = mysqli_select_db($db_handle, $database);
+
+                            if ($db_found) {
+                                $query = "SELECT id_coach, nom, prenom, cv FROM coach";
+                                $result = mysqli_query($db_handle, $query);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<option value='rsc/" . $row['cv'] . "'>" . $row['nom'] . " " . $row['prenom'] . "</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>Aucun coach trouvé</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="editor" id="xmlEditor">
+            <h4>Éditer le CV du Coach</h4>
+            <textarea id="xmlContent"></textarea>
+            <button id="saveButton">Enregistrer les Modifications</button>
+        </div>
+    </div>
 
 
     <h3>Liste des Coachs</h3>
@@ -305,5 +342,59 @@
         ?>
     </table>
 </div>
+<script>
+    document.getElementById('coach_select').addEventListener('change', function() {
+        const selectedCVPath = this.value;
+        fetch(selectedCVPath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erreur lors du chargement du fichier XML');
+                }
+                return response.text();
+            })
+            .then(xmlText => {
+                document.getElementById('xmlContent').value = xmlText;
+                document.getElementById('xmlEditor').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement du fichier XML:', error);
+            });
+    });
+
+    document.getElementById('saveButton').addEventListener('click', function() {
+        const xmlContent = document.getElementById('xmlContent').value;
+        const selectedCVPath = document.getElementById('coach_select').value;
+
+        fetch('', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `cvPath=${encodeURIComponent(selectedCVPath)}&xmlContent=${encodeURIComponent(xmlContent)}`
+        })
+            .then(response => response.text())
+            .then(data => {
+                alert('Modifications enregistrées avec succès!');
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'enregistrement:', error);
+                alert('Erreur lors de l\'enregistrement des modifications.');
+            });
+    });
+</script>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cvPath']) && isset($_POST['xmlContent'])) {
+    $cvPath = $_POST['cvPath'];
+    $xmlContent = $_POST['xmlContent'];
+
+    // Save the XML content to the file
+    if (file_put_contents($cvPath, $xmlContent) !== false) {
+        echo 'Success';
+    } else {
+        echo 'Error';
+    }
+}
+?>
 </body>
 </html>
