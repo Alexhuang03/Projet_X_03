@@ -30,6 +30,8 @@ session_start();
             <li><strong>R&eacute;duction du Stress :</strong> Comme toutes les activit&eacute;s physiques, le biking lib&egrave;re des endorphines, les hormones du bonheur, qui aident &agrave; r&eacute;duire le stress et &agrave; am&eacute;liorer votre humeur.</li>
             <li><strong>Accessibilit&eacute; :</strong> Le biking peut &ecirc;tre pratiqu&eacute; &agrave; tout &acirc;ge et &agrave; tout niveau de forme physique, que ce soit en int&eacute;rieur sur un v&eacute;lo stationnaire ou en ext&eacute;rieur pour profiter de la nature.</li>
         </ul>
+        <h3>Découvrez notre coach spécialisé en Biking: </h3>
+        <br>
         <?php $_SESSION['sport'] = "Biking";
         include 'PARCOURIR_affiche_coach.php';
         ?>

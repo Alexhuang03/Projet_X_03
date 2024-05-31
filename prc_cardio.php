@@ -30,6 +30,8 @@ session_start();
             <li><strong>Augmentation de l'&Eacute;nergie :</strong> En am&eacute;liorant votre endurance, le cardio training augmente votre niveau d'&eacute;nergie pour les activit&eacute;s quotidiennes.</li>
             <li><strong>Flexibilit&eacute; et Mobilit&eacute; :</strong> Les exercices de cardio training am&eacute;liorent votre flexibilit&eacute; et votre mobilit&eacute;, r&eacute;duisant ainsi le risque de blessures.</li>
         </ul>
+        <h3>Découvrez notre coach spécialisé en Cardio: </h3>
+        <br>
         <?php $_SESSION['sport'] = "Cardio-Training";
         include 'PARCOURIR_affiche_coach.php';
         ?>

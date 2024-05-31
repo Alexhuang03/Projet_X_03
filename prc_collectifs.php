@@ -30,6 +30,8 @@ session_start();
             <li><strong>Socialisation :</strong> Rencontrez des personnes partageant les m&ecirc;mes int&eacute;r&ecirc;ts et cr&eacute;ez des liens tout en faisant de l'exercice.</li>
             <li><strong>Adaptabilit&eacute; :</strong> Nos cours sont adapt&eacute;s &agrave; tous les niveaux de forme physique, des d&eacute;butants aux athl&egrave;tes confirm&eacute;s.</li>
         </ul>
+        <h3>Découvrez notre coach spécialisé en Cours Collectif: </h3>
+        <br>
         <?php $_SESSION['sport'] = "Cours-Collectifs";
         include 'PARCOURIR_affiche_coach.php';
         ?>
