@@ -50,6 +50,8 @@ CREATE TABLE salle(
     regle VARCHAR(255),
     horaire VARCHAR(255)
 );
+INSERT INTO salle (info, regle, horaire)
+VALUES ('info salle creation BDD', 'info regle creation BDD', 'info horaire creation BDD');
 
 CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
