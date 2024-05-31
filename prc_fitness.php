@@ -19,6 +19,9 @@ session_start();
     <section id="Fitness">
         <h2>Fitness</h2>
         <p>Participez &agrave; nos s&eacute;ances de fitness pour rester en forme et en bonne sant&eacute;. Le fitness est un moyen id&eacute;al pour am&eacute;liorer votre condition physique g&eacute;n&eacute;rale, votre sant&eacute; mentale et votre bien-&ecirc;tre. Que vous soyez un d&eacute;butant cherchant &agrave; adopter un mode de vie plus actif ou un athl&egrave;te souhaitant maintenir sa forme, notre programme de fitness est con&ccedil;u pour r&eacute;pondre &agrave; vos besoins et objectifs.</p>
+        <br>
+        <img src="img/fitness2.jpg" alt="Fitness" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <br>
         <h3>Pourquoi Choisir le Fitness ?</h3>
         <ul>
             <li><strong>Am&eacute;lioration de la Sant&eacute; Cardiovasculaire :</strong> Le fitness am&eacute;liore la sant&eacute; de votre c&oelig;ur et de vos poumons, augmentant ainsi votre endurance et r&eacute;duisant le risque de maladies cardiaques.</li>

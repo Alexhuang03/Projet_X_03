@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php
-session_start();
-?>
-<html lang="fr">
+<?php session_start();
+?><html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,13 +14,15 @@ session_start();
     <?php include 'src_header.php'; ?>
     <?php include 'src_navigation.php'; ?>
 
-
     <section id="Musculation">
         <h1>Activit&eacute;s sportives</h1>
         <p>D&eacute;couvrez nos activit&eacute;s sportives vari&eacute;es pour tous les niveaux et tous les &acirc;ges.</p>
-        <h2>Musculation</h2>
-        <p>Am&eacute;liorez votre force et votre endurance avec nos programmes de musculation. La musculation est un &eacute;l&eacute;ment essentiel de tout programme de fitness. Que vous cherchiez &agrave; augmenter votre masse musculaire, &agrave; am&eacute;liorer votre force, ou &agrave; tonifier votre corps, notre programme de musculation est con&ccedil;u pour vous aider &agrave; atteindre vos objectifs de mani&egrave;re efficace et s&eacute;curis&eacute;e.
-        </p><h3>Pourquoi Choisir la Musculation ?</h3>
+        <h2 id="result-665866b6771f6">Musculation</h2>
+        <p>Am&eacute;liorez votre force et votre endurance avec nos programmes de musculation. La musculation est un &eacute;l&eacute;ment essentiel de tout programme de fitness. Que vous cherchiez &agrave; augmenter votre masse musculaire, &agrave; am&eacute;liorer votre force, ou &agrave; tonifier votre corps, notre programme de musculation est con&ccedil;u pour vous aider &agrave; atteindre vos objectifs de mani&egrave;re efficace et s&eacute;curis&eacute;e.</p>
+        <br>
+        <img src="img/musculation2.jpg" alt="Musculation" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <br>
+        <h3 id="result-665866b67755a">Pourquoi Choisir la Musculation ?</h3>
         <ul>
             <li><strong>Augmentation de la Force :</strong> La musculation renforce vos muscles, ce qui am&eacute;liore votre force globale et facilite les t&acirc;ches quotidiennes.</li>
             <li><strong>Masse Musculaire :</strong> Que vous souhaitiez gagner en volume ou sculpter vos muscles, nos programmes vous guident &agrave; chaque &eacute;tape.</li>
@@ -40,4 +40,3 @@ session_start();
 </div>
 </body>
 </html>
-

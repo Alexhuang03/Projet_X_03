@@ -19,6 +19,9 @@ session_start();
     <section id="Cardio-Training">
         <h2>Cardio Training</h2>
         <p>Am&eacute;liorez votre condition physique avec nos exercices de cardio training. Le cardio training est essentiel pour maintenir une bonne sant&eacute; cardiovasculaire et am&eacute;liorer votre endurance. Que vous soyez un athl&egrave;te chevronn&eacute; ou que vous d&eacute;butiez votre parcours de remise en forme, nos programmes de cardio training sont con&ccedil;us pour vous aider &agrave; atteindre vos objectifs de mani&egrave;re efficace et motivante.</p>
+        <br>
+        <img src="img/cardiotraining2.jpeg" alt="Cardio" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <br>
         <h3>Pourquoi Choisir le Cardio Training ?</h3>
         <ul>
             <li><strong>Am&eacute;lioration de la Sant&eacute; Cardiovasculaire :</strong> Le cardio training renforce votre c&oelig;ur et vos poumons, augmentant ainsi votre capacit&eacute; d'endurance.</li>

@@ -19,6 +19,9 @@ session_start();
     <section id="Biking">
         <h2>Biking</h2>
         <p>Rejoignez nos sessions de biking pour une exp&eacute;rience de cyclisme intense en salle. Le biking est une excellente mani&egrave;re de renforcer votre condition physique tout en vous amusant. Que vous soyez un cycliste exp&eacute;riment&eacute; ou que vous cherchiez &agrave; d&eacute;couvrir une nouvelle activit&eacute;, notre programme de biking est con&ccedil;u pour r&eacute;pondre &agrave; tous les niveaux et vous aider &agrave; atteindre vos objectifs de sant&eacute; et de forme physique.</p>
+        <br>
+        <img src="img/biking2.jpeg" alt="Biking" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <br>
         <h3>Pourquoi Choisir le Biking ?</h3>
         <ul>
             <li><strong>Cardio Exceptionnel :</strong> Le biking est une activit&eacute; cardiovasculaire intense qui aide &agrave; am&eacute;liorer la sant&eacute; de votre c&oelig;ur et de vos poumons.</li>

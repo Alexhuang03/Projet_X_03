@@ -19,6 +19,9 @@ session_start();
     <section id="Cours-Collectifs">
         <h2>Cours Collectifs</h2>
         <p>Participez &agrave; nos cours collectifs pour une exp&eacute;rience d'entra&icirc;nement motivante et sociale. Les cours collectifs sont une excellente mani&egrave;re de rester motiv&eacute;, de socialiser et de b&eacute;n&eacute;ficier de l'encadrement d'un coach professionnel. Que vous pr&eacute;f&eacute;riez le cardio, le renforcement musculaire ou les exercices de flexibilit&eacute;, nous avons un cours collectif qui r&eacute;pondra &agrave; vos besoins et &agrave; vos objectifs.</p>
+        <br>
+        <img src="img/courscollectifs2.jpg" alt="Cours Collectifs" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
+        <br>
         <h3>Pourquoi Choisir les Cours Collectifs ?</h3>
         <ul>
             <li><strong>Motivation de Groupe :</strong> L'&eacute;nergie et l'encouragement des autres participants vous motivent &agrave; donner le meilleur de vous-m&ecirc;me.</li>
