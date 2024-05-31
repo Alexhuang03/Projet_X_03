@@ -37,7 +37,7 @@ session_start();
         <br>
         <img src="img/football3.jpg" alt="Football" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
         <br>
-        <h3>Découvrez notre coach spécialisé en Football: </h3>
+        <h3>Découvrez notre coach spécialisé en Football : </h3>
         <br>
         <?php
         $_SESSION['sport'] = "Football";

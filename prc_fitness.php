@@ -30,7 +30,7 @@ session_start();
             <li><strong>R&eacute;duction du Stress :</strong> L'activit&eacute; physique lib&egrave;re des endorphines, les hormones du bien-&ecirc;tre, qui aident &agrave; r&eacute;duire le stress et &agrave; am&eacute;liorer votre humeur.</li>
             <li><strong>Flexibilit&eacute; et &Eacute;quilibre :</strong> Les exercices de fitness am&eacute;liorent la flexibilit&eacute;, l'&eacute;quilibre et la coordination, r&eacute;duisant ainsi le risque de blessures.</li>
         </ul>
-        <h3>Découvrez notre coach spécialisé en Fitness: </h3>
+        <h3>Découvrez notre coach spécialisé en Fitness : </h3>
         <br>
         <?php $_SESSION['sport'] = "Fitness";
         include 'PARCOURIR_affiche_coach.php';

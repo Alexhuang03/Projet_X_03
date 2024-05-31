@@ -38,7 +38,7 @@
             <figcaption>L'ECE champion de France Universitaire</figcaption>
         </figure>
         <br>
-        <h3>Découvrez notre coach spécialisé en Basketball: </h3>
+        <h3>Découvrez notre coach spécialisé en Basketball : </h3>
         <br>
         <?php $_SESSION['sport'] = "Basketball";
         include 'PARCOURIR_affiche_coach.php';
