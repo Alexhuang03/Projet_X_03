@@ -112,7 +112,6 @@
                         <option value="1">1 semaine</option>
                         <option value="2">2 semaines</option>
                         <option value="3">3 semaines</option>
-                        <!-- Ajoute d'autres options selon tes besoins -->
                     </select>
                 </td>
             </tr>
@@ -175,7 +174,6 @@
                         <option value="1">1 semaine</option>
                         <option value="2">2 semaines</option>
                         <option value="3">3 semaines</option>
-                        <!-- Ajoute d'autres options selon tes besoins -->
                     </select>
                 </td>
             </tr>
@@ -187,7 +185,45 @@
         </table>
     </form>
 
-    <h3>Gestion Salle (à faire)</h3>
+    <h3>Gestion Salle</h3>
+    <table>
+        <?php
+        if ($db_found) {
+            $query_salle = "SELECT * FROM salle";
+            $result_salle = mysqli_query($db_handle, $query_salle);
+            echo "<tr><th>Information sur la Salle</th><th>Regles</th><th>Horaires</th></tr>";
+            while ($row_salle = mysqli_fetch_assoc($result_salle)) {
+                echo "<tr>";
+                echo "<td>" . $row_salle['info'] . "</td>";
+                echo "<td>" . $row_salle['regle'] . "</td>";
+                echo "<td>" . $row_salle['horaire'] . "</td>";
+                echo "</tr>";
+            }
+        }
+        ?>
+    </table><br>
+    <table>
+        <form method="post" action="src_modifier_info_salle.php" enctype="multipart/form-data">
+            <tr>
+                <td><label for="prenom_coach">Information sur la Salle :</label></td>
+                <td><input type="text" id="info_salle" name="info_salle" required></td>
+            </tr>
+            <tr>
+                <td><label for="email_coach">Règles de la Salle :</label></td>
+                <td><input type="text" id="info_regle" name="info_regle" required></td>
+            </tr>
+            <tr>
+                <td><label for="specialite_coach">Horaires de la Salle :</label></td>
+                <td><input type="text" id="info_horaire" name="info_horaire" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="submit" value="Appliquer la modification">
+                </td>
+            </tr>
+        </form>
+    </table>
+
 
     <h3>Liste des Créneaux par Coach</h3>
     <table border="1">

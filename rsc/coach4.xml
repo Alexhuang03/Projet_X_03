@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cv>
     <informations_personnelles>
-        <nom>Nom du candidat</nom>
-        <prenom>Prénom du candidat</prenom>
+        <nom>Bernard</nom>
+        <prenom>Lucie</prenom>
         <adresse>Adresse du candidat</adresse>
         <telephone>Téléphone du candidat</telephone>
         <email>Email du candidat</email>

@@ -80,7 +80,12 @@ if (isset($_SESSION['sport'])) {
                         </tr>
                         <?php
                         // Requête pour récupérer les créneaux du coach
-                        $query_creneaux = "SELECT * FROM creneaux WHERE id_coach = '{$row_coach['id']}'";
+                        $query_creneaux = "
+                            SELECT * 
+                            FROM creneaux 
+                            WHERE id_coach = '{$row_coach['id']}'
+                            AND CONCAT(date_creneau, ' ', heure_debut) > NOW()
+                        ";
                         $result_creneaux = mysqli_query($db_handle, $query_creneaux);
 
                         // Vérifier s'il y a des créneaux pour ce coach
@@ -119,19 +124,6 @@ if (isset($_SESSION['sport'])) {
                 <div class="coach-actions">
                     <button onclick="showCV('<?php echo $row_coach['cv']; ?>')">Voir CV</button>
                     <button onclick="openEmailInterface('<?php echo $row_coach['email']; ?>')">Communiquer avec le coach</button>
-                    <?php
-                    // Vérifier si l'utilisateur est connecté
-                    if (isset($_SESSION['id'])) {
-                        // ID de l'utilisateur connecté
-                        $user_id = $_SESSION['id'];
-
-                        // Bouton pour prendre un RDV avec l'ID de l'utilisateur connecté
-                        echo "<button onclick=\"location.href='src_prendre_rdv.php?id={$row_coach['id']}&user_id={$user_id}'\">Prendre un RDV</button>";
-                    } else {
-                        // Redirection vers la page de connexion pour l'utilisateur non connecté
-                        echo "<button onclick=\"location.href='link_login.php'\">Se connecter pour prendre un RDV</button>";
-                    }
-                    ?>
                 </div>
             </div>
             <?php
@@ -179,16 +171,21 @@ mysqli_close($db_handle);
                 var adresse = xmlDoc.getElementsByTagName("adresse")[0].textContent;
                 var telephone = xmlDoc.getElementsByTagName("telephone")[0].textContent;
                 var email = xmlDoc.getElementsByTagName("email")[0].textContent;
-                var diplome = xmlDoc.getElementsByTagName("diplome")[0].textContent;
-                var etablissement = xmlDoc.getElementsByTagName("etablissement")[0].textContent;
-                var anneeFormation = xmlDoc.getElementsByTagName("annee")[0].textContent;
-                var poste = xmlDoc.getElementsByTagName("poste")[0].textContent;
-                var entreprise = xmlDoc.getElementsByTagName("entreprise")[0].textContent;
-                var anneesExperience = xmlDoc.getElementsByTagName("annees")[0].textContent;
-                var langues = xmlDoc.getElementsByTagName("langues")[0].textContent;
-                var informatique = xmlDoc.getElementsByTagName("informatique")[0].textContent;
-                var autresCompetences = xmlDoc.getElementsByTagName("autres")[0].textContent;
 
+                var formation = xmlDoc.getElementsByTagName("formation")[0];
+                var diplome = formation.getElementsByTagName("diplome")[0].textContent;
+                var etablissement = formation.getElementsByTagName("etablissement")[0].textContent;
+                var anneeFormation = formation.getElementsByTagName("annee")[0].textContent;
+
+                var experience = xmlDoc.getElementsByTagName("experience_professionnelle")[0];
+                var poste = experience.getElementsByTagName("poste")[0].textContent;
+                var entreprise = experience.getElementsByTagName("entreprise")[0].textContent;
+                var anneesExperience = experience.getElementsByTagName("annees")[0].textContent;
+
+                var competences = xmlDoc.getElementsByTagName("competences")[0];
+                var langues = competences.getElementsByTagName("langues")[0].textContent;
+                var informatique = competences.getElementsByTagName("informatique")[0].textContent;
+                var autresCompetences = competences.getElementsByTagName("autres")[0].textContent;
                 // Construire le contenu à afficher
                 var cvHTML = "<h2>Informations Personnelles</h2>";
                 cvHTML += "<p><strong>Nom:</strong> " + nom + "</p>";

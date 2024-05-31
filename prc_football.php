@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<?php
-session_start();
-?>
-<html lang="fr">
+<?php session_start();
+?><html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,9 +16,8 @@ session_start();
 
     <section id="Football">
         <h2>Football</h2>
-        <p>Participez &agrave; nos tournois de football et am&eacute;liorez vos techniques de jeu.</p>
-        <?php
-        $_SESSION['sport'] = "Football";
+        <p id="result-665889d30d223">Participez &agrave; nos tournois de football et am&eacute;liorez vos techniques de jeu.</p>
+        <?php $_SESSION['sport'] = "Football";
         include 'PARCOURIR_affiche_coach.php';
         ?>
     </section>
@@ -29,4 +26,3 @@ session_start();
 </div>
 </body>
 </html>
-
