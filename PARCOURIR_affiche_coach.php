@@ -13,7 +13,7 @@
     }
 
     .modal-content {
-        background-color: #fefefe;
+        background-color: #333333;
         margin: 10% auto;
         padding: 20px;
         border: 1px solid #888;
