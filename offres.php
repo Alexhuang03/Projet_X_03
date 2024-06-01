@@ -10,7 +10,7 @@ session_start();
 
         <style type= "text/css">
         .profit{
-            background-color: white;
+            background-color: #FBFCFC;
             color: rgb(125,125,229);
             border-color: rgb(125,125,229);
             border-radius: 10px;

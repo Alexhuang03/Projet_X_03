@@ -1,7 +1,7 @@
 #navigation {
     display: flex;
     justify-content: space-around;
-    background-color: #333333;
+    background-color: #FBEEE6;
     padding: 10px;
 
 }
@@ -9,14 +9,14 @@
 #navigation {
     display: flex;
     justify-content: space-around;
-    background-color: #f8a100; /* Changer la couleur de fond */
+    background-color: #EB984E   ; /* Changer la couleur de fond */
     padding: 10px;
 }
 #navigation a {
     text-decoration: none;
 }
 #navigation button {
-    background-color: #F4F6F6;
+    background-color: #F6DDCC;
     color: black;
     padding: 10px 40px;
     border: none;
@@ -25,7 +25,7 @@
 }
 #navigation button:hover {
     background-color: #F4F6F6;
-    opacity: 70%;
+    opacity: 60%;
 }
 
 .menu {
@@ -34,7 +34,7 @@
 }
 .menu-btn {
     background-color: #4CAF50;
-    color: #333333;
+    color: #FBEEE6;
     padding: 10px 40px;
     font-size: 16px;
     border: none;
@@ -63,7 +63,7 @@
     display: block;
 }
 .dropdown-item a:hover {
-    background-color: #f1f1f1;
+    opacity: 60%;
 }
 
 .sub-dropdown-content {
@@ -85,7 +85,7 @@
     display: block;
 }
 .sub-dropdown-content a:hover {
-    background-color: #ddd;
+    opacity: 60%;
 }
 button{
     border-radius: 10px;

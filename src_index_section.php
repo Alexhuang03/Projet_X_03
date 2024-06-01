@@ -11,8 +11,8 @@
 <link href="src_index_section.css" rel="stylesheet" type="text/css"/>
 <style>
     body {
-        background-color: #333; /* Couleur de fond gris foncé */
-        color: white; /* Couleur du texte blanc */
+        background-color:#FBEEE6 ; /* Couleur de fond gris foncé */
+        color: black; /* Couleur du texte blanc */
         font-family: Arial, sans-serif; /* Police de caractères */
         margin: 0; /* Supprime les marges par défaut */
         padding: 0; /* Supprime les espacements intérieurs par défaut */
@@ -42,14 +42,14 @@
         text-align: center; /* Centrer le texte */
         animation: fadeIn 0.5s ease-in-out; /* Ajouter une animation de fondu */
         margin-bottom: 20px; /* Espacement en bas */
-        color: white; /* Couleur légèrement plus claire que #333333 */
+        color: black; /* Couleur légèrement plus claire que #333333 */
     }
     h3::before {
         content: ""; /* Ajouter un contenu généré */
         display: block; /* Afficher comme un bloc */
         height: 5px; /* Hauteur du bandeau */
         width: 100%; /* Largeur du bandeau */
-        background-color: #f8a100; /* Couleur légèrement plus claire que #333333 */
+        background-color: #EDBB99; /* Couleur légèrement plus claire que #333333 */
         margin-bottom: 10px; /* Espacement entre le titre et le bandeau */
         margin-top: 10px; /* Espacement entre le titre et le bandeau */
 
@@ -72,7 +72,7 @@
     </div>
 
     <br>
-    <h2 class="text-center" style="background-color: #f8a100; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+    <h2 class="text-center" style="background-color: #E59866; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
         Retrouvez les meilleurs moments sports de l'année
     </h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -158,7 +158,7 @@
         </a>
     </div>
     <section id="evenements">
-        <h1 class="text-center" style="background-color: #f8a100; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+        <h1 class="text-center" style="background-color: #EDBB99; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
             Les événements de la semaine
         </h1>
         <div class="event">
@@ -189,7 +189,7 @@
             <h3>Dimanche</h3>
             <p>Journée de repos et récupération</p>
         </div><br><br>
-        <h3 class="text-center" style="background-color: #f8a100; padding-top: 2px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+        <h3 class="text-center" style="background-color: #EDBB99; padding-top: 2px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
             Ne manquez pas ces événements excitants ! Inscrivez-vous dès maintenant et faites partie de notre communauté sportive dynamique.
         </h3>
     </section>

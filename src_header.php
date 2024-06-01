@@ -10,21 +10,21 @@
         display: flex;
         border: 1px solid black;
         justify-content: center;
-        background-color: #333333;
+        background-color: #FBEEE6;
         align-items: center;
         text-align: center;
         height: 80px; /* Augmente la hauteur de l'en-tête */
     }
 
      body {
-         background-color: #333; /* Couleur de fond gris foncé */
-         color: white; /* Couleur du texte blanc */
+         background-color: #FBEEE6; /* Couleur de fond gris foncé */
+         color: black ; /* Couleur du texte blanc */
          font-family: Arial, sans-serif; /* Police de caractères */
          margin: 0; /* Supprime les marges par défaut */
      }
 
     #header h1 {
-        color: white; /* Change la couleur du texte en blanc */
+        color: black; /* Change la couleur du texte en blanc */
         font-size: 24px; /* Modifie la taille de la police */
         font-weight: bold;
         margin: 0; /* Supprime les marges par défaut du titre */

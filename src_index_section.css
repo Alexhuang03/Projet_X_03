@@ -26,7 +26,7 @@ h1 {
     margin-top: 50px;
     text-align: center;
     background-color: #E74C3C ;
-    color : white;
+    color : black;
     border-color: #943126 ;
     border-radius: 10px;
     border-style: solid;
@@ -55,7 +55,7 @@ h1 {
 .controls button.prev,
 .controls button.next {
     background-color: #E74C3C ;
-    color : white;
+    color : black;
     border-color: #943126 ;
     border-radius: 10px;
     border-style: solid;
