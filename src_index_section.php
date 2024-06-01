@@ -49,7 +49,7 @@
         display: block; /* Afficher comme un bloc */
         height: 5px; /* Hauteur du bandeau */
         width: 100%; /* Largeur du bandeau */
-        background-color: #0089ff; /* Couleur légèrement plus claire que #333333 */
+        background-color: #f8a100; /* Couleur légèrement plus claire que #333333 */
         margin-bottom: 10px; /* Espacement entre le titre et le bandeau */
         margin-top: 10px; /* Espacement entre le titre et le bandeau */
 
@@ -72,7 +72,7 @@
     </div>
 
     <br>
-    <h2 class="text-center" style="background-color: #0089ff; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+    <h2 class="text-center" style="background-color: #f8a100; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
         Retrouvez les meilleurs moments sports de l'année
     </h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -158,7 +158,7 @@
         </a>
     </div>
     <section id="evenements">
-        <h1 class="text-center" style="background-color: #0089ff; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+        <h1 class="text-center" style="background-color: #f8a100; padding-top: 20px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
             Les événements de la semaine
         </h1>
         <div class="event">
@@ -188,8 +188,8 @@
         <div class="event">
             <h3>Dimanche</h3>
             <p>Journée de repos et récupération</p>
-        </div>
-        <h3 class="text-center" style="background-color: #0089ff; padding-top: 2px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
+        </div><br><br>
+        <h3 class="text-center" style="background-color: #f8a100; padding-top: 2px; padding-bottom: 20px; max-width: 60%; margin: 0 auto;">
             Ne manquez pas ces événements excitants ! Inscrivez-vous dès maintenant et faites partie de notre communauté sportive dynamique.
         </h3>
     </section>
