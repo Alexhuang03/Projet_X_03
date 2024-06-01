@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_role'])) {
-    $_SESSION['user_role'] = '';
-}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,7 +40,7 @@ if (!isset($_SESSION['user_role'])) {
                     <li>Caching digital inclus </li>
                 </ul>
                 <!--TO DO: bouton pr dire que j'suis intéressé, si pas connecté,-> aller à la page de connexion, sinon plateforme de payement  -->
-                <button class="profit">
+                <button class="profit" onclick="handleButtonClick('mensuel')">
                     J'EN PROFITE
                 </button>
             </div>
@@ -60,12 +57,22 @@ if (!isset($_SESSION['user_role'])) {
                 </ul>
                 <!--TO DO: bouton pr dire que j'suis intéressé, si pas connecté,-> aller à la page de connexion, sinon plateforme de payement -->
                 <!--plateforme de payement avec le nom, prénom, adresse, IBAN -->
-                <button class="profit">
+                <button class="profit" onclick="handleButtonClick('annuel')">
                     J'EN PROFITE
                 </button>
             </div>
         </div>
         <div id="produit"></div>
         <?php include 'src_footer.php'; ?>
+        <script>
+            function handleButtonClick(offre) {
+                var userId = "<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : ''; ?>";
+                if (/^\d+$/.test(userId)) {
+                    window.location.href = 'achat.php?offre=' + offre;
+                } else {
+                    window.location.href = 'link_login.php';
+                }
+            }
+        </script>
     </body>
 </html>
