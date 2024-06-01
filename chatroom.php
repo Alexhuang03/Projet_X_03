@@ -1,5 +1,4 @@
 <?php
-
 $database = "Sportify";
 $db_handle = mysqli_connect('localhost', 'root', '');
 $db_found = mysqli_select_db($db_handle, $database);
@@ -25,12 +24,13 @@ function saveMessage($id_coach, $id_user, $message, $db_handle) {
     return true;
 }
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $id_user = $_POST['id_user'];
-    $id_coach = $_POST['id_coach'];
+    // récupère les valeurs soumises par le formulaire
+    $id_user = $_POST['id_coach'];
+    $id_coach = $_POST['id_user'];
     $message = $_POST['message'];
-    echo "ID Utilisateur: " . $id_user . ", ID Coach: " . $id_coach; // Débogage des IDs
+
+    echo( "voici l'id de l'utilisateur : ". $id_user . "et celui du coach: ". $id_coach );
 
     if ($db_found) {
         if (saveMessage($id_coach, $id_user, $message, $db_handle)) {
@@ -98,6 +98,7 @@ if (!$result_messages) {
             height: 280px;
             overflow-y: scroll;
             border-bottom: 1px solid #ccc;
+            color: black;
         }
         #messages li {
             padding: 8px;
@@ -133,7 +134,7 @@ if (!$result_messages) {
         <?php
         // Affichage des messages
         while ($row = mysqli_fetch_assoc($result_messages)) {
-            echo "<li><strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> à <strong>{$row['user_nom']} {$row['user_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
+            echo "<li><strong>{$row['user_nom']} {$row['user_prenom']}</strong> à <strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
         }
         ?>
     </ul>
@@ -146,10 +147,11 @@ if (!$result_messages) {
             $result_users = mysqli_query($db_handle, $query_users);
             while ($user = mysqli_fetch_assoc($result_users)) {
                 echo "<option value='{$user['id']}'>{$user['prenom']} {$user['nom']}</option>";
+                $_SESSION['id'];
             }
             ?>
         </select>
-        <input type="hidden" name="id_coach" value="2"> <!-- Modifier cette valeur selon le coach -->
+        <input type="hidden" name="id_coach" value="<?php echo ($_SESSION['id']) ?>"> <!-- Modifier cette valeur selon le coach -->
         <input id="message" name="message" autocomplete="off" placeholder="Tapez un message..." />
         <button type="submit">Envoyer</button>
     </form>
