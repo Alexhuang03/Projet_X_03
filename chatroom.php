@@ -143,6 +143,7 @@ if (!$result_messages) {
             }
         }
         ?>
+
     </ul>
     <form method="POST" action="" id="messageForm">
         <select id="userSelect" name="id_user">
