@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Roux</nom>
         <prenom>Julie</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>111 Avenue des Sports, 31000 Toulouse, France</adresse>
+        <telephone>+33 6 98 76 54 32</telephone>
+        <email>julie.roux@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Master en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif et Performance</diplome>
+        <etablissement>Université Toulouse III - Paul Sabatier</etablissement>
+        <annee>2015</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach sportive en rugby de compétition</poste>
+        <entreprise>Toulouse Rugby Club</entreprise>
+        <annees>7 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant)</langues>
+        <informatique>Maîtrise des logiciels d'analyse de performance et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Élaboration de stratégies de jeu, Coaching individuel et d'équipe, Préparation physique et mentale des athlètes, Animation d'entraînements intensifs, Gestion de la motivation et de la cohésion d'équipe, Connaissances en nutrition sportive et récupération</autres>
     </competences>
 </cv>

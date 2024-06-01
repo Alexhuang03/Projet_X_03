@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Martin</nom>
         <prenom>Pierre</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>59 Rue Alexandre Fleming, 59100 Roubaix, France</adresse>
+        <telephone>+33 6 23 45 67 89</telephone>
+        <email>pierre.martin@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Licence en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif</diplome>
+        <etablissement>Université de Lille</etablissement>
+        <annee>2013</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach de biking</poste>
+        <entreprise>Feel Sport Wasquehal</entreprise>
+        <annees>7 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant), Allemand (courant)</langues>
+        <informatique>Maîtrise des logiciels de planification d'entraînement et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Création de programmes de biking, Gestion de la motivation et de l'endurance</autres>
     </competences>
 </cv>

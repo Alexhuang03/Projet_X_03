@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Muller</nom>
         <prenom>Louis</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>45 Rue des Sports Aquatiques, 40100 Dax, France</adresse>
+        <telephone>+33 6 87 65 43 21</telephone>
+        <email>louis.muller@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Master en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif et Performance</diplome>
+        <etablissement>Université de Pau et des Pays de l'Adour</etablissement>
+        <annee>2014</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach de plongeon en compétition</poste>
+        <entreprise>Dax Plongeon Club</entreprise>
+        <annees>8 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant)</langues>
+        <informatique>Maîtrise des logiciels d'analyse de performance et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Élaboration de programmes d'entraînement personnalisés, Coaching individuel et d'équipe, Préparation physique et mentale des plongeurs, Animation de sessions d'entraînement intensif, Gestion de la motivation et de la performance, Connaissances en nutrition sportive et récupération</autres>
     </competences>
 </cv>

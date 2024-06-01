@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Dupont</nom>
         <prenom>Jean</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>14 Rue de l'Ingénieur Robert Keller, 75015 Paris, France</adresse>
+        <telephone>+33 6 12 34 56 78</telephone>
+        <email>jean.dupont@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Licence en Sciences et Techniques des Activités Physiques et Sportives (STAPS)</diplome>
+        <etablissement>Université Paris Descartes</etablissement>
+        <annee>2011</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach sportif de musculation</poste>
+        <entreprise>LA BRILLANCE</entreprise>
+        <annees>8 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant)</langues>
+        <informatique>Maîtrise des logiciels de suivi d'entraînement et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Nutrition sportive et Préparation physique</autres>
     </competences>
 </cv>

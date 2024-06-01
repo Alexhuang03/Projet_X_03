@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_coach = $_POST['id_user'];
     $message = $_POST['message'];
 
-    echo( "voici l'id de l'utilisateur : ". $id_user . "et celui du coach: ". $id_coach );
+    echo( "voici l'id de l'utilisateur : ". $id_user . " et celui qui reçoit les messages: ". $id_coach );
 
     if ($db_found) {
         if (saveMessage($id_coach, $id_user, $message, $db_handle)) {
@@ -133,10 +133,17 @@ if (!$result_messages) {
     <ul id="messages">
         <?php
         // Affichage des messages
-        while ($row = mysqli_fetch_assoc($result_messages)) {
-            echo "<li><strong>{$row['user_nom']} {$row['user_prenom']}</strong> à <strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
+        if ($_SESSION['role'] == 'client') {
+            while ($row = mysqli_fetch_assoc($result_messages)) {
+                echo "<li><strong>{$row['user_nom']} {$row['user_prenom']}</strong> à <strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
+            }
+        } elseif ($_SESSION['role'] == 'coach') {
+            while ($row = mysqli_fetch_assoc($result_messages)) {
+                echo "<li><strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> à <strong>{$row['user_nom']} {$row['user_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
+            }
         }
         ?>
+
     </ul>
     <form method="POST" action="" id="messageForm">
         <select id="userSelect" name="id_user">
@@ -151,7 +158,11 @@ if (!$result_messages) {
             }
             ?>
         </select>
-        <input type="hidden" name="id_coach" value="<?php echo ($_SESSION['id']) ?>"> <!-- Modifier cette valeur selon le coach -->
+        <?php if ($_SESSION['role'] == 'client') { ?>
+            <input type="hidden" name="id_coach" value="<?php echo $_SESSION['id']; ?>">
+        <?php } elseif ($_SESSION['role'] == 'coach') { ?>
+            <input type="hidden" name="id_client" value="<?php echo $_SESSION['id']; ?>">
+        <?php } ?>
         <input id="message" name="message" autocomplete="off" placeholder="Tapez un message..." />
         <button type="submit">Envoyer</button>
     </form>

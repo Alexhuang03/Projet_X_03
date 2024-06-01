@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Petit</nom>
         <prenom>Antoine</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>20 Avenue des Champions, 06000 Nice, France</adresse>
+        <telephone>+33 6 12 34 56 78</telephone>
+        <email>antoine.petit@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Master en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif et Performance</diplome>
+        <etablissement>Université Côte d'Azur</etablissement>
+        <annee>2014</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach de tennis en compétition</poste>
+        <entreprise>Nice Tennis Club</entreprise>
+        <annees>8 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant)</langues>
+        <informatique>Maîtrise des logiciels d'analyse de performance et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Élaboration de programmes d'entraînement personnalisés, Coaching individuel, Préparation physique et mentale des joueurs, Animation de sessions d'entraînement intensif, Gestion de la motivation et de la performance, Connaissances en nutrition sportive et récupération</autres>
     </competences>
 </cv>

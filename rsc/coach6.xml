@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Lefevre</nom>
         <prenom>Sophie</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>35 Rue du Basket, 13001 Marseille, France</adresse>
+        <telephone>+33 6 87 65 43 21</telephone>
+        <email>sophie.lefevre@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Master en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif et Performance</diplome>
+        <etablissement>Université d'Aix-Marseille</etablissement>
+        <annee>2015</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach sportive en basketball de compétition</poste>
+        <entreprise>Marseille Basketball Club</entreprise>
+        <annees>7 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant), Espagnol (courant), Japonais (notions)</langues>
+        <informatique>Maîtrise des logiciels d'analyse de performance et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Élaboration de stratégies de jeu, Coaching individuel et d'équipe, Préparation physique et mentale des athlètes, Animation d'entraînements intensifs, Gestion de la motivation et de l'esprit d'équipe, Connaissances en nutrition sportive</autres>
     </competences>
 </cv>
