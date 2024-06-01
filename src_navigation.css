@@ -9,7 +9,7 @@
 #navigation {
     display: flex;
     justify-content: space-around;
-    background-color: #E59866   ; /* Changer la couleur de fond */
+    background-color: #EB984E   ; /* Changer la couleur de fond */
     padding: 10px;
 }
 #navigation a {
