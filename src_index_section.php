@@ -97,7 +97,7 @@
         <!-- Wrapper pour les images -->
         <div class="carousel-inner">
             <div class="item active">
-                <a href="https://www.nba.com/?lang=fr_fr"><img src="img/basket1.jpg" width=100% height=80%/></a>
+                <a href="https://www.nba.com/?lang=fr_fr" target="_blank"><img src="img/basket1.jpg" width=100% height=80%/></a>
                 <div class="carousel-caption">
                     <h3>Basket</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="item">
-                <a href="https://www.eurosport.fr/football/"><img src="img/football.jpg" width=100% height=80% /></a>
+                <a href="https://www.eurosport.fr/football/" target="_blank"><img src="img/football.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Football</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -113,7 +113,7 @@
             </div>
 
             <div class="item">
-                <a href="https://www.rugby365.fr/"><img src="img/rugby.jpg" width=100% height=80% /></a>
+                <a href="https://www.rugby365.fr/" target="_blank"><img src="img/rugby.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Rugby</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -121,7 +121,7 @@
             </div>
 
             <div class="item">
-                <a href="https://www.tennisactu.net/"><img src="img/tennis.jpg" width=100% height=80% /></a>
+                <a href="https://www.tennisactu.net/" target="_blank"><img src="img/tennis.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Tennis</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="item">
-                <a href="https://www.lequipe.fr/Natation/"><img src="img/natation.jpg" width=100% height=80% /></a>
+                <a href="https://www.lequipe.fr/Natation/" target="_blank"><img src="img/natation.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Natation</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -137,7 +137,7 @@
             </div>
 
             <div class="item">
-                <a href="https://olympics.com/fr/paris-2024/sports/plongeon"><img src="img/plongeon1.jpg" width=100% height=80% /></a>
+                <a href="https://olympics.com/fr/paris-2024/sports/plongeon" target="_blank"><img src="img/plongeon1.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Plongeon</h3>
                     <p>Les meilleurs moments de l'année</p>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="item">
-                <a href="https://www.lequipe.fr/Badminton/"><img src="img/badminton.jpg" width=100% height=80% /></a>
+                <a href="https://www.lequipe.fr/Badminton/" target="_blank"><img src="img/badminton.jpg" width=100% height=80% /></a>
                 <div class="carousel-caption">
                     <h3>Badminton</h3>
                     <p>Les meilleurs moments de l'année</p>
