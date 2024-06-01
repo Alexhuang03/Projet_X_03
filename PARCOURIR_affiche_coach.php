@@ -13,7 +13,7 @@
     }
 
     .modal-content {
-        background-color: #333333;
+        background-color: #FBEEE6;
         margin: 10% auto;
         padding: 20px;
         border: 1px solid #888;
@@ -39,7 +39,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diviser en colonnes adaptatives */
         grid-gap: 20px; /* Espacement entre les éléments */
-        background-color: #333333; /* Couleur de fond */
+        background-color: #FBEEE6; /* Couleur de fond */
         padding: 20px; /* Espacement intérieur */
         border-radius: 5px; /* Coins arrondis */
     }

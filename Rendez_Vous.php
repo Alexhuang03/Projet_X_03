@@ -19,7 +19,7 @@
                 text-align: center; /* Centrer le texte */
                 animation: fadeIn 0.5s ease-in-out; /* Ajouter une animation de fondu */
                 margin-bottom: 20px; /* Espacement en bas */
-                color: white; /* Couleur légèrement plus claire que #333333 */
+                color: black; /* Couleur légèrement plus claire que #333333 */
             }
             h3::before {
                 content: ""; /* Ajouter un contenu généré */
