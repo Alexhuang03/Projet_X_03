@@ -39,9 +39,8 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Diviser en colonnes adaptatives */
         grid-gap: 20px; /* Espacement entre les éléments */
-        background-color: #f9f9f9; /* Couleur de fond */
+        background-color: #333333; /* Couleur de fond */
         padding: 20px; /* Espacement intérieur */
-        border: 1px solid #ddd; /* Bordure */
         border-radius: 5px; /* Coins arrondis */
     }
 
@@ -64,7 +63,7 @@
 
 
     .coach-actions button {
-        background-color: #4CAF50; /* Couleur de fond */
+        background-color: grey; /* Couleur de fond */
         color: white; /* Couleur du texte */
         padding: 10px 20px; /* Espacement intérieur */
         border: none; /* Pas de bordure */
@@ -74,16 +73,6 @@
         margin-right: 10px; /* Marge à droite */
     }
 
-    .coach-info p {
-        color: #333333;
-    }
-    .coach-info h2 {
-        color: #333333;
-    }
-
-    .coach-info h3 {
-        color: #333333;
-    }
 
     .coach-actions button:hover {
         background-color: #45a049; /* Couleur de fond au survol */

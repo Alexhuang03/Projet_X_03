@@ -1,13 +1,16 @@
 #navigation {
     display: flex;
     justify-content: space-around;
-    background-color: white;
+    background-color: #333333;
     padding: 10px;
 
 }
 
 #navigation {
-
+    display: flex;
+    justify-content: space-around;
+    background-color: #333333; /* Changer la couleur de fond */
+    padding: 10px;
 }
 #navigation a {
     text-decoration: none;
@@ -31,7 +34,7 @@
 }
 .menu-btn {
     background-color: #4CAF50;
-    color: white;
+    color: #333333;
     padding: 10px 40px;
     font-size: 16px;
     border: none;

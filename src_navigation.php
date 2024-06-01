@@ -63,7 +63,7 @@ if (isset($_SESSION['user_role'])) {
 </script>
 <link href="src_navigation.css" rel="stylesheet" type="text/css"/>
 
-<div id="navigation" style="border:1px solid black;">
+<div id="navigation">
     <a href="INDEX.php"><button>Accueil</button></a>
     <div class="menu">
         <button class="menu-btn">Tout Parcourir</button>

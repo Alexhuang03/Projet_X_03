@@ -9,7 +9,7 @@
             width: 80%;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #333333;
             border: 10px solid #ddd;
             border-radius: 5px;
             display: grid;
@@ -18,7 +18,7 @@
         }
 
         .content {
-            background-color: #e0e0e0; /* Couleur de fond des divs de contenu */
+            background-color: grey; /* Couleur de fond des divs de contenu */
             padding: 15px;
             border-radius: 5px;
         }

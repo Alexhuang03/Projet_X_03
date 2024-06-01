@@ -19,6 +19,17 @@
                 text-align: center; /* Centrer le texte */
                 animation: fadeIn 0.5s ease-in-out; /* Ajouter une animation de fondu */
                 margin-bottom: 20px; /* Espacement en bas */
+                color: white; /* Couleur légèrement plus claire que #333333 */
+            }
+            h3::before {
+                content: ""; /* Ajouter un contenu généré */
+                display: block; /* Afficher comme un bloc */
+                height: 5px; /* Hauteur du bandeau */
+                width: 100%; /* Largeur du bandeau */
+                background-color: #4c4c4c; /* Couleur légèrement plus claire que #333333 */
+                margin-bottom: 10px; /* Espacement entre le titre et le bandeau */
+                margin-top: 10px; /* Espacement entre le titre et le bandeau */
+
             }
 
             table {
