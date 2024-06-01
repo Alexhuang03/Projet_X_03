@@ -107,6 +107,7 @@ if (isset($_SESSION['user_role'])) {
     </div>
 
     <a href="Rendez_Vous.php"><button>Rendez-vous</button></a>
+    <a href="offres.php"><button>Nos offres</button></a>
 
     <div class="menu">
         <button class="menu-btn"><?php echo $texteBouton; ?></button>
