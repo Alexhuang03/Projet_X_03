@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cv>
     <informations_personnelles>
-        <nom>Pauk</nom>
+        <nom>Paul</nom>
         <prenom>Durand</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>12 Avenue du Fitness, 69008 Lyon, France</adresse>
+        <telephone>+33 7 12 34 56 78</telephone>
+        <email>paul.durand@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Licence en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Animation et Coaching Sportif</diplome>
+        <etablissement>Université Claude Bernard Lyon 1</etablissement>
+        <annee>2013</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach pour les cours collectifs</poste>
+        <entreprise>FitLife Lyon</entreprise>
+        <annees>7 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant), Chnois (courant)</langues>
+        <informatique>Maîtrise des logiciels de gestion des cours collectifs et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Animation de cours collectifs (Zumba, Pilates, HIIT, Yoga), Création de programmes d'entraînement en groupe, Techniques de motivation et de gestion de groupe, Connaissances en nutrition et bien-être, Organisation d'événements sportifs</autres>
     </competences>
 </cv>

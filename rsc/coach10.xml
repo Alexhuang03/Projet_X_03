@@ -3,23 +3,23 @@
     <informations_personnelles>
         <nom>Gauthier</nom>
         <prenom>Emilie</prenom>
-        <adresse>Adresse du candidat</adresse>
-        <telephone>Téléphone du candidat</telephone>
-        <email>Email du candidat</email>
+        <adresse>40 Rue de l'Océan, 40150 Hossegor, France</adresse>
+        <telephone>+33 6 54 32 10 98</telephone>
+        <email>emilie.gauthier@example.com</email>
     </informations_personnelles>
     <formation>
-        <diplome>Diplôme obtenu</diplome>
-        <etablissement>Établissement</etablissement>
-        <annee>Année d'obtention</annee>
+        <diplome>Master en Sciences et Techniques des Activités Physiques et Sportives (STAPS), spécialisation Entraînement Sportif et Performance</diplome>
+        <etablissement>Université de Bordeaux</etablissement>
+        <annee>2015</annee>
     </formation>
     <experience_professionnelle>
-        <poste>Poste occupé</poste>
-        <entreprise>Nom de l'entreprise</entreprise>
-        <annees>Années d'expérience</annees>
+        <poste>Coach de natation en compétition</poste>
+        <entreprise>Hossegor Natation Club</entreprise>
+        <annees>7 ans</annees>
     </experience_professionnelle>
     <competences>
-        <langues>Langues maîtrisées</langues>
-        <informatique>Compétences informatiques</informatique>
-        <autres>Autres compétences</autres>
+        <langues>Français (natif), Anglais (courant)</langues>
+        <informatique>Maîtrise des logiciels d'analyse de performance et Pack Office (Word, Excel, PowerPoint)</informatique>
+        <autres>Élaboration de programmes d'entraînement personnalisés, Coaching individuel et d'équipe, Préparation physique et mentale des nageurs, Animation de sessions d'entraînement intensif, Gestion de la motivation et de la performance, Connaissances en nutrition sportive et récupération</autres>
     </competences>
 </cv>
