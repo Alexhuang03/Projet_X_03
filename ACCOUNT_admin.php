@@ -44,6 +44,7 @@
 
         .content th {
             background-color: #f2f2f2;
+            color : #333333;
         }
 
         /* Style pour les formulaires */
@@ -93,6 +94,118 @@
         echo "</tr>";
         echo "</table>";
         ?>
+
+        <h2>Gestion Salle</h2>
+        <table>
+            <?php
+            $database = "Sportify";
+            $db_handle = mysqli_connect('localhost', 'root', '');
+            $db_found = mysqli_select_db($db_handle, $database);
+
+            if ($db_found) {
+                $query_salle = "SELECT * FROM salle";
+                $result_salle = mysqli_query($db_handle, $query_salle);
+                echo "<tr><th>Information sur la Salle</th><th>Regles</th><th>Horaires</th></tr>";
+                while ($row_salle = mysqli_fetch_assoc($result_salle)) {
+                    echo "<tr>";
+                    echo "<td>" . $row_salle['info'] . "</td>";
+                    echo "<td>" . $row_salle['regle'] . "</td>";
+                    echo "<td>" . $row_salle['horaire'] . "</td>";
+                    echo "</tr>";
+                }
+            }
+            ?>
+        </table>
+        <table>
+            <form method="post" action="src_modifier_info_salle.php" enctype="multipart/form-data">
+                <tr>
+                    <td><label for="prenom_coach">Information sur la Salle :</label></td>
+                    <td><input type="text" id="info_salle" name="info_salle" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email_coach">Règles de la Salle :</label></td>
+                    <td><input type="text" id="info_regle" name="info_regle" required></td>
+                </tr>
+                <tr>
+                    <td><label for="specialite_coach">Horaires de la Salle :</label></td>
+                    <td><input type="text" id="info_horaire" name="info_horaire" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Appliquer la modification">
+                    </td>
+                </tr>
+            </form>
+        </table>
+        <h2>Ajouter des Créneaux à un Coach Existant</h2>
+        <table>
+            <form method="post" action="src_ajout_creneaux_coach.php" enctype="multipart/form-data">
+
+                <tr>
+                    <th><label for="coach_select">Sélectionner un Coach :</label></th>
+                    <th>
+                        <select id="coach_select" name="id_coach" required>
+                            <?php
+                            $database = "Sportify";
+                            $db_handle = mysqli_connect('localhost', 'root', '');
+                            $db_found = mysqli_select_db($db_handle, $database);
+
+                            if ($db_found) {
+                                $query = "SELECT id_coach, nom, prenom FROM coach";
+                                $result = mysqli_query($db_handle, $query);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<option value='" . $row['id_coach'] . "'>" . $row['nom'] . " " . $row['prenom'] . "</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>Aucun coach trouvé</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <td><label for="disponibilite_coach">Disponibilité :</label></td>
+                    <td>
+                        <table>
+                            <?php
+                            $jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+                            $creneaux = [
+                                '09:00-11:00' => ['09:00:00', '11:00:00'],
+                                '11:00-13:00' => ['11:00:00', '13:00:00'],
+                                '15:00-17:00' => ['15:00:00', '17:00:00']
+                            ];
+                            foreach ($jours as $jour) {
+                                echo "<tr><td>$jour</td><td>";
+                                foreach ($creneaux as $label => $times) {
+                                    echo "<input type='checkbox' name='creneaux[$jour][]' value='" . implode(',', $times) . "'> $label<br>";
+                                }
+                                echo "</td></tr>";
+                            }
+                            ?>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="duree_semaine">Nombre de Semaine:</label></td>
+                    <td>
+                        <select id="duree_semaine" name="duree_semaine">
+                            <option value="1">1 semaine</option>
+                            <option value="2">2 semaines</option>
+                            <option value="3">3 semaines</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <input type="submit" value="Ajouter Créneaux">
+                    </td>
+                </tr>
+            </form>
+        </table>
+
     </div>
 
     <div id="ajout_coach" class="content" style="display: block;">
@@ -204,8 +317,8 @@
                 <form method="post" action="src_ajout_creneaux_coach.php" enctype="multipart/form-data">
 
                 <tr>
-                    <td><label for="coach_select">Sélectionner un Coach :</label></td>
-                    <td>
+                    <th><label for="coach_select">Sélectionner un Coach :</label></th>
+                    <th>
                         <select id="coach_select" name="id_coach" required>
                             <?php
                             $database = "Sportify";
@@ -226,13 +339,14 @@
                             }
                             ?>
                         </select>
-                    </td>
+                    </th>
                 </tr>
                 <tr>
                     <td><label for="disponibilite_coach">Disponibilité :</label></td>
                     <td>
                         <table>
                             <?php
+                            $jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
                             foreach ($jours as $jour) {
                                 echo "<tr><td>$jour</td><td>";
                                 foreach ($creneaux as $label => $times) {
@@ -261,47 +375,6 @@
                 </tr>
                 </form>
             </table>
-    </div>
-
-    <div id="gestion_salle" class="content" style="display: block;">
-        <h2>Gestion Salle</h2>
-        <table>
-            <?php
-            if ($db_found) {
-                $query_salle = "SELECT * FROM salle";
-                $result_salle = mysqli_query($db_handle, $query_salle);
-                echo "<tr><th>Information sur la Salle</th><th>Regles</th><th>Horaires</th></tr>";
-                while ($row_salle = mysqli_fetch_assoc($result_salle)) {
-                    echo "<tr>";
-                    echo "<td>" . $row_salle['info'] . "</td>";
-                    echo "<td>" . $row_salle['regle'] . "</td>";
-                    echo "<td>" . $row_salle['horaire'] . "</td>";
-                    echo "</tr>";
-                }
-            }
-            ?>
-        </table><br>
-        <table>
-            <form method="post" action="src_modifier_info_salle.php" enctype="multipart/form-data">
-                <tr>
-                    <td><label for="prenom_coach">Information sur la Salle :</label></td>
-                    <td><input type="text" id="info_salle" name="info_salle" required></td>
-                </tr>
-                <tr>
-                    <td><label for="email_coach">Règles de la Salle :</label></td>
-                    <td><input type="text" id="info_regle" name="info_regle" required></td>
-                </tr>
-                <tr>
-                    <td><label for="specialite_coach">Horaires de la Salle :</label></td>
-                    <td><input type="text" id="info_horaire" name="info_horaire" required></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center;">
-                        <input type="submit" value="Appliquer la modification">
-                    </td>
-                </tr>
-            </form>
-        </table>
     </div>
 
 

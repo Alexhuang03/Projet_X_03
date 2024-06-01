@@ -132,7 +132,7 @@ if (isset($_SESSION['user_role'])) {
 </div>
 
 <div id="searchResultsModal" style="display:none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
-    <div style="background-color: white; margin: 10% auto; padding: 20px; width: 50%;">
+    <div style="background-color: white; margin: 10% auto; padding: 20px; width: 50%;color:#333333">
         <span onclick="closeSearchModal()" style="cursor: pointer;">&times; Fermer</span>
         <h2>Résultats de recherche</h2>
         <div id="searchResultsContainer"></div>

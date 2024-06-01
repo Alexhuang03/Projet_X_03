@@ -1,9 +1,3 @@
-<div id="header">
-    <img src="img/logo.png" alt="Logo Sportify">
-    <h1>Sportify: Consultation Sportive</h1>
-</div>
-
-
 <style>
     #header img {
         width: 60px; /* Définissez la largeur souhaitée pour votre image */
@@ -32,11 +26,15 @@
     #header h1 {
         color: white; /* Change la couleur du texte en blanc */
         font-size: 24px; /* Modifie la taille de la police */
+        font-weight: bold;
         margin: 0; /* Supprime les marges par défaut du titre */
     }
 
+
 </style>
 
-<script>
+<div id="header">
+    <img src="img/logo.png" alt="Logo Sportify">
+    <h1>Sportify: Consultation Sportive</h1>
+</div>
 
-</script>
