@@ -26,7 +26,7 @@
                 display: block; /* Afficher comme un bloc */
                 height: 5px; /* Hauteur du bandeau */
                 width: 100%; /* Largeur du bandeau */
-                background-color: #4c4c4c; /* Couleur légèrement plus claire que #333333 */
+                background-color: #f8a100; /* Couleur légèrement plus claire que #333333 */
                 margin-bottom: 10px; /* Espacement entre le titre et le bandeau */
                 margin-top: 10px; /* Espacement entre le titre et le bandeau */
 

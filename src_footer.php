@@ -16,7 +16,7 @@
     </p>
     <div style="width: 100%; height: 300px;">
         <iframe
-                width="100%"
+                width="80%"
                 height="100%"
                 frameborder="0" style="border:0"
                 referrerpolicy="no-referrer-when-downgrade"
