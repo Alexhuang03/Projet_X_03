@@ -29,20 +29,28 @@
         height: auto; /* Hauteur automatique pour conserver les proportions de l'image */
         margin: 0 auto; /* Centrage horizontal */
     }
+    .event h3,
+    .event p {
+        text-align: center;
+    }
 </style>
 
 </style>
 <div id="section">
-    <div id = "mot_accueil">
-        <h1>Bienvenue chez Sportify</h1>
-        <p>Chez Sportify, nous croyons que le sport est bien plus qu'une activité physique, c'est un mode de vie. Nous nous engageons à offrir à nos membres une expérience sportive complète et enrichissante, adaptée à tous les niveaux et à toutes les passions.</p>
-        <p>Que vous souhaitiez améliorer votre condition physique, découvrir de nouvelles disciplines ou vous préparer pour des compétitions, notre plateforme est conçue pour vous accompagner dans votre parcours. Nos coachs experts sont là pour vous guider, vous motiver et vous aider à repousser vos limites.</p>
-        <p>Explorez notre vaste gamme d'activités sportives, des cours collectifs dynamiques aux sessions d'entraînement individuel. Rejoignez une communauté de passionnés de sport et bénéficiez de conseils personnalisés pour atteindre vos objectifs de bien-être et de performance.</p>
-        <p>Chez Sportify, chaque effort compte et chaque réussite est célébrée. Ensemble, faisons du sport une source de plaisir et de vitalité au quotidien.</p>
-        <br>
+    <div id="mot_accueil" class="">
+        <h1 class="text-center">Bienvenue chez Sportify</h1>
+        <p class="text-center">
+        Chez Sportify, nous croyons que le sport est bien plus qu'une activité physique, c'est un mode de vie.<br>
+            Nous nous engageons à offrir à nos membres une expérience sportive complète et enrichissante, adaptée à tous les niveaux et à toutes les passions.<br>
+        Que vous souhaitiez améliorer votre condition physique, découvrir de nouvelles disciplines ou vous préparer pour des compétitions, notre plateforme est conçue pour vous accompagner dans votre parcours.<br>
+            Nos coachs experts sont là pour vous guider, vous motiver et vous aider à repousser vos limites.<br>
+        Explorez notre vaste gamme d'activités sportives, des cours collectifs dynamiques aux sessions d'entraînement individuel.<br>
+            Rejoignez une communauté de passionnés de sport et bénéficiez de conseils personnalisés pour atteindre vos objectifs de bien-être et de performance.<br>
+        Chez Sportify, chaque effort compte et chaque réussite est célébrée. Ensemble, faisons du sport une source de plaisir et de vitalité au quotidien.<br>
+        <p>
     </div>
     <section id="evenements">
-        <h2>Les événements de la semaine</h2>
+        <h2 class="text-center">Les événements de la semaine</h2>
         <div class="event">
             <h3>Lundi</h3>
             <p>18h00 : Match de Basketball : ECE vs ESCE.</p>
@@ -71,10 +79,10 @@
             <h3>Dimanche</h3>
             <p>Journée de repos et récupération</p>
         </div>
-        <h3>Ne manquez pas ces événements excitants ! Inscrivez-vous dès maintenant et faites partie de notre communauté sportive dynamique.</h3>
+        <h3 class="text-center">Ne manquez pas ces événements excitants ! Inscrivez-vous dès maintenant et faites partie de notre communauté sportive dynamique.</h3>
     </section>
     <br>
-    <h2>Retrouvez les meilleurs moments sports de l'année</h2>
+    <h2 class="text-center">Retrouvez les meilleurs moments sports de l'année</h2>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
