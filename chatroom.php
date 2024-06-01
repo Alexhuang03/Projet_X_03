@@ -85,7 +85,7 @@ if (!$result_messages) {
             position: fixed;
             bottom: 80px;
             right: 20px;
-            width: auto;
+            width: 500px;
             height: 400px;
             border: 1px solid #ccc;
             border-radius: 5px;
@@ -158,9 +158,9 @@ if (!$result_messages) {
             }
             ?>
         </select>
-        <?php if ($_SESSION['role'] == 'client') { ?>
+        <?php if ($_SESSION['role'] = 'client') { ?>
             <input type="hidden" name="id_coach" value="<?php echo $_SESSION['id']; ?>">
-        <?php } elseif ($_SESSION['role'] == 'coach') { ?>
+        <?php } elseif ($_SESSION['role'] = 'coach') { ?>
             <input type="hidden" name="id_client" value="<?php echo $_SESSION['id']; ?>">
         <?php } ?>
         <input id="message" name="message" autocomplete="off" placeholder="Tapez un message..." />
