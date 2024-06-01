@@ -28,7 +28,7 @@
 
 <style>
     footer {
-        background-color: #f1f1f1;
+        background-color: #333333;
         padding: 20px;
         text-align: center;
         margin-top: 20px;

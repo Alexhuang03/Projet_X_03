@@ -1,7 +1,76 @@
 <link href="ACCOUNT.css" rel="stylesheet" type="text/css"/>
+<style>
+    #section {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 10px solid #ddd;
+        border-radius: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Diviser en deux colonnes */
+        grid-gap: 20px; /* Espacement entre les divs */
+    }
 
+    .content {
+        background-color: #e0e0e0; /* Couleur de fond des divs de contenu */
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    /* Style spécifique pour le titre */
+    .content h2, .content h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    /* Style pour les tables */
+    .content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+
+    .content th, .content td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ccc;
+    }
+
+    .content th {
+        background-color: #f2f2f2;
+    }
+
+    /* Style pour les formulaires */
+    .content form {
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    /* Style pour les labels */
+    .content label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    /* Style pour les boutons de soumission */
+    .content input[type="submit"] {
+        margin-top: 10px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .content input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+</style>
 <div id="section">
-    <p>espace compte coach</p>
+    <div>
     <?php
     echo "<h2>Compte Coach</h2>";
     echo "<table border='1'>";
@@ -31,7 +100,8 @@
     echo "</tr>";
     echo "</table>";
     ?>
-    <p>Chatroom ( à faire) </p>
+    </div>
+
 
     <?php
     // Etablissement de la connexion à la base de données
@@ -52,8 +122,10 @@
         $result_reservations_passées = mysqli_query($db_handle, $query_reservations_passées);
 
         if (mysqli_num_rows($result_reservations_passées) > 0) {
+
             // Affichage des réservations passées
-            echo "<p>Réservations passées</p>";
+            echo "<div>";
+            echo "<h2>Réservations passées</h2>";
             echo "<table border='1'>";
             echo "<tr><th>ID Réservation</th><th>ID Coach</th><th>ID Utilisateur</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
             while ($row = mysqli_fetch_assoc($result_reservations_passées)) {
@@ -68,6 +140,8 @@
                 echo "</tr>";
             }
             echo "</table>";
+            echo "</div>";
+
         } else {
             echo "<p>Aucune réservation passée pour cet utilisateur.</p>";
         }
@@ -78,7 +152,8 @@
 
         if (mysqli_num_rows($result_reservations_à_venir) > 0) {
             // Affichage des réservations à venir
-            echo "<p>Réservations à venir</p>";
+            echo "<div>";
+            echo "<h2>Réservations à venir</h2>";
             echo "<table border='1'>";
             echo "<tr><th>ID Réservation</th><th>ID Coach</th><th>ID Utilisateur</th><th>Date</th><th>Heure de Début</th><th>Heure de Fin</th></tr>";
             while ($row = mysqli_fetch_assoc($result_reservations_à_venir)) {
@@ -93,6 +168,8 @@
                 echo "</tr>";
             }
             echo "</table>";
+            echo "</div>";
+
         } else {
             echo "<p>Aucune réservation à venir pour cet utilisateur.</p>";
         }

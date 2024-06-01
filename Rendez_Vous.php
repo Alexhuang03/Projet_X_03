@@ -8,17 +8,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sportify</title>
         <style>
+            /* Ajouter une animation simple aux titres h3 */
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
 
-            .affiche-coach {
-                border: 2px solid black;
-                margin: 0 auto;
-                width: fit-content;
+            /* Appliquer la classe h3 à tous les titres h3 */
+            h3 {
+                text-align: center; /* Centrer le texte */
+                animation: fadeIn 0.5s ease-in-out; /* Ajouter une animation de fondu */
+                margin-bottom: 20px; /* Espacement en bas */
             }
-            .pres-coach, .coach-photo, .texte-coach {
-                border: 2px solid black;
-                margin: 0 auto;
-                width: fit-content;
-            }
+
             table {
                 border: 2px solid black;
                 margin: 0 auto;
@@ -30,12 +32,7 @@
                 text-align: left;
                 padding: 8px;
             }
-            .unavailable {
-                background-color: black;
-            }
-            .available {
-                background-color: white;
-            }
+
 
         </style>
     </head>
@@ -73,3 +70,4 @@
         </div>
     </body>
 </html>
+

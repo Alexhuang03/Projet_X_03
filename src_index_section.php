@@ -9,7 +9,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <link href="src_index_section.css" rel="stylesheet" type="text/css"/>
+<style>
+    body {
+        background-color: #333; /* Couleur de fond gris foncé */
+        color: white; /* Couleur du texte blanc */
+        font-family: Arial, sans-serif; /* Police de caractères */
+        margin: 0; /* Supprime les marges par défaut */
+        padding: 0; /* Supprime les espacements intérieurs par défaut */
+    }
+    /* Styles pour le carrousel */
+    #myCarousel {
+        width: 60%; /* Largeur du carrousel */
+        margin: 0 auto; /* Centrage horizontal */
+    }
 
+    /* Styles pour les images dans le carrousel */
+    .carousel-inner .item img {
+        max-width: 60%; /* Taille maximale de l'image à 100% de la largeur du conteneur */
+        height: auto; /* Hauteur automatique pour conserver les proportions de l'image */
+        margin: 0 auto; /* Centrage horizontal */
+    }
+</style>
+
+</style>
 <div id="section">
     <div id = "mot_accueil">
         <h1>Bienvenue chez Sportify</h1>
