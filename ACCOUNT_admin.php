@@ -9,8 +9,8 @@
             width: 80%;
             margin: 0 auto;
             padding: 20px;
-            background-color: #333333;
-            border: 10px solid #ddd;
+            background-color: #f8a100;
+            border: 10px solid #e8e8e8;
             border-radius: 5px;
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Diviser en deux colonnes */
@@ -18,14 +18,14 @@
         }
 
         .content {
-            background-color: grey; /* Couleur de fond des divs de contenu */
+            background-color: #333333; /* Couleur de fond des divs de contenu */
             padding: 15px;
             border-radius: 5px;
         }
 
         /* Style spécifique pour le titre */
         .content h2, .content h3 {
-            color: #333;
+            color: #e8e8e8;
             margin-bottom: 10px;
         }
 
@@ -108,9 +108,9 @@
                 echo "<tr><th>Information sur la Salle</th><th>Regles</th><th>Horaires</th></tr>";
                 while ($row_salle = mysqli_fetch_assoc($result_salle)) {
                     echo "<tr>";
-                    echo "<td>" . $row_salle['info'] . "</td>";
-                    echo "<td>" . $row_salle['regle'] . "</td>";
-                    echo "<td>" . $row_salle['horaire'] . "</td>";
+                    echo "<td><textarea cols='20' rows='5'>" . $row_salle['info'] . "</textarea></td>";
+                    echo "<td><textarea cols='20' rows='5'>" . $row_salle['regle'] . "</textarea></td>";
+                    echo "<td><textarea cols='20' rows='5'>" . $row_salle['horaire'] . "</textarea></td>";
                     echo "</tr>";
                 }
             }
@@ -119,16 +119,16 @@
         <table>
             <form method="post" action="src_modifier_info_salle.php" enctype="multipart/form-data">
                 <tr>
-                    <td><label for="prenom_coach">Information sur la Salle :</label></td>
-                    <td><input type="text" id="info_salle" name="info_salle" required></td>
+                    <td><label for="info_salle">Information sur la Salle :</label></td>
+                    <td><textarea id="info_salle" name="info_salle" rows="4" cols="50" required></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for="email_coach">Règles de la Salle :</label></td>
-                    <td><input type="text" id="info_regle" name="info_regle" required></td>
+                    <td><label for="info_regle">Règles de la Salle :</label></td>
+                    <td><textarea id="info_regle" name="info_regle" rows="4" cols="50" required></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for="specialite_coach">Horaires de la Salle :</label></td>
-                    <td><input type="text" id="info_horaire" name="info_horaire" required></td>
+                    <td><label for="info_horaire">Horaires de la Salle :</label></td>
+                    <td><textarea id="info_horaire" name="info_horaire" rows="4" cols="50" required></textarea></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
@@ -326,6 +326,7 @@
                             $db_found = mysqli_select_db($db_handle, $database);
 
                             if ($db_found) {
+
                                 $query = "SELECT id_coach, nom, prenom FROM coach";
                                 $result = mysqli_query($db_handle, $query);
 
@@ -428,8 +429,108 @@
 
     <div id="modif_cv" class="content" style="display: block;">
         <h2>Modification des CV des Coachs</h2>
+        <?php
+        $nom_cv = "rsc/coach1.xml";
+        ?>
+        <form id="cv_form" method="post" action="src_xml_save.php" onsubmit="event.preventDefault(); submitForm();">
+            <label for="select_coach">Sélectionner un Coach :</label>
+            <select id="select_coach" name="select_coach">
+                <option value="1" selected selected hidden>Sélectionner un coach</option>
+                <?php
+                if ($db_found) {
+                    $query = "SELECT id_coach, nom, prenom, cv FROM coach";
+                    $result = mysqli_query($db_handle, $query);
 
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            echo "<option value='" . $row['id_coach'] . "' data-cv-file='" . $row['cv'] . "'>" . $row['nom'] . " " . $row['prenom'] . "</option>";
+                        }
+
+                    } else {
+                        echo "<option value=''>Aucun coach trouvé</option>";
+                    }
+                }
+                ?>
+            </select>
+
+            <br>
+            <label for="cv_content">Contenu du CV :</label><br>
+            <textarea id="cv_content" name="cv_content" rows="10" cols="50">
+                <?php
+                $dossier = 'rsc/';
+                $filename = $dossier . $nom_cv;
+
+
+                // Vérifier si le fichier existe
+                if (file_exists($filename)) {
+                    // Lire le contenu brut du fichier XML
+                    $xmlContent = file_get_contents($filename);
+
+                    // Afficher le contenu brut du fichier XML
+                    echo '<pre>';
+                    echo htmlspecialchars($xmlContent);
+                    echo '</pre>';
+                } else {
+                    echo 'Le fichier n\'existe pas.';
+                }
+
+                ?>
+
+            </textarea>
+            <br>
+            <input type="submit" value="Enregistrer les modifications">
+            <script>
+                const selectCoach = document.getElementById('select_coach');
+                const cvContent = document.getElementById('cv_content');
+
+                selectCoach.addEventListener('change', async function() {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const cvFileName = selectedOption.getAttribute('data-cv-file');
+
+                    // Récupérer le contenu brut du fichier XML à partir du serveur
+                    const response = await fetch(`rsc/${cvFileName}`);
+                    const xmlContent = await response.text();
+
+                    // Mettre à jour la zone de texte cv_content avec le contenu brut du fichier XML
+                    cvContent.value = xmlContent;
+                });
+                function submitForm() {
+                    const cvForm = document.getElementById('cv_form');
+                    const cvFileName = selectCoach.options[selectCoach.selectedIndex].getAttribute('data-cv-file');
+
+                    // Ajouter le nom du fichier au formulaire en tant que champ caché
+                    const cvFileInput = document.createElement('input');
+                    cvFileInput.type = 'hidden';
+                    cvFileInput.name = 'cv_file';
+                    cvFileInput.value = cvFileName;
+                    cvForm.appendChild(cvFileInput);
+
+                    // Soumettre le formulaire à l'aide de la méthode POST
+                    cvForm.submit();
+                }
+                selectCoach.addEventListener('change', async function() {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const cvFileName = selectedOption.getAttribute('data-cv-file');
+
+                    // Ajouter un paramètre d'horodatage à l'URL pour éviter la mise en cache
+                    const url = `rsc/${cvFileName}?t=${new Date().getTime()}`;
+
+                    // Récupérer le contenu brut du fichier XML à partir du serveur
+                    const response = await fetch(url);
+                    const xmlContent = await response.text();
+
+                    // Mettre à jour la zone de texte cv_content avec le contenu brut du fichier XML
+                    cvContent.value = xmlContent;
+                });
+
+            </script>
+
+        </form>
     </div>
+
+
+
+
 
 
     <div id="liste_coach" class="content" style="display: block;">

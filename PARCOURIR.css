@@ -12,7 +12,7 @@
 table {
     border: 2px solid black;
     margin: 0 auto;
-    width: fit-content;
+    width: auto;
     border-collapse: collapse;
 }
 th, td {

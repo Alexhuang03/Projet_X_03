@@ -54,6 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['code_postal'] = $user['code_postal'];
         $_SESSION['pays'] = $user['pays'];
         $_SESSION['payement'] = $user['payement'];
+        // produit 1
+        //produit 2
 
         header("Location: ACCOUNT.php");
         exit();
