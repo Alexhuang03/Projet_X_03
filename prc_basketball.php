@@ -24,7 +24,7 @@
             <figcaption>Finale du Championnat de France</figcaption>
         </figure>
         <br>
-        <h3>Pourquoi Choisir le Basketball ?</h3>
+        <h3>Pourquoi choisir le basketball de compétition avec Sportify ?</h3>
         <ul>
             <li><strong>Am&eacute;lioration de la Condition Physique :</strong> Le basketball est un excellent moyen d'am&eacute;liorer votre endurance, votre force et votre agilit&eacute;.</li>
             <li><strong>D&eacute;veloppement de Comp&eacute;tences :</strong> En jouant au basketball, vous d&eacute;veloppez des comp&eacute;tences essentielles telles que la coordination, la concentration et l'esprit d'&eacute;quipe.</li>

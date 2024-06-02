@@ -35,7 +35,7 @@
         <br>
         <figure style="text-align: center;">
             <img src="img/football3.jpg" alt="Football" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
-            <figcaption>L'équipe de football de l'ECE se prépare pour un match décisif.</figcaption>
+            <figcaption>L'équipe de football de l'ECE se prépare pour un match décisif</figcaption>
         </figure>
         <br>
             <h3>D&eacute;couvrez notre coach sp&eacute;cialis&eacute; en Football : </h3>
