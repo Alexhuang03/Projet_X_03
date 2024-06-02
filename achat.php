@@ -16,33 +16,51 @@ $offre = $_GET['offre'];
 $error = '';
 $success = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $adresse = $_POST['adresse'];
-    $card_number = $_POST['card_number'];
-    $expiration_date = $_POST['expiration_date'];
-    $cvv = $_POST['cvv'];
+// Vérifiez le rôle de l'utilisateur
+$query_role = "SELECT role FROM users WHERE id = $user_id";
+$result_role = mysqli_query($db_handle, $query_role);
+$user_role = mysqli_fetch_assoc($result_role)['role'];
 
-    // check si le user a déjà un abonnement
-    $query_check = "SELECT abo_mensu, abo_annu FROM users WHERE id = $user_id";
-    $result_check = mysqli_query($db_handle, $query_check);
-    $user_data = mysqli_fetch_assoc($result_check);
+if ($user_role !== 'client') {
+    $error = "Seuls les clients peuvent effectuer des achats.";
+} else {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $adresse = $_POST['adresse'];
+        $card_number = $_POST['card_number'];
+        $expiration_date = $_POST['expiration_date'];
+        $cvv = $_POST['cvv'];
 
-    if (($offre == 'mensuel' && ($user_data['abo_mensu'] == 1 || $user_data['abo_annu'] == 1)) ||
-        ($offre == 'annuel' && ($user_data['abo_annu'] == 1 || $user_data['abo_mensu'] == 1))) {
-        $error = "Vous avez déjà un abonnement actif.";
-    } else {
-        // MAJ de abo_mensu et abo_annu
-        if ($offre == 'mensuel') {
-            $query_update = "UPDATE users SET abo_mensu = 1 WHERE id = $user_id";
-        } elseif ($offre == 'annuel') {
-            $query_update = "UPDATE users SET abo_annu = 1 WHERE id = $user_id";
-        }
-        if (mysqli_query($db_handle, $query_update)) {
-            $success = "Achat effectué avec succès.";
+        // Vérifiez si le nom et le prénom correspondent à l'utilisateur connecté
+        $query_user = "SELECT nom, prenom FROM users WHERE id = $user_id";
+        $result_user = mysqli_query($db_handle, $query_user);
+        $user_info = mysqli_fetch_assoc($result_user);
+
+        if ($nom != $user_info['nom'] || $prenom != $user_info['prenom']) {
+            $error = "Le nom et le prénom ne correspondent pas à ceux de l'utilisateur connecté.";
         } else {
-            $error = "Erreur lors de l'achat : " . mysqli_error($db_handle);
+            // check si le user a déjà un abonnement
+            $query_check = "SELECT abo_mensu, abo_annu FROM users WHERE id = $user_id";
+            $result_check = mysqli_query($db_handle, $query_check);
+            $user_data = mysqli_fetch_assoc($result_check);
+
+            if (($offre == 'mensuel' && ($user_data['abo_mensu'] == 1 || $user_data['abo_annu'] == 1)) ||
+                ($offre == 'annuel' && ($user_data['abo_annu'] == 1 || $user_data['abo_mensu'] == 1))) {
+                $error = "Vous avez déjà un abonnement actif.";
+            } else {
+                // MAJ de abo_mensu et abo_annu
+                if ($offre == 'mensuel') {
+                    $query_update = "UPDATE users SET abo_mensu = 1 WHERE id = $user_id";
+                } elseif ($offre == 'annuel') {
+                    $query_update = "UPDATE users SET abo_annu = 1 WHERE id = $user_id";
+                }
+                if (mysqli_query($db_handle, $query_update)) {
+                    $success = "Achat effectué avec succès.";
+                } else {
+                    $error = "Erreur lors de l'achat : " . mysqli_error($db_handle);
+                }
+            }
         }
     }
 }
@@ -55,6 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achat</title>
     <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+        }
         .form-container {
             display: flex;
             flex-direction: column;
@@ -68,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: 450px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
+            background-color: #f9f9f9;
         }
         .form-box h1 {
             margin-top: 0;
@@ -75,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .form-box label {
             display: block;
             margin: 10px 0 5px;
+            text-align: left;
         }
         .form-box input[type="text"],
         .form-box input[type="submit"] {
@@ -89,9 +112,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: white;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
         .form-box input[type="submit"]:hover {
             background-color: #0056b3;
+        }
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card-info div {
+            width: 48%;
         }
         .message {
             color: red;
@@ -100,6 +131,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: green;
         }
     </style>
+    <script>
+        function validateForm() {
+            var cardNumber = document.getElementById('card_number').value;
+            var expirationDate = document.getElementById('expiration_date').value;
+            var cvv = document.getElementById('cvv').value;
+            var error = "";
+
+            if (!/^\d{16}$/.test(cardNumber)) {
+                error += "Le numéro de carte doit contenir 16 chiffres.\\n";
+            }
+            if (!/^\d{2}\/\d{2}$/.test(expirationDate)) {
+                error += "La date d'expiration doit être au format MM/AA.\\n";
+            } else {
+                var currentDate = new Date();
+                var currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+                var currentYear = currentDate.getFullYear().toString().slice(2);
+
+                var expMonth = expirationDate.split('/')[0];
+                var expYear = expirationDate.split('/')[1];
+
+                if (expYear < currentYear || (expYear == currentYear && expMonth < currentMonth)) {
+                    error += "La carte rentrée est expirée. Veuillez rentrer une autre carte.\\n";
+                }
+            }
+            if (!/^\d{3}$/.test(cvv)) {
+                error += "Le CVV doit contenir 3 chiffres.\\n";
+            }
+
+            if (error) {
+                alert(error);
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
 <div id="wrapper">
@@ -107,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'src_navigation.php'; ?>
 
     <div class="form-container">
-        <h1>Formulaire d'achat - Abonnement <?php echo htmlspecialchars($offre); ?></h1>
+        <h1>Achat - Abonnement <?php echo htmlspecialchars($offre); ?></h1>
 
         <div class="form-box">
             <?php if ($error): ?>
@@ -117,7 +183,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if ($success): ?>
                 <p class="success"><?php echo $success; ?></p>
             <?php else: ?>
-                <form method="post" action="achat.php?offre=<?php echo htmlspecialchars($offre); ?>">
+                <form method="post" action="achat.php?offre=<?php echo htmlspecialchars($offre); ?>" onsubmit="return validateForm()">
                     <label for="nom">Nom:</label>
                     <input type="text" id="nom" name="nom" required>
 
@@ -130,11 +196,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <label for="card_number">Numéro de carte:</label>
                     <input type="text" id="card_number" name="card_number" required>
 
-                    <label for="expiration_date">Date d'expiration (MM/AA):</label>
-                    <input type="text" id="expiration_date" name="expiration_date" required>
-
-                    <label for="cvv">CVV:</label>
-                    <input type="text" id="cvv" name="cvv" required>
+                    <div class="card-info">
+                        <div>
+                            <label for="expiration_date">Date d'expiration (MM/AA):</label>
+                            <input type="text" id="expiration_date" name="expiration_date" required>
+                        </div>
+                        <div>
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                    </div>
 
                     <input type="submit" value="Confirmer l'achat">
                 </form>
