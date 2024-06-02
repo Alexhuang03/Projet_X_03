@@ -4,7 +4,7 @@
         width: 80%;
         margin: 0 auto;
         padding: 20px;
-        background-color: #333333;
+        background-color: #FBEEE6;
         border: 10px solid #ddd;
         border-radius: 5px;
         display: grid;
