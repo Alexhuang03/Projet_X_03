@@ -33,14 +33,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo( "voici l'id de l'utilisateur : ". $id_user . " et celui qui reçoit les messages: ". $id_coach );
 
     if ($db_found) {
-        if (saveMessage($id_coach, $id_user, $message, $db_handle)) {
-            echo "Message enregistré avec succès.";
+        // Détermine les identifiants de l'expéditeur et du destinataire
+        if ($_SESSION['role'] == 'client') {
+            $id_expediteur = $_SESSION['id'];
+            $id_reception = $id_coach;
+            // Enregistre le message
+            if (saveMessage($id_coach, $id_user, $message, $db_handle)) {
+                echo "Message enregistré avec succès.";
+            } else {
+                echo "Une erreur s'est produite lors de l'enregistrement du message.";
+            }
+        } elseif ($_SESSION['role'] == 'coach') {
+            $id_expediteur = $_SESSION['id'];
+            $id_reception = $id_user;
+            // Enregistre le message
+            if (saveMessage($id_user, $id_coach, $message, $db_handle)) {
+                echo "Message enregistré avec succès.";
+            } else {
+                echo "Une erreur s'est produite lors de l'enregistrement du message.";
+            }
         } else {
-            echo "Une erreur s'est produite lors de l'enregistrement du message.";
+            echo "Rôle utilisateur non reconnu.";
+            exit;
         }
+
+
     } else {
         echo "Base de données non trouvée.";
     }
+
 }
 
 // Récupération des messages depuis la base de données
