@@ -47,13 +47,16 @@ if ($db_found) {
             $sent = sendSMS($to, $message);
             header("Location: ACCOUNT.php");
             exit;
-        } else {
+        }
+        else {
             echo "Une erreur est survenue lors de la suppression de la réservation.";
         }
-    } else {
+    }
+    else {
         echo "Méthode de requête invalide.";
     }
-} else {
+}
+else {
     echo "Erreur de connexion à la base de données.";
 }
 ?>

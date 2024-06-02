@@ -153,7 +153,6 @@ if (!$result_messages) {
 <div id="chat-window">
     <ul id="messages">
         <?php
-        // Affichage des messages
         if ($_SESSION['role'] == 'client') {
             while ($row = mysqli_fetch_assoc($result_messages)) {
                 echo "<li><strong>{$row['user_nom']} {$row['user_prenom']}</strong> à <strong>{$row['coach_nom']} {$row['coach_prenom']}</strong> ({$row['date']} {$row['heure']}): {$row['message']}</li>";
@@ -170,7 +169,6 @@ if (!$result_messages) {
         <select id="userSelect" name="id_user">
             <option value="">Utilisateur</option>
             <?php
-            // Remplir le select avec les utilisateurs existants
             $query_users = "SELECT id, prenom, nom FROM users";
             $result_users = mysqli_query($db_handle, $query_users);
             while ($user = mysqli_fetch_assoc($result_users)) {
@@ -216,7 +214,7 @@ if (!$result_messages) {
 
         loadUsers();
 
-        // Rafraîchissement automatique des messages
+
         function loadMessages() {
             $('#messages').load(location.href + ' #messages');
         }

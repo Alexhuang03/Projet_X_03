@@ -104,26 +104,21 @@
 
 
     <?php
-    // Etablissement de la connexion à la base de données
     $database = "Sportify";
     $db_handle = mysqli_connect('localhost', 'root', '');
     $db_found = mysqli_select_db($db_handle, $database);
 
     if ($db_found) {
-        // Récupération de l'ID de l'utilisateur connecté
         $id_utilisateur = $_SESSION['id'];
 
-        // Récupération de la date et de l'heure actuelle
         $current_date = date('Y-m-d');
         $current_time = date('H:i:s');
 
-        // Requête pour les réservations passées
         $query_reservations_passées = "SELECT * FROM reservation WHERE (id_coach = $id_utilisateur OR id_user = $id_utilisateur) AND (DATE < '$current_date' OR (DATE = '$current_date' AND heure_debut < '$current_time'))";
         $result_reservations_passées = mysqli_query($db_handle, $query_reservations_passées);
 
         if (mysqli_num_rows($result_reservations_passées) > 0) {
 
-            // Affichage des réservations passées
             echo "<div>";
             echo "<h2>Réservations passées</h2>";
             echo "<table border='1'>";
@@ -146,7 +141,6 @@
             echo "<p>Aucune réservation passée pour cet utilisateur.</p>";
         }
 
-        // Requête pour les réservations à venir
         $query_reservations_à_venir = "SELECT * FROM reservation WHERE (id_coach = $id_utilisateur OR id_user = $id_utilisateur) AND (DATE > '$current_date' OR (DATE = '$current_date' AND heure_debut >= '$current_time'))";
         $result_reservations_à_venir = mysqli_query($db_handle, $query_reservations_à_venir);
 

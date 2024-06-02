@@ -7,9 +7,7 @@ if (!$db_found) {
     die("La connexion à la base de données a échoué : " . mysqli_error($db_handle));
 }
 
-// Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère les valeurs soumises par le formulaire
     $email = $_POST['email'];
     $password = $_POST['password'];
     $numero_etudiant = $_POST['numero_etudiant'];
@@ -18,20 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Requête SQL pour vérifier la correspondance avec plusieurs champs en fonction du rôle de l'utilisateur
     if ($numero_etudiant != '') {
-        // Vérification pour un client
         $query = "SELECT * FROM users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND numero_etudiant = '$numero_etudiant' AND password = '$password' AND role = 'client'";
-    } else {
-        // Vérification pour un admin ou un coach
+    }
+    else {
         $query = "SELECT * FROM users WHERE nom = '$nom' AND prenom = '$prenom' AND email = '$email' AND password = '$password' AND (role = 'admin' OR role = 'coach')";
     }
     $result = mysqli_query($db_handle, $query);
 
     // Vérifie si l'utilisateur existe dans la base de données
     if (mysqli_num_rows($result) == 1) {
-        // Utilisateur trouvé, récupère ses informations
         $user = mysqli_fetch_assoc($result);
 
-        // Définit le rôle de l'utilisateur en fonction des informations récupérées
         if ($user['role'] == 'admin') {
             $_SESSION['user_role'] = 'admin';
         } elseif ($user['role'] == 'coach') {
@@ -59,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         header("Location: ACCOUNT.php");
         exit();
-    } else {
-        // Utilisateur non trouvé, affiche un message d'erreur
+    }
+    else {
         $error = "Email ou mot de passe incorrect";
     }
 }

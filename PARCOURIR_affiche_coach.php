@@ -194,14 +194,11 @@ mysqli_close($db_handle);
 
 <script>
     function showCV(cvFileName) {
-        // Construire le chemin complet vers le fichier XML sur le serveur
         var cvPath = "rsc/" + cvFileName + "?t=" + new Date().getTime();
 
-        // Afficher la fenêtre modale
         var modal = document.getElementById('cvModal');
         var cvContent = document.getElementById('cvContent');
 
-        // Charger le fichier XML dans l'iframe
         fetch(cvPath)
             .then(response => response.text())
             .then(xmlText => {

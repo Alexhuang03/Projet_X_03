@@ -13,17 +13,16 @@
             border: 10px solid #e8e8e8;
             border-radius: 5px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Diviser en deux colonnes */
-            grid-gap: 20px; /* Espacement entre les divs */
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
         }
 
         .content {
-            background-color: #FBEEE6; /* Couleur de fond des divs de contenu */
+            background-color: #FBEEE6;
             padding: 15px;
             border-radius: 5px;
         }
 
-        /* Style spécifique pour le titre */
         .content h2, .content h3 {
             color: black;
             margin-bottom: 10px;
@@ -383,23 +382,18 @@
         <h2>Liste des Créneaux par Coach</h2>
         <table border="1">
             <?php
-            // Vérifier si la connexion à la base de données est établie
             if ($db_found) {
-                // Requête pour récupérer tous les coachs
                 $query_coachs = "SELECT * FROM coach";
                 $result_coachs = mysqli_query($db_handle, $query_coachs);
 
-                // Boucler à travers chaque coach
                 while ($row_coach = mysqli_fetch_assoc($result_coachs)) {
                     $id_coach = $row_coach['id_coach'];
                     echo "<tr><td colspan='5'><strong>Coach: {$row_coach['nom']} {$row_coach['prenom']}</strong></td></tr>";
                     echo "<tr><th>ID Créneau</th><th>Date</th><th>Heure de début</th><th>Heure de fin</th><th>Action</th></tr>";
 
-                    // Requête pour récupérer les créneaux pour ce coach spécifique
                     $query_creneaux = "SELECT * FROM creneaux WHERE id_coach = $id_coach";
                     $result_creneaux = mysqli_query($db_handle, $query_creneaux);
 
-                    // Vérifier s'il y a des créneaux pour ce coach
                     if (mysqli_num_rows($result_creneaux) > 0) {
                         // Afficher chaque créneau
                         while ($row_creneau = mysqli_fetch_assoc($result_creneaux)) {
@@ -416,8 +410,8 @@
                             echo "</td>";
                             echo "</tr>";
                         }
-                    } else {
-                        // Aucun créneau trouvé pour ce coach
+                    }
+                    else {
                         echo "<tr><td colspan='5'>Aucun créneau trouvé pour ce coach.</td></tr>";
                     }
                 }
@@ -446,7 +440,8 @@
                             echo "<option value='" . $row['id_coach'] . "' data-cv-file='" . $row['cv'] . "'>" . $row['nom'] . " " . $row['prenom'] . "</option>";
                         }
 
-                    } else {
+                    }
+                    else {
                         echo "<option value=''>Aucun coach trouvé</option>";
                     }
                 }
@@ -459,18 +454,13 @@
                 <?php
                 $dossier = 'rsc/';
                 $filename = $dossier . $nom_cv;
-
-
-                // Vérifier si le fichier existe
                 if (file_exists($filename)) {
-                    // Lire le contenu brut du fichier XML
                     $xmlContent = file_get_contents($filename);
-
-                    // Afficher le contenu brut du fichier XML
                     echo '<pre>';
                     echo htmlspecialchars($xmlContent);
                     echo '</pre>';
-                } else {
+                }
+                else {
                     echo 'Le fichier n\'existe pas.';
                 }
 
@@ -487,39 +477,32 @@
                     const selectedOption = this.options[this.selectedIndex];
                     const cvFileName = selectedOption.getAttribute('data-cv-file');
 
-                    // Récupérer le contenu brut du fichier XML à partir du serveur
                     const response = await fetch(`rsc/${cvFileName}`);
                     const xmlContent = await response.text();
 
-                    // Mettre à jour la zone de texte cv_content avec le contenu brut du fichier XML
                     cvContent.value = xmlContent;
                 });
                 function submitForm() {
                     const cvForm = document.getElementById('cv_form');
                     const cvFileName = selectCoach.options[selectCoach.selectedIndex].getAttribute('data-cv-file');
 
-                    // Ajouter le nom du fichier au formulaire en tant que champ caché
                     const cvFileInput = document.createElement('input');
                     cvFileInput.type = 'hidden';
                     cvFileInput.name = 'cv_file';
                     cvFileInput.value = cvFileName;
                     cvForm.appendChild(cvFileInput);
 
-                    // Soumettre le formulaire à l'aide de la méthode POST
                     cvForm.submit();
                 }
                 selectCoach.addEventListener('change', async function() {
                     const selectedOption = this.options[this.selectedIndex];
                     const cvFileName = selectedOption.getAttribute('data-cv-file');
 
-                    // Ajouter un paramètre d'horodatage à l'URL pour éviter la mise en cache
                     const url = `rsc/${cvFileName}?t=${new Date().getTime()}`;
 
-                    // Récupérer le contenu brut du fichier XML à partir du serveur
                     const response = await fetch(url);
                     const xmlContent = await response.text();
 
-                    // Mettre à jour la zone de texte cv_content avec le contenu brut du fichier XML
                     cvContent.value = xmlContent;
                 });
 
