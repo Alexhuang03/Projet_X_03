@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="result-66572a02a4ee5">Sportify</title>
+    <title>Sportify</title>
     <link rel="stylesheet" href="PARCOURIR.css">
 
 </head>
@@ -17,19 +17,19 @@ session_start();
     <?php include 'src_navigation.php'; ?>
 
 
-    <section id="Natation">
-        <h2>Natation</h2>
-        <p><strong>Rejoignez nos équipes de natation et vivez l'excitation des compétitions aquatiques !</strong></p>
-        <p>La natation est bien plus qu'un simple sport, c'est un défi physique et mental où se mêlent technique, endurance et rapidité. Chez Sportify, nous offrons à nos membres l'opportunité de participer à des compétitions de natation passionnantes et de vivre des moments mémorables dans l'eau. Participez à nos tournois de natation et perfectionnez vos compétences de nage.</p>
+    <section id="Natation" style="text-align: center;">
+        <h2 style="text-align: center;">Natation</h2>
+        <p style="text-align: center;"><strong>Rejoignez nos équipes de natation et vivez l'excitation des compétitions aquatiques !</strong></p>
+        <p style="text-align: center;">La natation est bien plus qu'un simple sport, c'est un défi physique et mental où se mêlent technique, endurance et rapidité. Chez Sportify, nous offrons à nos membres l'opportunité de participer à des compétitions de natation passionnantes et de vivre des moments mémorables dans l'eau. Participez à nos tournois de natation et perfectionnez vos compétences de nage.</p>
         <br>
-        <p><strong>Rejoignez nos s&eacute;ances de natation pour une activit&eacute; physique compl&egrave;te et rafra&icirc;chissante.</strong></p>
+        <p style="text-align: center;"><strong>Rejoignez nos s&eacute;ances de natation pour une activit&eacute; physique compl&egrave;te et rafra&icirc;chissante.</strong></p>
         <figure style="text-align: center;">
             <img src="img/natation2.jpg" alt="Natation" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
             <figcaption>Impressionante compétition de natation avec l'équipe de l'ECE</figcaption>
         </figure>
         <br>
-        <h3>Pourquoi choisir la natation de compétition avec Sportify ?</h3>
-        <ul>
+        <h3 style="text-align: center;">Pourquoi choisir la natation de compétition avec Sportify ?</h3>
+        <ul style="text-align: left; display: inline-block; margin: 0 auto;">
             <li><strong>Développement des Compétences :</strong> Améliorez vos compétences techniques, tactiques et physiques grâce à des entraînements intensifs et des compétitions régulières.</li>
             <li><strong>Esprit d'Équipe :</strong> Faites partie d'une équipe soudée, où l'entraide et la camaraderie sont au cœur de l'expérience sportive.</li>
             <li><strong>Compétitions Régulières :</strong> Participez à des tournois et championnats organisés, et mesurez-vous aux meilleurs nageurs locaux et régionaux.</li>
@@ -42,7 +42,7 @@ session_start();
             <figcaption>L'équipe de natation de l'ECE se prépare pour une compétition</figcaption>
         </figure>
         <br>
-        <h3>D&eacute;couvrez notre coach sp&eacute;cialis&eacute;e en Natation : </h3>
+        <h3 style="text-align: center;">D&eacute;couvrez notre coach sp&eacute;cialis&eacute;e en Natation : </h3>
         <br>
         <?php
         $_SESSION['sport'] = "Natation";

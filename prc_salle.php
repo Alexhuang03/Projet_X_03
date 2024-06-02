@@ -30,25 +30,25 @@
         }
     }
     ?>
-    <section id="Salle" style="word-wrap: break-word;">
+    <section id="Salle" style="word-wrap: break-word; text-align: center;"">
         <h2>La Salle</h2>
-        <p style="white-space: pre-wrap;">
+        <p style="white-space: pre-wrap; text-align: center;"">
             <?php
             echo nl2br(htmlspecialchars($info_salle));
             ?>
         </p>
     </section>
-    <section id="Regles" style="word-wrap: break-word;">
-        <h2>Nos R&egrave;gles</h2>
-        <p style="white-space: pre-wrap;">
+    <section id="Regles" style="word-wrap: break-word; text-align: center;"">
+        <h2 >Nos R&egrave;gles</h2>
+        <p style="white-space: pre-wrap;text-align: center;"">
             <?php
             echo nl2br(htmlspecialchars($info_regle));
             ?>
         </p>
     </section>
-    <section id="Horaire" style="word-wrap: break-word;">
+    <section id="Horaire" style="word-wrap: break-word; text-align: center;"">
         <h2>Les Horaires</h2>
-        <p style="white-space: pre-wrap;">
+        <p style="white-space: pre-wrap; text-align: center;"">
             <?php
             echo nl2br(htmlspecialchars($info_horaire));
             ?>

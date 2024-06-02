@@ -12,20 +12,20 @@
 
     <?php include 'src_header.php';?>
     <?php include 'src_navigation.php';?>
-    <section id="Basketball">
-        <h2>Nos Sports de Comp&eacute;tition</h2>
-        <p>Engagez-vous dans nos sports de comp&eacute;tition et am&eacute;liorez vos comp&eacute;tences. Chez Sportify, nous proposons une vari&eacute;t&eacute; de sports de comp&eacute;tition pour les athl&egrave;tes de tous niveaux. Que vous soyez un d&eacute;butant ou un comp&eacute;titeur exp&eacute;riment&eacute;, nos programmes de sports de comp&eacute;tition sont con&ccedil;us pour am&eacute;liorer vos comp&eacute;tences, renforcer votre esprit d'&eacute;quipe et vous permettre de vous d&eacute;passer.</p>
-        <h2>Basketball</h2>
-        <p>Rejoignez nos &eacute;quipes de basketball pour des matchs et des entra&icirc;nements r&eacute;guliers. Le basketball est un sport d'&eacute;quipe passionnant qui am&eacute;liore la condition physique, la coordination, et l'esprit d'&eacute;quipe. Nos programmes sont con&ccedil;us pour tous les niveaux, que vous soyez d&eacute;butant ou joueur confirm&eacute;.</p>
-        <p><strong>Notre &eacute;quipe de basketball de l'ECE est fi&egrave;re d'&ecirc;tre championne de France universitaire, un titre qui t&eacute;moigne de notre engagement et de notre excellence dans ce sport.</strong></p>
+    <section id="Basketball" style="text-align: center;">
+        <h2 style="text-align: center;">Nos Sports de Comp&eacute;tition</h2>
+        <p style="text-align: center;">Engagez-vous dans nos sports de comp&eacute;tition et am&eacute;liorez vos comp&eacute;tences. Chez Sportify, nous proposons une vari&eacute;t&eacute; de sports de comp&eacute;tition pour les athl&egrave;tes de tous niveaux. Que vous soyez un d&eacute;butant ou un comp&eacute;titeur exp&eacute;riment&eacute;, nos programmes de sports de comp&eacute;tition sont con&ccedil;us pour am&eacute;liorer vos comp&eacute;tences, renforcer votre esprit d'&eacute;quipe et vous permettre de vous d&eacute;passer.</p>
+        <h2 style="text-align: center;">Basketball</h2>
+        <p style="text-align: center;">Rejoignez nos &eacute;quipes de basketball pour des matchs et des entra&icirc;nements r&eacute;guliers. Le basketball est un sport d'&eacute;quipe passionnant qui am&eacute;liore la condition physique, la coordination, et l'esprit d'&eacute;quipe. Nos programmes sont con&ccedil;us pour tous les niveaux, que vous soyez d&eacute;butant ou joueur confirm&eacute;.</p>
+        <p style="text-align: center;"><strong>Notre &eacute;quipe de basketball de l'ECE est fi&egrave;re d'&ecirc;tre championne de France universitaire, un titre qui t&eacute;moigne de notre engagement et de notre excellence dans ce sport.</strong></p>
         <br>
         <figure style="text-align: center;">
             <img src="img/basket2.jpg" alt="Basketball" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
             <figcaption>Finale du Championnat de France</figcaption>
         </figure>
         <br>
-        <h3>Pourquoi choisir le basketball de compétition avec Sportify ?</h3>
-        <ul>
+        <h3 style="text-align: center;">Pourquoi choisir le basketball de compétition avec Sportify ?</h3>
+        <ul style="text-align: left; display: inline-block; margin: 0 auto;">
             <li><strong>Am&eacute;lioration de la Condition Physique :</strong> Le basketball est un excellent moyen d'am&eacute;liorer votre endurance, votre force et votre agilit&eacute;.</li>
             <li><strong>D&eacute;veloppement de Comp&eacute;tences :</strong> En jouant au basketball, vous d&eacute;veloppez des comp&eacute;tences essentielles telles que la coordination, la concentration et l'esprit d'&eacute;quipe.</li>
             <li><strong>Esprit d'&Eacute;quipe :</strong> Le basketball est un sport collectif qui favorise la camaraderie et l'esprit d'&eacute;quipe, vous aidant &agrave; cr&eacute;er des liens forts avec vos co&eacute;quipiers.</li>
@@ -38,7 +38,8 @@
             <figcaption>L'ECE champion de France Universitaire</figcaption>
         </figure>
         <br>
-        <h3>D&eacute;couvrez notre coach sp&eacute;cialis&eacute; en Basketball : </h3>
+        <br>
+        <h3 style="text-align: center;">D&eacute;couvrez notre coach sp&eacute;cialis&eacute;e en Basketball : </h3>
         <br>
         <?php $_SESSION['sport'] = "Basketball";
         include 'PARCOURIR_affiche_coach.php';
