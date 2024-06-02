@@ -20,7 +20,7 @@
     $info_salle = null;
     $info_regle = null;
     $info_horaire = null;
-    if ($db_found)
+    if ($db_found) {
         $query_salle = "SELECT * FROM salle";
         $result_salle = mysqli_query($db_handle, $query_salle);
         while ($row_salle = mysqli_fetch_assoc($result_salle)) {
@@ -28,32 +28,33 @@
             $info_regle = $row_salle['regle'];
             $info_horaire = $row_salle['horaire'];
         }
-
+    }
     ?>
-    <section id="Salle">
+    <section id="Salle" style="word-wrap: break-word;">
         <h2>La Salle</h2>
-        <p>
+        <p style="white-space: pre-wrap;">
             <?php
-            echo "<td>" . $info_salle . "</td>";
+            echo nl2br(htmlspecialchars($info_salle));
             ?>
         </p>
     </section>
-    <section id="Regles">
+    <section id="Regles" style="word-wrap: break-word;">
         <h2>Nos R&egrave;gles</h2>
-        <p>
+        <p style="white-space: pre-wrap;">
             <?php
-            echo "<td>" . $info_regle . "</td>";
+            echo nl2br(htmlspecialchars($info_regle));
             ?>
         </p>
     </section>
-    <section id="Horaire">
+    <section id="Horaire" style="word-wrap: break-word;">
         <h2>Les Horaires</h2>
-        <p>
+        <p style="white-space: pre-wrap;">
             <?php
-            echo "<td>" . $info_horaire . "</td>";
+            echo nl2br(htmlspecialchars($info_horaire));
             ?>
         </p>
     </section>
+
 
     <?php include 'src_footer.php'; ?>
 </div>

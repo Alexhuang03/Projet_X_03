@@ -11,7 +11,9 @@ CREATE TABLE users (
                        ville VARCHAR(100),
                        code_postal VARCHAR(20),
                        pays VARCHAR(100),
-                       numero_etudiant VARCHAR(50)
+                       numero_etudiant VARCHAR(50),
+                       int produit1,
+                       int produit2
 );
 
 CREATE TABLE coach (
@@ -46,17 +48,17 @@ CREATE TABLE reservation (
 );
 
 CREATE TABLE salle(
-    info VARCHAR(255),
-    regle VARCHAR(255),
-    horaire VARCHAR(255)
+    info VARCHAR(2000),
+    regle VARCHAR(2000),
+    horaire VARCHAR(2000)
 );
 INSERT INTO salle (info, regle, horaire)
 VALUES ('info salle creation BDD', 'info regle creation BDD', 'info horaire creation BDD');
 
 CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
-                          id_coach INT,
-                          id_user INT,
+                          id_expediteurINT, // id_coach
+                          id_reception INT, // id_user
                           date DATE NOT NULL,
                           heure TIME NOT NULL,
                           message VARCHAR(255),
