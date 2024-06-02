@@ -57,8 +57,8 @@ VALUES ('info salle creation BDD', 'info regle creation BDD', 'info horaire crea
 
 CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
-                          id_coach INT,
-                          id_user INT,
+                          id_expediteurINT, // id_coach
+                          id_reception INT, // id_user
                           date DATE NOT NULL,
                           heure TIME NOT NULL,
                           message VARCHAR(255),
