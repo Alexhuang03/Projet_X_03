@@ -5,6 +5,26 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
+require_once 'vendor/autoload.php'; // Inclure l'autoloader de Composer pour Twilio
+use Twilio\Rest\Client; // Importer la classe Client de Twilio
+
+// Fonction pour envoyer un SMS
+function sendSMS() {
+    $sid    = "AC981151755801f211d6d7cb1ec98a5b36";
+    $token  = "ebeba02ad3a1967e39c16a02b919434e";
+    $twilio = new Client($sid, $token);
+
+    $message = $twilio->messages
+        ->create("+33667597475", // to
+            array(
+                "from" => "+12255326488",
+                "body" => "Merci pour votre Abonnement chez Sportify : Projet Web Dynamique : Clément Viellard, Alex Huang, Edanur Rodrigues"
+            )
+        );
+
+    print($message->sid);
+}
+
 $database = "sportify";
 $db_handle = mysqli_connect('localhost', 'root', '', $database);
 if (!$db_handle) {
@@ -57,6 +77,7 @@ if ($user_role !== 'client') {
                 }
                 if (mysqli_query($db_handle, $query_update)) {
                     $success = "Achat effectué avec succès.";
+                    sendSMS(); // Envoi du SMS après l'achat
                 } else {
                     $error = "Erreur lors de l'achat : " . mysqli_error($db_handle);
                 }
