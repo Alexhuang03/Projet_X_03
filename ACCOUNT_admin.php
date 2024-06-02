@@ -18,7 +18,7 @@
         }
 
         .content {
-            background-color: #333333; /* Couleur de fond des divs de contenu */
+            background-color: #FBEEE6; /* Couleur de fond des divs de contenu */
             padding: 15px;
             border-radius: 5px;
         }
@@ -44,7 +44,7 @@
 
         .content th {
             background-color: #f2f2f2;
-            color : #333333;
+            color : #FBEEE6;
         }
 
         /* Style pour les formulaires */
