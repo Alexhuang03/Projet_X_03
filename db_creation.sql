@@ -12,8 +12,8 @@ CREATE TABLE users (
                        code_postal VARCHAR(20),
                        pays VARCHAR(100),
                        numero_etudiant VARCHAR(50),
-                       int produit1,
-                       int produit2
+                       abo_mensu INT(11),
+                       abo_annu INT (11)
 );
 
 CREATE TABLE coach (
@@ -57,11 +57,14 @@ VALUES ('info salle creation BDD', 'info regle creation BDD', 'info horaire crea
 
 CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
-                          id_expediteurINT, // id_coach
-                          id_reception INT, // id_user
+                          id_coach int not null,
+                          id_user int not null,
+                          /*id_expediteur INT,  /*id_coach*/
+                          /*id_reception INT,  id_user*/
                           date DATE NOT NULL,
                           heure TIME NOT NULL,
                           message VARCHAR(255),
+
                           FOREIGN KEY (id_coach) REFERENCES coach(id_coach),
                           FOREIGN KEY (id_user) REFERENCES users(id)
 );
