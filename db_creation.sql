@@ -59,8 +59,6 @@ CREATE TABLE chatroom (
                           id_msg INT PRIMARY KEY AUTO_INCREMENT,
                           id_coach int not null,
                           id_user int not null,
-                          /*id_expediteur INT,  /*id_coach*/
-                          /*id_reception INT,  id_user*/
                           date DATE NOT NULL,
                           heure TIME NOT NULL,
                           message VARCHAR(255),
