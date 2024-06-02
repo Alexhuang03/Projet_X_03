@@ -38,7 +38,7 @@
             <br>
             <figure style="text-align: center;">
                 <img src="img/plongeon3.jpg" alt="Plongeon" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
-                <figcaption>Compétition spectaculaire de plongeon avec l'équipe de l'ECE</figcaption>
+                <figcaption>Spectaculaire plongeon en compétition avec l'équipe de l'ECE</figcaption>
             </figure>
             <br>
             <h3>D&eacute;couvrez notre coach sp&eacute;cialis&eacute; en Plongeon : </h3>

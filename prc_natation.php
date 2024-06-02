@@ -25,7 +25,7 @@ session_start();
         <p><strong>Rejoignez nos s&eacute;ances de natation pour une activit&eacute; physique compl&egrave;te et rafra&icirc;chissante.</strong></p>
         <figure style="text-align: center;">
             <img src="img/natation2.jpg" alt="Natation" style="width:100%; max-width:600px; display:block; margin: 20px auto;">
-            <figcaption>Compétition intense de natation avec l'équipe de l'ECE</figcaption>
+            <figcaption>Impressionante compétition de natation avec l'équipe de l'ECE</figcaption>
         </figure>
         <br>
         <h3>Pourquoi choisir la natation de compétition avec Sportify ?</h3>
