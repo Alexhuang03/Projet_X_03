@@ -54,44 +54,92 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achat</title>
+    <style type="text/css">
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .form-box {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 450px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .form-box h1 {
+            margin-top: 0;
+        }
+        .form-box label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-box input[type="text"],
+        .form-box input[type="submit"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .form-box input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-box input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <div id="wrapper">
     <?php include 'src_header.php'; ?>
     <?php include 'src_navigation.php'; ?>
 
-    <div id="achat">
+    <div class="form-container">
         <h1>Formulaire d'achat - Abonnement <?php echo htmlspecialchars($offre); ?></h1>
 
-        <?php if ($error): ?>
-            <p style="color: red;"><?php echo $error; ?></p>
-        <?php endif; ?>
+        <div class="form-box">
+            <?php if ($error): ?>
+                <p class="message"><?php echo $error; ?></p>
+            <?php endif; ?>
 
-        <?php if ($success): ?>
-            <p style="color: green;"><?php echo $success; ?></p>
-        <?php else: ?>
-            <form method="post" action="achat.php?offre=<?php echo htmlspecialchars($offre); ?>">
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" required><br><br>
+            <?php if ($success): ?>
+                <p class="success"><?php echo $success; ?></p>
+            <?php else: ?>
+                <form method="post" action="achat.php?offre=<?php echo htmlspecialchars($offre); ?>">
+                    <label for="nom">Nom:</label>
+                    <input type="text" id="nom" name="nom" required>
 
-                <label for="prenom">Prénom:</label>
-                <input type="text" id="prenom" name="prenom" required><br><br>
+                    <label for="prenom">Prénom:</label>
+                    <input type="text" id="prenom" name="prenom" required>
 
-                <label for="adresse">Adresse:</label>
-                <input type="text" id="adresse" name="adresse" required><br><br>
+                    <label for="adresse">Adresse:</label>
+                    <input type="text" id="adresse" name="adresse" required>
 
-                <label for="card_number">Numéro de carte:</label>
-                <input type="text" id="card_number" name="card_number" required><br><br>
+                    <label for="card_number">Numéro de carte:</label>
+                    <input type="text" id="card_number" name="card_number" required>
 
-                <label for="expiration_date">Date d'expiration (MM/AA):</label>
-                <input type="text" id="expiration_date" name="expiration_date" required><br><br>
+                    <label for="expiration_date">Date d'expiration (MM/AA):</label>
+                    <input type="text" id="expiration_date" name="expiration_date" required>
 
-                <label for="cvv">CVV:</label>
-                <input type="text" id="cvv" name="cvv" required><br><br>
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" name="cvv" required>
 
-                <input type="submit" value="Confirmer l'achat">
-            </form>
-        <?php endif; ?>
+                    <input type="submit" value="Confirmer l'achat">
+                </form>
+            <?php endif; ?>
+        </div>
     </div>
 
     <?php include 'src_footer.php'; ?>

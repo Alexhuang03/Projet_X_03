@@ -58,7 +58,7 @@ session_start();
     <?php include 'src_navigation.php'; ?>
 
     <div id="abonnement-container">
-        <h1>Les différents types d'abonnement :</h1>
+        <h1>Découvrez Nos Offres d'Abonnements :</h1>
 
         <div id="abonnement">
             <div class="offer-box" id="mensuel">
@@ -104,6 +104,9 @@ session_start();
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
     <div id="produit"></div>
     <?php include 'src_footer.php'; ?>
     <script>
