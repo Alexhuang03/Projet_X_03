@@ -25,7 +25,7 @@
 
         /* Style spécifique pour le titre */
         .content h2, .content h3 {
-            color: #e8e8e8;
+            color: black;
             margin-bottom: 10px;
         }
 
@@ -44,7 +44,7 @@
 
         .content th {
             background-color: #f2f2f2;
-            color : #FBEEE6;
+            color : black;
         }
 
         /* Style pour les formulaires */
@@ -62,8 +62,8 @@
         /* Style pour les boutons de soumission */
         .content input[type="submit"] {
             margin-top: 10px;
-            background-color: #4CAF50;
-            color: white;
+            background-color:#EDBB99 ;
+            color: black ;
             padding: 12px 20px;
             border: none;
             border-radius: 4px;
@@ -71,7 +71,7 @@
         }
 
         .content input[type="submit"]:hover {
-            background-color: #45a049;
+            opacity: 60%;
         }
 
     </style>
