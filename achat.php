@@ -11,7 +11,7 @@ use Twilio\Rest\Client; // Importer la classe Client de Twilio
 // Fonction pour envoyer un SMS
 function sendSMS() {
     $sid    = "AC981151755801f211d6d7cb1ec98a5b36";
-    $token  = "ebeba02ad3a1967e39c16a02b919434e";
+    $token  = "e10e9e76307a104233bba70c931a5559";
     $twilio = new Client($sid, $token);
 
     $message = $twilio->messages
