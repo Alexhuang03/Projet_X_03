@@ -58,6 +58,41 @@ if ($db_found) {
                     }
                 }
             }
+            // Création du fichier XML
+            $adresse_complete = "$adresse_ligne1, $adresse_ligne2, $code_postal $ville, $pays";
+            $xml_content = "<cv>
+                                <informations_personnelles>
+                                    <nom>$nom</nom>
+                                    <prenom>$prenom</prenom>
+                                    <adresse>$adresse_complete</adresse>
+                                    <telephone>$telephone</telephone>
+                                    <email>$email</email>
+                                </informations_personnelles>
+                                <formation>
+                                    <diplome></diplome>
+                                    <etablissement></etablissement>
+                                    <annee></annee>
+                                </formation>
+                                <experience_professionnelle>
+                                    <poste></poste>
+                                    <entreprise></entreprise>
+                                    <annees></annees>
+                                </experience_professionnelle>
+                                <competences>
+                                    <langues></langues>
+                                    <informatique></informatique>
+                                    <autres></autres>
+                                </competences>
+                            </cv>";
+
+            $xml = new SimpleXMLElement($xml_content);
+            $file_path = "rsc/$cv.xml";
+
+            if ($xml->asXML($file_path)) {
+                echo "Le coach a été ajouté avec succès avec ses créneaux et le fichier XML a été créé.";
+            } else {
+                echo "Erreur lors de la création du fichier XML.";
+            }
 
             echo "Le coach a été ajouté avec succès avec ses créneaux.";
             header("Location: ACCOUNT.php");
