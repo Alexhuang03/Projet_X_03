@@ -3,7 +3,7 @@ session_start();
 
 $searchQuery = "";
 $results = [];
-
+// noms de fichiers associes aux alias lisibles par l'utilisateur
 $pageAliases = [
     'index.php' => 'Page d\'accueil',
     'Rendez_Vous.php' => 'Rendez-vous',
@@ -22,18 +22,21 @@ $pageAliases = [
     'prc_plongeon.php' => 'Page sur le plongeon',
     'prc_rugby.php' => 'Page sur le rugby',
     'prc_salle.php' => 'Page sur la salle',
+    'prc_tennis.php' => 'Page sur le tennis',
     'PARCOURIR_affiche_coach.php' => 'Trouver un coach',
     'src_afficher_photo.php'=> 'Trouver un coach',
+    'achat.php'=> 'Achat',
+    'offres.php'=> 'Nos offres',
 ];
 
 if (isset($_GET['query'])) {
-    $searchQuery = $_GET['query'];
+    $searchQuery = $_GET['query']; // recup de la requête de recherche depuis l'url
 
     // cherche dans les pages HTML
     $pages = array_keys($pageAliases);
 
     foreach ($pages as $page) {
-        $content = file_get_contents($page);
+        $content = file_get_contents($page); // lecture du contenu de chaque page
         if ($content !== false) {
             $dom = new DOMDocument();
             @$dom->loadHTML($content);
@@ -41,13 +44,14 @@ if (isset($_GET['query'])) {
             $nodes = $xpath->query("//*[contains(text(), '$searchQuery')]");
 
             foreach ($nodes as $node) {
-                $id = $node->getAttribute('id');
-                if (!$id) {
-                    $id = 'result-' . uniqid();
-                    $node->setAttribute('id', $id);
+                $id = $node->getAttribute('id'); // recup l'attribut 'id' du nœud
+                if (!$id) { // si pas d'attribut 'id'
+                    $id = 'result-' . uniqid(); // genere id unique
+                    $node->setAttribute('id', $id); // attribution de l'id au noeud
                     $newContent = $dom->saveHTML();
                     file_put_contents($page, $newContent);
                 }
+                // ajout  détails du résultat dans le tableau des résultats
                 $results[] = [
                     'page' => $page,
                     'alias' => $pageAliases[$page],
@@ -61,7 +65,7 @@ if (isset($_GET['query'])) {
     // cherche dans la bdd pour trouver les noms / prénoms des coachs
     $database = "sportify";
     $db_handle = mysqli_connect('localhost', 'root', '', $database);
-
+// requete pour trouver les coachs dont le nom/prénom correspond à la requête de recherche
     if ($db_handle) {
         $query_coach = "SELECT u.id, c.nom, c.prenom, c.specialite 
                         FROM users AS u 
@@ -78,6 +82,9 @@ if (isset($_GET['query'])) {
                 switch ($specialite) {
                     case 'Basketball':
                         $page = 'prc_basketball.php';
+                        break;
+                    case 'Tennis':
+                        $page = 'prc_tennis.php';
                         break;
                     case 'Biking':
                         $page = 'prc_biking.php';
@@ -113,6 +120,7 @@ if (isset($_GET['query'])) {
                         $page = 'index.php';
                         break;
                 }
+                // ajout des détails du coach dans le tableau des résultats
                 $results[] = [
                     'page' => $page,
                     'alias' => 'Profil du coach ' . $row_coach['nom'] . ' ' . $row_coach['prenom'],
@@ -122,7 +130,7 @@ if (isset($_GET['query'])) {
             }
         }
 
-        mysqli_close($db_handle);
+        mysqli_close($db_handle); // fin connexion bdd
     }
 
     header('Content-Type: application/json');
