@@ -101,6 +101,27 @@
 
     echo "</tr>";
     echo "</table>";
+    // Ajout du statut de l'abonnement
+    $database = "Sportify";
+    $db_handle = mysqli_connect('localhost', 'root', '');
+    $db_found = mysqli_select_db($db_handle, $database);
+
+    if ($db_found) {
+        $id_utilisateur = $_SESSION['id'];
+        $query_abonnement = "SELECT abo_mensu, abo_annu FROM users WHERE id = $id_utilisateur";
+        $result_abonnement = mysqli_query($db_handle, $query_abonnement);
+        $user_abonnement = mysqli_fetch_assoc($result_abonnement);
+
+        if ($user_abonnement['abo_mensu'] == 1) {
+            echo "<p>Abonnement mensuel actif</p>";
+        } elseif ($user_abonnement['abo_annu'] == 1) {
+            echo "<p>Abonnement annuel actif</p>";
+        } else {
+            echo "<p>Aucun abonnement actif</p>";
+        }
+    } else {
+        echo "Erreur de connexion à la base de données.";
+    }
     echo "</div>";
 
     ?>
